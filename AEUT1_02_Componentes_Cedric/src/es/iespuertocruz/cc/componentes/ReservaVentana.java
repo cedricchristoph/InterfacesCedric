@@ -48,6 +48,7 @@ public class ReservaVentana extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         spinnerJornadas = new javax.swing.JSpinner();
         chkHabitaciones = new javax.swing.JCheckBox();
+        btnCrearReserva = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuReset = new javax.swing.JMenu();
 
@@ -215,6 +216,13 @@ public class ReservaVentana extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnCrearReserva.setText("Crear reserva");
+        btnCrearReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearReservaActionPerformed(evt);
+            }
+        });
+
         menuReset.setText("Reset");
         jMenuBar1.add(menuReset);
 
@@ -233,7 +241,10 @@ public class ReservaVentana extends javax.swing.JFrame {
                             .addComponent(panelDatosPersonales, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(panelJornadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(panelDatosEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(panelDatosEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnCrearReserva)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -248,7 +259,9 @@ public class ReservaVentana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(panelJornadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(panelDatosEvento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCrearReserva)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -350,6 +363,7 @@ public class ReservaVentana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrearReserva;
     private javax.swing.JComboBox<String> cbxTipoCocina;
     private javax.swing.JComboBox<String> cbxTipoEvento;
     private javax.swing.JCheckBox chkHabitaciones;
