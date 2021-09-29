@@ -18,7 +18,8 @@ public class Tarea {
     String titulo;
     String descripcion;
     Date fechaEntrega;
-
+    boolean hecha;
+    
     /**
      * Constructor de la clase Tarea
      * @param materia La materia de la que es la materia
@@ -38,7 +39,7 @@ public class Tarea {
     }
 
     // Getters & Setters
-    public Integer getID() {
+    public Integer getId() {
         return id;
     }
     
@@ -58,8 +59,8 @@ public class Tarea {
         return fechaEntrega;
     }
 
-    public void setID(Integer id) {
-        this.id = id;
+    public boolean estaHecha() {
+        return hecha;
     }
     
     public void setMateria(Materia materia) {
@@ -77,6 +78,15 @@ public class Tarea {
     public void setFechaEntrega(Date fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setHecha(boolean hecha) {
+        this.hecha = hecha;
+    }
+    
     
     
     

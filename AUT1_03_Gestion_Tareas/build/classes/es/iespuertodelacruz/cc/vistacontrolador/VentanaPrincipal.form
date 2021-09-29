@@ -386,7 +386,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="buttonAdd" max="32767" attributes="0"/>
-              <Component id="btnHistorial" pref="164" max="32767" attributes="0"/>
+              <Component id="btnHistorial" max="32767" attributes="0"/>
+              <Component id="btnHecha" alignment="0" max="32767" attributes="0"/>
+              <Component id="btnVerTareas" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -396,7 +398,10 @@
                   <Component id="buttonAdd" min="-2" pref="34" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnHistorial" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="btnHecha" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnVerTareas" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -414,6 +419,25 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver historial"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHistorialActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnHecha">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Marcar hecha"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHechaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnVerTareas">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ver tareas pendientes"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerTareasActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

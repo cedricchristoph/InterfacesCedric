@@ -23,7 +23,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         initComponents();
         gestor = new Gestor();
         loadJDialogList();
-        loadTareaList();
+        loadTareaList(false);
         clearDialog();
     }
 
@@ -58,6 +58,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         buttonAdd = new javax.swing.JButton();
         btnHistorial = new javax.swing.JButton();
+        btnHecha = new javax.swing.JButton();
+        btnVerTareas = new javax.swing.JButton();
 
         jdialogAdd.setMinimumSize(new java.awt.Dimension(401, 550));
 
@@ -250,13 +252,34 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         btnHistorial.setText("Ver historial");
+        btnHistorial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHistorialActionPerformed(evt);
+            }
+        });
+
+        btnHecha.setText("Marcar hecha");
+        btnHecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHechaActionPerformed(evt);
+            }
+        });
+
+        btnVerTareas.setText("Ver tareas pendientes");
+        btnVerTareas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerTareasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(buttonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(btnHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+            .addComponent(btnHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnHecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnVerTareas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,7 +288,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(39, 39, 39)
+                .addComponent(btnHecha, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnVerTareas, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -303,12 +329,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         (Date) spinnerDate.getModel().getValue())
         );
         jdialogAdd.setVisible(false);
-        loadTareaList();
+        loadTareaList(false);
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         jdialogAdd.setVisible(true);
     }//GEN-LAST:event_buttonAddActionPerformed
+
+    private void btnHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHistorialActionPerformed
+        loadTareaList(true);
+    }//GEN-LAST:event_btnHistorialActionPerformed
+
+    private void btnVerTareasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerTareasActionPerformed
+        loadTareaList(false);
+    }//GEN-LAST:event_btnVerTareasActionPerformed
+
+    private void btnHechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHechaActionPerformed
+        tareaHecha(lista.getSelectedValue());
+    }//GEN-LAST:event_btnHechaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,15 +395,36 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     /**
      * Metodo para cargar la lista de tareas
      */
-    private void loadTareaList() {
+    private void loadTareaList(boolean modoHistorial) {
         lista.removeAll();
         DefaultListModel<String> model = new DefaultListModel<>();
         lista.setModel(model);
-        gestor.getTareas().forEach((tarea) -> {
-            model.addElement(tarea.getID() + " " + tarea.getTitulo() + " -- [ " + tarea.getFechaEntrega() + " ]");
-        });
+        if (modoHistorial) {
+            gestor.getHistorial().forEach((tarea) -> {
+                String element = tarea.getId() + " [PASADA] ";
+                if (tarea.estaHecha()) {
+                    element += "✔HECHA✔ ";
+                }
+                element += tarea.getTitulo() + " - [ " + tarea.getFechaEntrega() + " ]";
+                model.addElement(element);
+            });
+        } else {
+            gestor.getTareas().forEach((tarea) -> {
+                String element = tarea.getId() + " ";
+                if (tarea.estaHecha())
+                    element += "✔HECHA✔ ";
+                element += tarea.getTitulo() + " - [ " + tarea.getFechaEntrega() + " ]";
+                model.addElement(element);
+            });
+        }
     }
 
+    private void tareaHecha(String element) {
+        Integer id = Integer.parseInt(element.split(" ")[0]);
+        gestor.getTarea(id).setHecha(true);
+        loadTareaList(false);
+    }
+    
     /**
      * Metodo para vaciar el JDialog
      */
@@ -377,7 +436,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrear;
+    private javax.swing.JButton btnHecha;
     private javax.swing.JButton btnHistorial;
+    private javax.swing.JButton btnVerTareas;
     private javax.swing.JButton buttonAdd;
     private javax.swing.JComboBox<String> cbxMaterias;
     private javax.swing.JLabel jLabel1;
