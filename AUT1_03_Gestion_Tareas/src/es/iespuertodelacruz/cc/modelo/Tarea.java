@@ -33,7 +33,28 @@ public class Tarea {
         this.descripcion = descripcion;
         this.fechaEntrega = fechaEntrega;
     }
+
+    /**
+     * Constructor de la clase Tarea
+     * @param id Id de la tarea
+     * @param materia La materia de la que es la materia
+     * @param titulo Titulo de la tarea
+     * @param descripcion Una descripcion de la tarea
+     * @param millis Fecha en milisegundos
+     * @param hecha Si la tarea ha sido completada
+     */
+    public Tarea(Integer id, Materia materia, String titulo, String descripcion, long millis, boolean hecha) {
+        this.id = id;
+        this.materia = materia;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.fechaEntrega = new Date(millis);
+        this.hecha = hecha;
+    }
     
+    /**
+     * Constructor por defecto
+     */
     public Tarea () {
         
     }
@@ -87,7 +108,10 @@ public class Tarea {
         this.hecha = hecha;
     }
     
-    
+    public String getTareaAsDataRow() {
+        String datarow = getId() + ";" + materia.getNombre() + ";" + getTitulo() + ";" + getDescripcion() + ";" + fechaEntrega.getTime() + ";" + estaHecha() + "\n";
+        return datarow;
+    }
     
     
 }
