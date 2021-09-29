@@ -6,6 +6,8 @@
 package es.iespuertodelacruz.cc.vistacontrolador;
 
 import es.iespuertodelacruz.cc.modelo.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.DefaultListModel;
 
@@ -22,6 +24,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         gestor = new Gestor();
         loadJDialogList();
         loadTareaList();
+        clearDialog();
     }
 
     /**
@@ -342,21 +345,35 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
     }
 
-    public void loadJDialogList() {
+    /**
+     * Metodo para cargar la combobox del JDialog
+     */
+    private void loadJDialogList() {
         for (Materia materia : Materia.getMaterias()) {
             cbxMaterias.addItem(materia.getNombre());
         }
     }
 
-    public void loadTareaList() {
+    /**
+     * Metodo para cargar la lista de tareas
+     */
+    private void loadTareaList() {
         lista.removeAll();
         DefaultListModel<String> model = new DefaultListModel<>();
         lista.setModel(model);
-        for (Tarea tarea : gestor.getTareas()) {
+        gestor.getTareas().forEach((tarea) -> {
             model.addElement(tarea.getID() + " " + tarea.getTitulo() + " -- [ " + tarea.getFechaEntrega() + " ]");
-        }
+        });
     }
-    
+
+    /**
+     * Metodo para vaciar el JDialog
+     */
+    private void clearDialog() {
+        txtTitulo.setText("");
+        txtDescripcion.setText("");
+        cbxMaterias.setSelectedIndex(0);
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrear;
