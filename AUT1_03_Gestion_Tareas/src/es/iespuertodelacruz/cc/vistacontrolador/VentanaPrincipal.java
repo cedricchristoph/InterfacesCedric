@@ -235,6 +235,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         lista.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lista.setToolTipText("Lista de tareas");
         jScrollPane1.setViewportView(lista);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -249,6 +250,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         );
 
         btnHistorial.setText("Ver historial");
+        btnHistorial.setToolTipText("Hacer click para listar las tareas pasadas");
         btnHistorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHistorialActionPerformed(evt);
@@ -256,6 +258,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         btnHecha.setText("Marcar hecha");
+        btnHecha.setToolTipText("Hacer click para marcar como hecha una tarea seleccionada");
         btnHecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHechaActionPerformed(evt);
@@ -263,6 +266,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         btnVerTareas.setText("Ver tareas pendientes");
+        btnVerTareas.setToolTipText("Hacer click para listar las tareas pendientes");
         btnVerTareas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerTareasActionPerformed(evt);
@@ -270,6 +274,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         buttonAdd.setText("Añadir");
+        buttonAdd.setToolTipText("Hacer click para crear una nueva tarea");
         buttonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonAddActionPerformed(evt);
@@ -277,7 +282,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         btnEliminar.setText("Eliminar");
-        btnEliminar.setToolTipText("");
+        btnEliminar.setToolTipText("Hacer click para eliminar una tarea seleccionada");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -465,6 +470,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Metodo para marcar una tarea como hecha
+     * @param element 
+     */
     private void tareaHecha(String element) {
         try {
             Integer id = Integer.parseInt(element.split(" ")[0]);
@@ -475,6 +484,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Metodo para eliminar una tarea
+     * @param element 
+     */
     private void eliminarTarea(String element) {
         try {
             Integer id = Integer.parseInt(element.split(" ")[0]);

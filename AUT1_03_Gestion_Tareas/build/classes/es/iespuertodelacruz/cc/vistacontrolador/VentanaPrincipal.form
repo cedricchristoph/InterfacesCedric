@@ -378,6 +378,7 @@
                   <StringArray count="0"/>
                 </Property>
                 <Property name="selectionMode" type="int" value="0"/>
+                <Property name="toolTipText" type="java.lang.String" value="Lista de tareas"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -419,6 +420,7 @@
         <Component class="javax.swing.JButton" name="btnHistorial">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver historial"/>
+            <Property name="toolTipText" type="java.lang.String" value="Hacer click para listar las tareas pasadas"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHistorialActionPerformed"/>
@@ -427,6 +429,7 @@
         <Component class="javax.swing.JButton" name="btnHecha">
           <Properties>
             <Property name="text" type="java.lang.String" value="Marcar hecha"/>
+            <Property name="toolTipText" type="java.lang.String" value="Hacer click para marcar como hecha una tarea seleccionada"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHechaActionPerformed"/>
@@ -435,6 +438,7 @@
         <Component class="javax.swing.JButton" name="btnVerTareas">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver tareas pendientes"/>
+            <Property name="toolTipText" type="java.lang.String" value="Hacer click para listar las tareas pendientes"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerTareasActionPerformed"/>
@@ -443,6 +447,7 @@
         <Component class="javax.swing.JButton" name="buttonAdd">
           <Properties>
             <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
+            <Property name="toolTipText" type="java.lang.String" value="Hacer click para crear una nueva tarea"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddActionPerformed"/>
@@ -451,7 +456,7 @@
         <Component class="javax.swing.JButton" name="btnEliminar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="toolTipText" type="java.lang.String" value="Hacer click para eliminar una tarea seleccionada"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>

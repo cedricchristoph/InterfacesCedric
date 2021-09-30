@@ -34,6 +34,10 @@ public enum Materia {
         return null;
     }
     
+    /**
+     * Funcion que devuelve la lista de materias
+     * @return Array de Materia
+     */
     public static Materia[] getMaterias() {
         Materia[] materias = {DAD,EMR,PGV,AED,PGL,SSG};
         return materias;

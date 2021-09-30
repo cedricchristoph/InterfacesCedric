@@ -10,15 +10,11 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import sun.util.calendar.BaseCalendar;
 
 /**
  *
- * @author dama
+ * @author Cedric Christoph
  */
 public class FileManager {
     
@@ -57,6 +53,10 @@ public class FileManager {
         this.writer = writer;
     }
     
+    /**
+     * Funcion que devuelve un ArrayList de tipo Tarea con las tareas cargadas del fichero
+     * @return ArrayList de tareas
+     */
     public ArrayList<Tarea> cargarTareas() {
         ArrayList<Tarea> tareas = new ArrayList<>();
         try {
@@ -87,6 +87,10 @@ public class FileManager {
         }
     }
     
+    /**
+     * Metodo para guardar un arraylist de tarea a un fichero
+     * @param tareas ArrayList a guardar
+     */
     public void guardarTareas(ArrayList<Tarea> tareas) {
 
         try {

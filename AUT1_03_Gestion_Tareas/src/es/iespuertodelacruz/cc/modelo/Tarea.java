@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author dama
+ * @author Cedric Christoph
  */
 public class Tarea {
     
@@ -108,6 +108,10 @@ public class Tarea {
         this.hecha = hecha;
     }
     
+    /**
+     * Funcion que devuelve los datos de la tarea como linea de texto separado por ;
+     * @return String de datos
+     */
     public String getTareaAsDataRow() {
         String datarow = getId() + ";" + materia.getNombre() + ";" + getTitulo() + ";" + getDescripcion() + ";" + fechaEntrega.getTime() + ";" + estaHecha() + "\n";
         return datarow;
