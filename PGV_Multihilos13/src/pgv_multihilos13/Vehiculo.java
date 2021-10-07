@@ -5,6 +5,8 @@
  */
 package pgv_multihilos13;
 
+import java.text.DecimalFormat;
+
 /**
  *
  * @author Cedric Christoph
@@ -21,7 +23,7 @@ public abstract class Vehiculo extends Thread {
     protected double velocidad;    
     protected Carrera carrera;
     protected int curvasCogidas;
-    protected int distanciaRecorrida;
+    protected double distanciaRecorrida;
     
     public Vehiculo(String matricula, String marca, double potencia) {
         this.marca = marca;
@@ -54,7 +56,7 @@ public abstract class Vehiculo extends Thread {
         return curvasCogidas;
     }
 
-    public int getDistanciaRecorrida() {
+    public double getDistanciaRecorrida() {
         return distanciaRecorrida;
     }
     
@@ -82,28 +84,23 @@ public abstract class Vehiculo extends Thread {
         this.curvasCogidas = curvasCogidas;
     }
 
-    public void setDistanciaRecorrida(int distanciaRecorrida) {
+    public void setDistanciaRecorrida(double distanciaRecorrida) {
         this.distanciaRecorrida = distanciaRecorrida;
     }
     
-    public void printVelocidad() {
-        System.out.println(velocidad + " km/h");
+    public void printData() {
+        String velocidad = new DecimalFormat("##.##").format(this.velocidad);
+        String distancia = new DecimalFormat("##.##").format(this.distanciaRecorrida);
+        System.out.println(matricula + "  " + velocidad + " km/h   " + distancia + " metros");
     }
     /**
      * Metodo para acelerar el vehiculo
      */
     protected void acelerar() {
-        velocidad += velocidadMaxima/6;
+        velocidad += convertToMps(velocidadMaxima/2);
+        recorrer();
     }
-    
-    private void cojerCurva() {
-        int distanciaInicial = getDistanciaRecorrida();
-        while(getDistanciaRecorrida() < (distanciaInicial+100)) {
-            avanzar();
-            tick();
-        }
-    }
-    
+        
     @Override
     public abstract void run();
     
@@ -116,5 +113,13 @@ public abstract class Vehiculo extends Thread {
             sleep(1000);
         } catch (Exception e) {
         }
+    }
+    
+    protected double convertToMps(double velocidad) {
+        return velocidad/(3.6);
+    }
+    
+    protected void recorrer() {
+        distanciaRecorrida += convertToMps(velocidad);
     }
 }

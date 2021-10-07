@@ -12,8 +12,8 @@ package pgv_multihilos13;
 public class Curva {
 
     public static final double DIFICULTAD_BAJA = 1.5d;
-    public static final double DIFICULTAD_MEDIA = 2.8d;
-    public static final double DIFICULTAD_ALTA = 4d;    
+    public static final double DIFICULTAD_MEDIA = 2.5d;
+    public static final double DIFICULTAD_ALTA = 3d;    
     
     private double dificultad;
     

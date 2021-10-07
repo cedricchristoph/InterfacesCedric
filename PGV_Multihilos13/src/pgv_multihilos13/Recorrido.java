@@ -52,7 +52,7 @@ public class Recorrido {
     private void generarRuta() {
         ruta = new boolean[distanciaTotal/100];
         while (countCurvasEnRuta() < curvas.length) {
-            for (int i = 1; i < ruta.length; i++) {
+            for (int i = 2; i < ruta.length; i++) {
                 if (ruta[i] == false)
                     ruta[i] = getRandomBoolean();
             }
@@ -78,10 +78,10 @@ public class Recorrido {
     
     /**
      * Funcion que devuelve un booleano
-     * @return True en 20% de los casos. False en 80% de los casos;
+     * @return True en 15% de los casos. False en 80% de los casos;
      */
     private boolean getRandomBoolean() {
-        return Math.random() < 0.2;
+        return Math.random() < 0.15;
     }
 
     public int getDistanciaTotal() {

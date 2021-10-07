@@ -27,11 +27,16 @@ public class Moto extends Vehiculo {
 
     @Override
     protected void avanzar(Curva curva) {
+        System.out.println("La curva es de dificultad " + curva.getDificultad());
         double distanciaInicial = distanciaRecorrida;
-        while (distanciaInicial < (distanciaInicial + 100)) {
-            velocidad = (int) (velocidad/curva.getDificultad())*agilidad;
-            distanciaRecorrida += velocidad;
-            printVelocidad();
+        while (distanciaRecorrida < (distanciaInicial + 100)) {
+            if (!(velocidad < (velocidadMaxima/curva.getDificultad()*1.45))) {
+                velocidad = (int) (velocidad/curva.getDificultad())*agilidad;
+                recorrer();
+            } else {
+                acelerar();
+            }
+            printData();
             tick();
         }
     }
@@ -46,11 +51,11 @@ public class Moto extends Vehiculo {
             if (velocidad < velocidadMaxima) {
                 System.out.println("Acelerando...");
                 acelerar();
-                printVelocidad();
+                printData();
             } else {
                 System.out.println("Manteniendo velocidad...");
-                distanciaRecorrida += velocidad;
-                printVelocidad();
+                recorrer();
+                printData();
             }
         }
     }

@@ -15,9 +15,9 @@ public class PGV_Multihilos13 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Recorrido r = new Recorrido(5000, 30);
+        Recorrido r = new Recorrido(5000, 20);
         Vehiculo[] v = {
-            new Moto("6631KRL", "Honda", Vehiculo.VEHICULO_POTENTE)
+            new Moto("1123LEW", "Kawasaki", Vehiculo.VEHICULO_MUY_POTENTE)
         };
         Carrera carrera = new Carrera(r, v);
         carrera.start();
