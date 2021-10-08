@@ -17,6 +17,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Date;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -94,25 +95,33 @@ public class MainEventController implements ActionListener {
      * Metodo para crear una nueva tarea a partir de los datos introducidos en el JDialog correspondiente.
      */
     private void crear() {
-        gestor.add(
-                new Tarea(
-                        Materia.getMateria(ventana.cbxMaterias.getSelectedItem().toString()),
-                        ventana.txtTitulo.getText(),
-                        ventana.txtDescripcion.getText(), 
-                        (Date) ventana.spinnerDate.getModel().getValue())
-        );
-        ventana.jdialogAdd.setVisible(false);
-        loadTareaList();
+        if (ventana.txtTitulo.getText().isEmpty() || ventana.txtDescripcion.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(ventana, "No has introducido todos los datos obligatorios");
+        } else {
+            gestor.add(
+                    new Tarea(
+                            Materia.getMateria(ventana.cbxMaterias.getSelectedItem().toString()),
+                            ventana.txtTitulo.getText(),
+                            ventana.txtDescripcion.getText(),
+                            (Date) ventana.spinnerDate.getModel().getValue())
+            );
+            ventana.jdialogAdd.setVisible(false);
+            loadTareaList();
+        }
     }
     
     /**
      * Metodo para eliminar la tarea seleccionada en el JTable.
      */
     private void eliminar() {
-        gestor.remove(getSelectedId());
-        loadTareaList();
+        int result = JOptionPane.showConfirmDialog(null, "Estas intentando eliminar una tarea.  Este procedimiento no es reversible" +
+                "\n¿Estas seguro que quieres borrar la tarea?", "¿Eliminar tarea?", JOptionPane.YES_NO_OPTION);
+        if (JOptionPane.YES_OPTION == result) {
+            gestor.remove(getSelectedId());
+            loadTareaList();
+        }
     }
-    
+
     /**
      * Metodo para marcar como hecha la tarea seleccionada en el JTable.
      */
