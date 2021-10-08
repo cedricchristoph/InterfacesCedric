@@ -6,6 +6,8 @@
 package pgv_multihilos13;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,6 +18,7 @@ public class Carrera extends Thread {
     Recorrido recorrido;
     Vehiculo[] vehiculos;
     ArrayList<Vehiculo> llegadas;
+    boolean carreraFinalizada = false;
     
     public Carrera(Recorrido recorrido, Vehiculo... participantes) {
         this.recorrido = recorrido;
@@ -40,6 +43,21 @@ public class Carrera extends Thread {
             v.setCarrera(this);
             v.start();
         }
+        while (carreraFinalizada == false) {
+            try {
+                sleep(1500);
+            } catch (InterruptedException ex) {
+                
+            }
+        } 
+        for (int i = 0; i < llegadas.size(); i++) {
+            System.out.println((i+1) + "º PUESTO: " + llegadas.get(i).getMatricula());
+        }
+    }
+    
+    public synchronized void addLlegada(Vehiculo v) {
+        llegadas.add(v);
+        carreraFinalizada = llegadas.size() == vehiculos.length;
     }
 
     public Recorrido getRecorrido() {

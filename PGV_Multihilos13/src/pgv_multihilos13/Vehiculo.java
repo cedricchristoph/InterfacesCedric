@@ -88,6 +88,11 @@ public abstract class Vehiculo extends Thread {
         this.distanciaRecorrida = distanciaRecorrida;
     }
     
+    protected boolean nextIsCurva() {
+        int siguientePosicion = (int) ((getDistanciaRecorrida() / 100)) + 1;
+        return carrera.getRecorrido().getRuta()[siguientePosicion];
+    }
+    
     public void printData() {
         String velocidad = new DecimalFormat("##.##").format(this.velocidad);
         String distancia = new DecimalFormat("##.##").format(this.distanciaRecorrida);

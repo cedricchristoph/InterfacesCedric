@@ -27,7 +27,7 @@ public class Moto extends Vehiculo {
 
     @Override
     protected void avanzar(Curva curva) {
-        System.out.println("La curva es de dificultad " + curva.getDificultad());
+        //System.out.println("La curva es de dificultad " + curva.getDificultad());
         double distanciaInicial = distanciaRecorrida;
         while (distanciaRecorrida < (distanciaInicial + 100)) {
             if (!(velocidad < (velocidadMaxima/curva.getDificultad()*1.45))) {
@@ -43,25 +43,26 @@ public class Moto extends Vehiculo {
 
     @Override
     protected void avanzar() {
-        if (nextIsCurva()) {
-            System.out.println("Cogiendo curva...");
-            int siguientePosicion = (int) ((getDistanciaRecorrida() / 100)) + 1;
-            avanzar(carrera.getRecorrido().getCurva(siguientePosicion));
-        } else {
-            if (velocidad < velocidadMaxima) {
-                System.out.println("Acelerando...");
-                acelerar();
-                printData();
+        if (distanciaRecorrida < carrera.getRecorrido().getDistanciaTotal()) {
+            if (nextIsCurva()) {
+                //System.out.println("Cogiendo curva...");
+                int siguientePosicion = (int) ((getDistanciaRecorrida() / 100)) + 1;
+                avanzar(carrera.getRecorrido().getCurva(siguientePosicion));
             } else {
-                System.out.println("Manteniendo velocidad...");
-                recorrer();
-                printData();
+                if (velocidad < velocidadMaxima) {
+                    //System.out.println("Acelerando...");
+                    acelerar();
+                    printData();
+                } else {
+                    //System.out.println("Manteniendo velocidad...");
+                    recorrer();
+                    printData();
+                }
             }
+        } else {
+            
         }
     }
     
-    private boolean nextIsCurva() {
-        int siguientePosicion = (int) ((getDistanciaRecorrida() / 100)) + 1;
-        return carrera.getRecorrido().getRuta()[siguientePosicion];
-    }
+    
 }
