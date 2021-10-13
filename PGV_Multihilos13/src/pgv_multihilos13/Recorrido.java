@@ -73,7 +73,11 @@ public class Recorrido {
     }
     
     public Curva getCurva(Integer numero) {
-        return curvas[numero];
+        try {
+            return curvas[numero];
+        } catch (Exception e) {
+            return new Curva(Curva.DIFICULTAD_BAJA);
+        }
     }
     
     /**

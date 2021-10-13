@@ -11,17 +11,18 @@ package pgv_multihilos13;
  */
 public class PGV_Multihilos13 {
 
-    /**
+    private static int distancia = 1000;
+    private static int curvas = 5;
+    
+    /**        System.out.println(llegadas.size() + " " + vehiculos.length);
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Recorrido r = new Recorrido(1000, 5);
-        Vehiculo[] v = {
-            new Moto("1123LEW", "Kawasaki", Vehiculo.VEHICULO_MUY_POTENTE),
-            new Moto("9999AAA", "Honda", Vehiculo.VEHICULO_MUY_POTENTE)
-        };
-        Carrera carrera = new Carrera(r, v);
-        carrera.start();
+        System.out.println("========== BIENVENIDO A: RACE SIMULATOR ==========\n");
+        System.out.println(" Autor: Cedric Christoph");
+        System.out.println(" Version: 1.0");
+        System.out.println("==================================================\n\n");
+        new Menu().iniciar();
     }
     
 }

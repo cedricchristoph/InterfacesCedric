@@ -9,16 +9,16 @@ package pgv_multihilos13;
  *
  * @author Cedric Christoph
  */
-public class Moto extends Vehiculo {
+public class Coche extends Vehiculo {
+
+    private final double agilidad = 1.1d;
     
-    private double agilidad = 1.40d;
-    
-    public Moto(String matricula, String marca, double potencia) {
+    public Coche(String matricula, String marca, double potencia) {
         super(matricula, marca, potencia);
     }
-    
+
+    @Override
     protected void avanzar(Curva curva) {
-        //System.out.println("La curva es de dificultad " + curva.getDificultad());
         double distanciaInicial = distanciaRecorrida;
         while (distanciaRecorrida < (distanciaInicial + 100)) {
             if (!(velocidad < (velocidadMaxima/curva.getDificultad()*1.45))) {
@@ -31,4 +31,5 @@ public class Moto extends Vehiculo {
             tick();
         }
     }
+    
 }

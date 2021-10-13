@@ -90,7 +90,11 @@ public abstract class Vehiculo extends Thread {
     
     protected boolean nextIsCurva() {
         int siguientePosicion = (int) ((getDistanciaRecorrida() / 100)) + 1;
-        return carrera.getRecorrido().getRuta()[siguientePosicion];
+        try {
+            return carrera.getRecorrido().getRuta()[siguientePosicion];
+        } catch (Exception e) {
+            return false;
+        }
     }
     
     public void printData() {
@@ -102,14 +106,36 @@ public abstract class Vehiculo extends Thread {
      * Metodo para acelerar el vehiculo
      */
     protected void acelerar() {
-        velocidad += convertToMps(velocidadMaxima/2);
+        velocidad += convertToMps(velocidadMaxima/2)*(Math.random() + 1);
         recorrer();
     }
         
     @Override
-    public abstract void run();
+    public void run() {
+        while (distanciaRecorrida < carrera.getRecorrido().getDistanciaTotal()) {
+            avanzar();
+            tick();
+        }
+        carrera.addLlegada(this);
+    }
     
-    protected abstract void avanzar();
+    protected void avanzar() {
+        if (nextIsCurva()) {
+            //System.out.println("Cogiendo curva...");
+            int siguientePosicion = (int) ((getDistanciaRecorrida() / 100)) + 1;
+            avanzar(carrera.getRecorrido().getCurva(siguientePosicion));
+        } else {
+            if (velocidad < velocidadMaxima) {
+                //System.out.println("Acelerando...");
+                acelerar();
+                printData();
+            } else {
+                //System.out.println("Manteniendo velocidad...");
+                recorrer();
+                printData();
+            }
+        }
+    }
     
     protected abstract void avanzar(Curva curva);
     
@@ -127,4 +153,8 @@ public abstract class Vehiculo extends Thread {
     protected void recorrer() {
         distanciaRecorrida += convertToMps(velocidad);
     }
+    
+//    protected int random(int min, int max) {
+//        return (int) (Math.random() * max - min) + min;
+//    }
 }

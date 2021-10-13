@@ -25,4 +25,6 @@ public class Curva {
        return dificultad;
     }
     
+    
+    
 }
