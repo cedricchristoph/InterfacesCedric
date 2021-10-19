@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pgv_multihilos13;
+package es.iespuertodelacruz.cc.modelo;
 
 import java.util.ArrayList;
 
@@ -67,9 +67,10 @@ public class Carrera extends Thread {
         }
     }
     
-    public synchronized void addLlegada(Vehiculo v) {
+    public synchronized Integer addLlegada(Vehiculo v) {
         llegadas.add(v);
         carreraFinalizada = llegadas.size() == vehiculos.length;
+        return llegadas.size();
     }
 
     public Recorrido getRecorrido() {
