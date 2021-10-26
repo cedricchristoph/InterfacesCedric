@@ -6,6 +6,8 @@
 package es.iespuertodelacruz.cc.modelo;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,8 +41,14 @@ public class Productor extends Thread {
             char c = getRandomChar();
             output.add(c);
             buffer.write(c);
+            System.out.println("Producido " + c);
+            try {
+                sleep(5);
+            } catch (InterruptedException ex) {
+               
+            }
         }
-        System.out.println(output.toString());
+        System.out.println("Producido: " + output.toString());
     }
 
     /**
@@ -48,7 +56,7 @@ public class Productor extends Thread {
      * @return Char
      */
     private char getRandomChar() {
-        int randomPos = (int) ((Math.random() * (26 - 0)) + 0);
+        int randomPos = (int) ((Math.random() * (26)));
         return abc[randomPos];
     }
     

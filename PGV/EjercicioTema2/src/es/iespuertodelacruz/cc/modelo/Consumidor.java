@@ -6,6 +6,8 @@
 package es.iespuertodelacruz.cc.modelo;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,7 +23,8 @@ public class Consumidor extends Thread{
     
     /**
      * Constructor de la clase Consumidor
-     * @param buffer 
+     * @param buffurn output;
+    }er 
      */
     public Consumidor(Buffer buffer) {
         this.buffer = buffer;
@@ -34,14 +37,11 @@ public class Consumidor extends Thread{
     @Override
     public void run() {
         while (readChars.size() < 15) {
-            int rnd = getValue();
-            System.out.println("Quiero leer " + rnd + " posiciones");
-            for (Character c : buffer.read(rnd)) {
-                readChars.add(c);
-                System.out.println("He leido " + c);
-            }
+            char c = buffer.read();
+            readChars.add(c);
+            System.out.println("Lei " + c);
         }
-        System.out.println(readChars.toString());
+        System.out.println("Leido " + readChars.toString());
     }
     
     /**
