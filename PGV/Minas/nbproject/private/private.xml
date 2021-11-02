@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/dama/NetBeansProjects/Servicios%20y%20procesos/multihilos/Minas/src/modelo/BombField.java</file>
-            <file>file:/home/dama/NetBeansProjects/Servicios%20y%20procesos/multihilos/Minas/src/minas/Minas.java</file>
-            <file>file:/home/dama/NetBeansProjects/Servicios%20y%20procesos/multihilos/Minas/src/modelo/Field.java</file>
-            <file>file:/home/dama/NetBeansProjects/Servicios%20y%20procesos/multihilos/Minas/src/vista/FXMLDocument.fxml</file>
-            <file>file:/home/dama/NetBeansProjects/Servicios%20y%20procesos/multihilos/Minas/src/modelo/Game.java</file>
-            <file>file:/home/dama/NetBeansProjects/Servicios%20y%20procesos/multihilos/Minas/src/modelo/EmptyField.java</file>
-            <file>file:/home/dama/NetBeansProjects/Servicios%20y%20procesos/multihilos/Minas/src/modelo/Map.java</file>
+            <file>file:/home/dama/GitHub/InterfacesCedric/PGV/Minas/src/vista/FXMLDocumentController.java</file>
+            <file>file:/home/dama/GitHub/InterfacesCedric/PGV/Minas/src/vista/FXMLDocument.fxml</file>
+            <file>file:/home/dama/GitHub/InterfacesCedric/PGV/Minas/src/modelo/Map.java</file>
         </group>
     </open-files>
 </project-private>
