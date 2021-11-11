@@ -1,0 +1,9 @@
+C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\bin\Debug\controlador.dll
+C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\bin\Debug\controlador.pdb
+C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\bin\Debug\modelo.dll
+C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\bin\Debug\modelo.pdb
+C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.csproj.AssemblyReference.cache
+C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.dll
+C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.pdb
+C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.csproj.CopyComplete

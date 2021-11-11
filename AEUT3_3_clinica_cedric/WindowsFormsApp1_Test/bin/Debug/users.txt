@@ -1,0 +1,10 @@
+admin:admin:administrador
+juan:j4:direccion
+isabel:i6:administrativo
+pepe:p4:personalsanitario
+susana:s6:administrador
+ramon:r5:administrativo
+ines:i4:personalsanitario
+cedric:1234:administrador
+laura:15:personalsanitario
+jesus:1234:personalsanitario
