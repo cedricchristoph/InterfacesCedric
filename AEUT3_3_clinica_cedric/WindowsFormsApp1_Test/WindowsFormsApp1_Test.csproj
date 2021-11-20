@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarPaciente.Designer.cs">
+      <DependentUpon>BuscarPaciente.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrearPacienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CrearPacienteForm.Designer.cs">
       <DependentUpon>CrearPacienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrearPacienteOpcionesAvanzadasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearPacienteOpcionesAvanzadasForm.Designer.cs">
+      <DependentUpon>CrearPacienteOpcionesAvanzadasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -72,8 +84,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BuscarPaciente.resx">
+      <DependentUpon>BuscarPaciente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrearPacienteForm.resx">
       <DependentUpon>CrearPacienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrearPacienteOpcionesAvanzadasForm.resx">
+      <DependentUpon>CrearPacienteOpcionesAvanzadasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

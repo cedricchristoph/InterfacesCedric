@@ -6,4 +6,13 @@ C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\bin\Debug
 C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.csproj.AssemblyReference.cache
 C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.dll
 C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.pdb
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\controlador\bin\Debug\controlador.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\controlador\bin\Debug\controlador.pdb
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\controlador\bin\Debug\modelo.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\controlador\bin\Debug\modelo.pdb
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.csproj.AssemblyReference.cache
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.csproj.CoreCompileInputs.cache
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.csproj.CopyComplete
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.pdb
 C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\controlador\obj\Debug\controlador.csproj.CopyComplete

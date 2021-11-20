@@ -10,24 +10,49 @@ namespace modelo
     public class FileManager
     {
         private string path;
+        bool useFilter;
 
         public FileManager(string path)
         {
             this.Path = path;
+            useFilter = true;
         }
+
+        
+        public FileManager(string path, bool filter)
+        {
+            this.Path = path;
+            useFilter = filter;
+        }
+
         public string Path { get => path; set => path = value; }
 
+        /**
+         * Funcion que devuelve las lineas separadas de un fichero con la opcion de filtrar lineas vacías o de comentario ( /* )
+         */
         public String[] readLines()
         {
             StreamReader reader = new StreamReader(path);
             List<String> lines = new List<String>();
             while (!reader.EndOfStream)
             {
-                lines.Add(reader.ReadLine());
+                if (!useFilter)
+                    lines.Add(reader.ReadLine());
+                else
+                {
+                    string line = reader.ReadLine();
+                    if (!line.Contains("/*") || !String.IsNullOrEmpty(line))
+                    {
+                        lines.Add(line);
+                    }
+                }
             }
             return lines.ToArray();
         }
 
+        /**
+         * Funcion que devuelve el fichero entero sin filtrar nada y en un único string
+         */
         public String readAll()
         {
             StreamReader reader = new StreamReader(path);
@@ -36,17 +61,40 @@ namespace modelo
             {
                 output += reader.ReadLine() + "\n";
             }
+            reader.Close();
             return output;
         }
 
-        public void write(string value) 
+        public bool write(string value) 
         {
-
+            try
+            {
+                StreamWriter file = new StreamWriter(path);
+                file.Write(value);
+                file.Flush();
+                file.Close();
+                return true;
+            } catch (Exception e)
+            {
+                return false;
+            }
         }
 
-        public void append(string value)
+        public bool append(string value)
         {
-
+            try
+            {
+                StreamWriter file = new StreamWriter(path, append: true);
+                Console.WriteLine("Appending\n" + value);
+                file.Write(value);
+                file.Flush();
+                file.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

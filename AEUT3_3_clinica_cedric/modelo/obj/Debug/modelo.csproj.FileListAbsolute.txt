@@ -4,3 +4,9 @@ C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\modelo\bin\Debug\mode
 C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\modelo\bin\Debug\modelo.pdb
 C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\modelo\obj\Debug\modelo.dll
 C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\modelo\obj\Debug\modelo.pdb
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\modelo\bin\Debug\modelo.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\modelo\bin\Debug\modelo.pdb
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\modelo\obj\Debug\modelo.csproj.AssemblyReference.cache
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\modelo\obj\Debug\modelo.csproj.CoreCompileInputs.cache
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\modelo\obj\Debug\modelo.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\modelo\obj\Debug\modelo.pdb

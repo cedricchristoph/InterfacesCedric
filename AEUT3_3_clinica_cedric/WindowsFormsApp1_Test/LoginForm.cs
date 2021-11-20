@@ -19,6 +19,23 @@ namespace WindowsFormsApp1_Test
         {
             InitializeComponent();
             this.controller = controller;
+
+            // Create the ToolTip and associate with the Form container.
+            ToolTip toolTip1 = new ToolTip();
+
+            // Set up the delays for the ToolTip.
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            // Force the ToolTip text to be displayed whether or not the form is active.
+            toolTip1.ShowAlways = true;
+
+            // Set up the ToolTip text for the Button and Checkbox.
+            toolTip1.SetToolTip(this.txtPwd, "Introducir password");
+            toolTip1.SetToolTip(txtUser, "Introducir usuario");
+            toolTip1.SetToolTip(btnAcceder, "Acceder");
+            toolTip1.SetToolTip(btnExit, "Salir del programa");
+            toolTip1.SetToolTip(btnMinimize, "Minimizar la ventana");
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -60,7 +77,12 @@ namespace WindowsFormsApp1_Test
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            System.Windows.Forms.Application.Exit();
+        }
 
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

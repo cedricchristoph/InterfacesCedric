@@ -15,6 +15,18 @@ namespace WindowsFormsApp1_Test
         public PersonalAdministrativoForm()
         {
             InitializeComponent();
+            // Create the ToolTip and associate with the Form container.
+            ToolTip toolTip1 = new ToolTip();
+
+            // Set up the delays for the ToolTip.
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            // Force the ToolTip text to be displayed whether or not the form is active.
+            toolTip1.ShowAlways = true;
+
+            // Set up the ToolTip text for the Button and Checkbox.
+            toolTip1.SetToolTip(btnExit, "Salir del programa");
         }
 
         private void menuItemPacientes_Click(object sender, EventArgs e)
@@ -55,6 +67,16 @@ namespace WindowsFormsApp1_Test
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             new CrearPacienteForm().ShowDialog();
+        }
+
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            new BuscarPaciente().ShowDialog();
         }
     }
 }

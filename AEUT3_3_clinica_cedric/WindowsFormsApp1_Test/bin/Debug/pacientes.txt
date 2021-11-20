@@ -1,6 +1,5 @@
-Judit:Sandria Garcia:Avenida 8 Marzo, 153:38400:Puerto de la Cruz:12345678Z:1
-Jonay:Segura Andres:Calle La Quinta, 11:38300:La Orotava:00000000T:2
-Aithami:Gutierrez Gonzalez:Plaza Casañas, 5:38300:La Orotava:22620599F:3
-Ibrahim:Fatim:Calle Molina, 4::Puerto de la Cruz:21768220P:4
-Luis:Sanchez Felosio:Calle Meridiano, 12:38004:Santa Cruz de tenerife:79111401A:5
-Lisandro:Garcia Dolosa:Calle Montreal, 51:38300:Puerto de la Cruz:94747005T:6 
+/* dni;nombre;apellidos;nhc;direccion;poblacion;tlf;tlf2,tlf3,tlf4;male;fechaNacimiento;email;profecion;alergias;grupoSanguineo;enfermedades;entidadSanitaria;numAsegurado */
+/*  0 ;  1   ;    2    ; 3 ;    4    ;    5    ; 6 ;       7      ;  8 ;       9       ;  10 ;   11    ;   12   ;   13         ;     14     ;       15       ;       16    */
+
+12345678Z:Cedric:Christoph:1111111222:C/Teide 7:Los Realejos:674341090:+(34) 922 363 802,+(34) 922 363 882:True:0:cedric@icecraft.es:Informatico:- Ninguna alergia:0positivo:- Ninguna enfermedad:Toscal-Longuera:223343
+08741949V:Cedric:Christoph:1233322233:C/Teide 15:Los Realejos::False:0::::desconocido:::0
