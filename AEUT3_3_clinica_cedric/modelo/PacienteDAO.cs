@@ -20,7 +20,7 @@ namespace modelo
             List<Paciente> pacientes = new List<Paciente>();
             foreach (string line in manager.readLines())
             {
-                pacientes.Add(parsePaciente(line.Split(':')));
+                pacientes.Add(Paciente.parsePaciente(line));
             }
             return pacientes;
         }
@@ -30,16 +30,27 @@ namespace modelo
             foreach (string line in manager.readLines())
             {
                 if (line.StartsWith(dni))
-                    return parsePaciente(line.Split(':'));
+                    return Paciente.parsePaciente(line);
             }
             return null;
+        }
+
+        public List<Paciente> selectByDniParcial(string include)
+        {
+            List<Paciente> pacientes = new List<Paciente>();
+            foreach (string line in manager.readLines())
+            {
+                if (line.StartsWith(include))
+                    pacientes.Add(Paciente.parsePaciente(line));
+            }
+            return pacientes;
         }
 
         public Paciente selectByNhc(int nhc)
         {
             foreach (string line in manager.readLines())
             {
-                Paciente paciente = parsePaciente(line.Split(':'));
+                Paciente paciente = Paciente.parsePaciente(line);
                 if (paciente != null)
                     if (paciente.Nhc == nhc)
                         return paciente;
@@ -47,9 +58,46 @@ namespace modelo
             return null;
         }
 
+        public List<Paciente> selectByNhcParcial(int include)
+        {
+            List<Paciente> pacientes = new List<Paciente>();
+            foreach (string line in manager.readLines())
+            {
+                Paciente paciente = Paciente.parsePaciente(line);
+                if (paciente != null)
+                    if (paciente.Nhc.ToString().StartsWith(include.ToString()))
+                        pacientes.Add(paciente);
+            }
+            return pacientes;
+        }
+
         public bool insert(Paciente paciente)
         {
-            return manager.append(parseString(paciente));
+            return manager.append(paciente.toString());
+        }
+
+        public bool insertAll(List<Paciente> pacientes)
+        {
+            bool error = false;
+            foreach (Paciente p in pacientes)
+            {
+                if (p != null)
+                {
+                    bool ok = manager.append(p.toString());
+                    if (!ok)
+                        error = true;
+                }
+            }
+            return !error;
+        }
+
+        public bool delete(Paciente paciente)
+        {
+            List<Paciente> pacientes = selectAll();
+            pacientes.Remove(paciente);
+            bool nuked = nukeTable();
+            bool inserted = insertAll(pacientes);
+            return (nuked && inserted);
         }
 
         /**
@@ -58,68 +106,6 @@ namespace modelo
         public bool nukeTable()
         {
             return manager.write("");
-        }
-
-        protected Paciente parsePaciente(string[] data)
-        {
-            try
-            {
-                string dni = data[0];
-                string nombre = data[1];
-                string apellidos = data[2];
-                int nhc = int.Parse(data[3]);
-                string direccion = data[4];
-                string poblacion = data[5];
-                try
-                {
-                    string tlf = data[6];
-                    string[] strTlfns = data[7].Split(',');
-                    List<String> tlfns = new List<string>();
-                    foreach (string strTlf in strTlfns)
-                    {
-                        tlfns.Add(strTlf);
-                    }
-                    bool male = bool.Parse(data[8]);
-                    long fechaNacimiento = long.Parse(data[9]);
-                    string email = data[10];
-                    string profecion = data[11];
-                    string alergias = data[12];
-                    GrupoSanguineo grupoSanguineo = GruposSanguineos.convert(data[13]);
-                    string enfermedades = data[14];
-                    string entidadSanitaria = data[15];
-                    int numAsegurado = int.Parse(data[16]);
-                    return new Paciente(dni, nombre, apellidos, nhc, direccion, poblacion, tlf, tlfns,
-                    male, fechaNacimiento, email, profecion, alergias, grupoSanguineo, enfermedades, entidadSanitaria,
-                    numAsegurado);
-                } catch (Exception e)
-                {
-                    return new Paciente(dni, nombre, apellidos, nhc, direccion, poblacion);
-                }
-            } catch (Exception e)
-            {
-                return null;
-            }
-        }
-
-        protected String parseString(Paciente p)
-        {
-            String output = p.Dni + ":" + p.Nombre + ":" + p.Apellidos + ":" + p.Nhc + ":" + p.Direccion + ":"
-                + p.Poblacion + ":" + p.Tlf + ":";
-            for (int i = 0; i < p.OtrosTlf.Count; i++)
-            {
-                output += p.OtrosTlf[i];
-                if (i != (p.OtrosTlf.Count - 1))
-                {
-                    output += ",";
-                } else
-                {
-                    output += ":";
-                }
-            }
-            output += p.Male + ":" + p.FechaNacimiento + ":" + p.Email + ":" + p.Profecion + ":" + p.Alergias + ":"
-                + GruposSanguineos.convertToString(p.GrupoSanguineo) + ":" + p.Enfermedades + ":" + p.EntidadSanitaria + ":"
-                + p.NumAsegurado + "\n";
-            return output;
         }
     }
 }

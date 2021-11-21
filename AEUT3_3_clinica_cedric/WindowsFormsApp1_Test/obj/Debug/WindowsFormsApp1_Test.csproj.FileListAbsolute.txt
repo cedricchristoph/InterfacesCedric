@@ -45,4 +45,5 @@ D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\WindowsForm
 C:\Users\Administrator\Source\Repos\AEUT3_3_clinica_cedric\WindowsFormsApp1_Test\obj\Debug\WindowsFormsApp1_Test.CrearPacienteOpcionesAvanzadasForm.resources
 D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\WindowsFormsApp1_Test\obj\Debug\WindowsFormsApp1_Test.CrearPacienteOpcionesAvanzadasForm.resources
 D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\WindowsFormsApp1_Test\obj\Debug\WindowsFormsApp1_Test.BuscarPaciente.resources
-D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\WindowsFormsApp1_Test\obj\Debug\WindowsFormsApp1_Test.csproj.CopyComplete
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\WindowsFormsApp1_Test\obj\Debug\WindowsFormsApp1_Test.EliminarPaciente.resources
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_3_clinica_cedric\WindowsFormsApp1_Test\obj\Debug\WindowsFormsApp1_Test.BuscarPacienteSanitario.resources

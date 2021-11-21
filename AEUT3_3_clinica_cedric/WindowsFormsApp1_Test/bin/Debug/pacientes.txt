@@ -1,5 +1,2 @@
-/* dni;nombre;apellidos;nhc;direccion;poblacion;tlf;tlf2,tlf3,tlf4;male;fechaNacimiento;email;profecion;alergias;grupoSanguineo;enfermedades;entidadSanitaria;numAsegurado */
-/*  0 ;  1   ;    2    ; 3 ;    4    ;    5    ; 6 ;       7      ;  8 ;       9       ;  10 ;   11    ;   12   ;   13         ;     14     ;       15       ;       16    */
-
-12345678Z:Cedric:Christoph:1111111222:C/Teide 7:Los Realejos:674341090:+(34) 922 363 802,+(34) 922 363 882:True:0:cedric@icecraft.es:Informatico:- Ninguna alergia:0positivo:- Ninguna enfermedad:Toscal-Longuera:223343
-08741949V:Cedric:Christoph:1233322233:C/Teide 15:Los Realejos::False:0::::desconocido:::0
+08741949V:Cedric:Christoph:1111122222:C/Teide 7:Los Realejos:674341090:+(34) 922 363 834:True:0:cedric@icecraft.es:Informatico:- Ningunga alergia:0positivo:- Ninguna enfermedad:Toscal Longuera:1232212
+12345678Z:Alejandro:Roberto:1443223234:C/Alberto:La Orotava::False:0::::desconocido:::0

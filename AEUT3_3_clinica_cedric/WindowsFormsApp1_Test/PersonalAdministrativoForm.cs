@@ -78,5 +78,10 @@ namespace WindowsFormsApp1_Test
         {
             new BuscarPaciente().ShowDialog();
         }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            new EliminarPaciente().ShowDialog();
+        }
     }
 }

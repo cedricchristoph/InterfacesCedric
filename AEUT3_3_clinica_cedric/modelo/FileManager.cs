@@ -47,6 +47,7 @@ namespace modelo
                     }
                 }
             }
+            reader.Close();
             return lines.ToArray();
         }
 
@@ -92,6 +93,28 @@ namespace modelo
                 return true;
             }
             catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public bool remove(string line)
+        {
+            try
+            {
+                string[] oldLines = readLines();
+                write("");
+                foreach (string old in oldLines)
+                {
+                    Console.WriteLine(old + "\n" + line + "\n");
+                    if (!old.Equals(line))
+                    {
+                        Console.WriteLine("The lines are different: " + !old.Equals(line));
+                        append(old + "\n");
+                    }
+                }
+                return true;
+            } catch (Exception e)
             {
                 return false;
             }

@@ -35,5 +35,12 @@ namespace WindowsFormsApp1_Test
         {
             WindowState = FormWindowState.Minimized;
         }
+
+        private void buscarPacienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BuscarPacienteSanitario window = new BuscarPacienteSanitario();
+            window.MdiParent = this;
+            window.Show();
+        }
     }
 }

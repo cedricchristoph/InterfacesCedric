@@ -50,7 +50,6 @@ namespace WindowsFormsApp1_Test
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            
             if (txtFechaNacimiento.MaskCompleted)
             {
                 bool ok = int.TryParse(txtNumAsegurado.Text, out int numAsegurado);
@@ -61,7 +60,10 @@ namespace WindowsFormsApp1_Test
                     numAsegurado))
                     {
                         if (controller.guardar())
+                        {
                             MessageBox.Show("Se guardó el paciente correctamente", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Close();
+                        }
                         else
                             MessageBox.Show("Ocurrió un error al guardar el paciente", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     } else

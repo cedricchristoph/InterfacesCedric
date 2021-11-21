@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscarPacienteSanitario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarPacienteSanitario.Designer.cs">
+      <DependentUpon>BuscarPacienteSanitario.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuscarPaciente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="CrearPacienteOpcionesAvanzadasForm.Designer.cs">
       <DependentUpon>CrearPacienteOpcionesAvanzadasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EliminarPaciente.Designer.cs">
+      <DependentUpon>EliminarPaciente.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -84,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BuscarPacienteSanitario.resx">
+      <DependentUpon>BuscarPacienteSanitario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BuscarPaciente.resx">
       <DependentUpon>BuscarPaciente.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CrearPacienteOpcionesAvanzadasForm.resx">
       <DependentUpon>CrearPacienteOpcionesAvanzadasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EliminarPaciente.resx">
+      <DependentUpon>EliminarPaciente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

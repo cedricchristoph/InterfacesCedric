@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BuscarPacienteController.cs" />
     <Compile Include="CrearPacienteController.cs" />
+    <Compile Include="EliminarPacienteController.cs" />
     <Compile Include="LoginController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
