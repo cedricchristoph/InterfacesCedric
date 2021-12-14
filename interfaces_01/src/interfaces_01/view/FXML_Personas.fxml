@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="MainBorderPane" prefHeight="624.0" prefWidth="976.0" styleClass="mainFxmlClass" stylesheets="@../css/estilos.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="interfaces_01.controller.FXML_PersonasController">
+   <top>
+      <VBox prefHeight="0.0" prefWidth="976.0" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="624.0" prefWidth="231.0" styleClass="main_menu" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" text="Menu" textFill="#2e2e2e">
+               <font>
+                  <Font name="Noto Sans Khmer UI Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="15.0" top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="btnMenuAgregarPersona" mnemonicParsing="false" onAction="#onAgregarPersonaClick" prefHeight="43.0" prefWidth="285.0" styleClass="main_menu_button" text="Agregar Persona" />
+            <Button fx:id="btnMenuModificarPersona" mnemonicParsing="false" onAction="#onModificarPersonaClick" prefHeight="43.0" prefWidth="285.0" styleClass="main_menu_button" text="Modificar Persona" />
+            <Button fx:id="btnMenuEliminarPersona" mnemonicParsing="false" onAction="#onEliminarPersonaClick" prefHeight="43.0" prefWidth="285.0" styleClass="main_menu_button" text="Eliminar Persona" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="TOP_CENTER" text="Lista de Personas" textFill="#2e2e2e">
+               <font>
+                  <Font name="Noto Sans Khmer UI Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="30.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <VBox prefHeight="97.0" prefWidth="660.0" styleClass="main_menu_button">
+               <VBox.margin>
+                  <Insets bottom="15.0" left="30.0" right="30.0" top="10.0" />
+               </VBox.margin>
+               <children>
+                  <Label alignment="TOP_CENTER" text="Filtrar por nombre" textFill="#2e2e2e">
+                     <font>
+                        <Font name="Noto Sans Khmer UI Regular" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField fx:id="txtFiltrarNombre" onKeyReleased="#search" prefHeight="37.0" prefWidth="601.0" styleClass="text-field">
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" top="5.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="395.0" prefWidth="631.0" styleClass="main_menu_button">
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+               <children>
+                  <Label alignment="TOP_CENTER" text="Datos" textFill="#2e2e2e">
+                     <font>
+                        <Font name="Noto Sans Khmer UI Regular" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="15.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TableView fx:id="table" prefHeight="364.0" prefWidth="660.0">
+                    <columns>
+                      <TableColumn fx:id="colNombre" editable="false" prefWidth="280.0" text="Nombre" />
+                      <TableColumn fx:id="colApellidos" editable="false" minWidth="0.0" prefWidth="305.0" text="Apellidos" />
+                        <TableColumn fx:id="colEdad" editable="false" prefWidth="74.0" text="Edad" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
