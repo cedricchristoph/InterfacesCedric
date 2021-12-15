@@ -1,13 +1,13 @@
 
 
 .btn {
-    -fx-background-color: #ededed;
-    -fx-text-fill: #2e2e2e;
+    -fx-background-color: #402b64;
+    -fx-text-fill: #fef7ff;
 }
 
 .btn:hover {
-    -fx-background-color: #e0e0e0;
-    -fx-text-fill: #2e2e2e;
+    -fx-background-color: #271b41;
+    -fx-text-fill: #fef7ff;
 }
 
 .btn:active {
@@ -31,8 +31,8 @@
 }
 
 .text-field {
-    -fx-border-color: #2c73f6;
-    -fx-focus-color: #1e5bcc;
+    -fx-border-color: #402b64;
+    -fx-focus-color: #271b41;
     -fx-background-insets: 0;
     -fx-padding: 5 10 5 10;
 }
@@ -73,13 +73,18 @@
 }
 
 .main_menu {
-    -fx-background-color: #dfdfdf;
+    -fx-background-color: #402b64;
 }
 
 .main_menu_button {
-    -fx-background-color: #dfdfdf;
+    -fx-background-color: #402b64;
+    -fx-text-fill: #fef7ff;
 }
 
 .main_menu_button:hover {
-    -fx-background-color: #d1d1d1;
+    -fx-background-color: #271b41;
+}
+
+.widget-box {
+    -fx-background-color: #FFFFFF;
 }

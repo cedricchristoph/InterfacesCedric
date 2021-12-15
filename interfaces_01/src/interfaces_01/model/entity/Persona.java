@@ -18,10 +18,20 @@ public class Persona {
     private String apellidos;
     private Integer edad;
     
+    /**
+     * Constrcutor por defecto
+     */
     public Persona() {
         
     }
 
+    /**
+     * Constructor completo
+     * @param id
+     * @param nombre
+     * @param apellidos
+     * @param edad 
+     */
     public Persona(Integer id, String nombre, String apellidos, Integer edad) {
         this.id = id;
         this.nombre = nombre;
@@ -29,6 +39,9 @@ public class Persona {
         this.edad = edad;
     }
 
+    
+    // Getters & Setters
+    
     public Integer getId() {
         return id;
     }

@@ -10,12 +10,14 @@ import java.util.List;
 /**
  *
  * @author Cedric Christoph
+ * @param <T> Entity Class (ex. Person)
+ * @param <E> ID Data Type (ex. Integer)
  */
 public interface CRUD<T, E> {
     
-    public void insert(T entity);
-    public void delete(T entity);
-    public void update(T entity);
+    public void insert(T entity) throws Exception;
+    public void delete(T entity) throws Exception;
+    public void update(T entity) throws Exception;
     public List<T> selectAll();
     public T selectById(E id);
     

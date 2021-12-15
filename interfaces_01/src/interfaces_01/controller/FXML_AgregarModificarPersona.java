@@ -9,6 +9,8 @@ import interfaces_01.model.entity.Persona;
 import interfaces_01.model.utils.Personas;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -79,7 +81,11 @@ public class FXML_AgregarModificarPersona implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.ERROR, "La edad indicada no es válida", ButtonType.OK);
                 alert.showAndWait();
             } else {
-                Personas.addPersona(p);
+                try {
+                    Personas.addPersona(p);
+                } catch (Exception e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK).showAndWait();
+                }
                 ((Stage)btnGuardar.getScene().getWindow()).close();
             }
         }
@@ -88,6 +94,7 @@ public class FXML_AgregarModificarPersona implements Initializable {
     
     private void update() {
         Persona persona = new Persona();
+        persona.setId(toEdit.getId());
         persona.setNombre(txtNombre.getText());
         persona.setApellidos(txtApellidos.getText());
         Integer edad = null;
@@ -102,8 +109,11 @@ public class FXML_AgregarModificarPersona implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR, "La edad indicada no es válida", ButtonType.OK);
             alert.showAndWait();
         } else {
-            Personas.removePersona(toEdit);
-            Personas.addPersona(persona);
+            try {
+                Personas.updatePersona(toEdit, persona);
+            } catch (Exception e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
+            }
             ((Stage)btnGuardar.getScene().getWindow()).close();
         }
     }

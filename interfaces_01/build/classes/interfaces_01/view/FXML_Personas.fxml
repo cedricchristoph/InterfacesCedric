@@ -6,28 +6,70 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="MainBorderPane" prefHeight="624.0" prefWidth="976.0" styleClass="mainFxmlClass" stylesheets="@../css/estilos.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="interfaces_01.controller.FXML_PersonasController">
+<BorderPane id="MainBorderPane" prefHeight="710.0" prefWidth="1155.0" styleClass="mainFxmlClass" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces_01.controller.FXML_PersonasController">
    <top>
       <VBox prefHeight="0.0" prefWidth="976.0" BorderPane.alignment="CENTER" />
    </top>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="624.0" prefWidth="231.0" styleClass="main_menu" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="710.0" prefWidth="315.0" styleClass="main_menu" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="TOP_CENTER" text="Menu" textFill="#2e2e2e">
+            <Label alignment="TOP_CENTER" text="Application Menu" textFill="#fef7ff">
                <font>
-                  <Font name="Noto Sans Khmer UI Bold" size="18.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets bottom="15.0" top="15.0" />
+                  <Insets bottom="15.0" top="50.0" />
                </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/menu-4-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
-            <Button fx:id="btnMenuAgregarPersona" mnemonicParsing="false" onAction="#onAgregarPersonaClick" prefHeight="43.0" prefWidth="285.0" styleClass="main_menu_button" text="Agregar Persona" />
-            <Button fx:id="btnMenuModificarPersona" mnemonicParsing="false" onAction="#onModificarPersonaClick" prefHeight="43.0" prefWidth="285.0" styleClass="main_menu_button" text="Modificar Persona" />
-            <Button fx:id="btnMenuEliminarPersona" mnemonicParsing="false" onAction="#onEliminarPersonaClick" prefHeight="43.0" prefWidth="285.0" styleClass="main_menu_button" text="Eliminar Persona" />
+            <Button fx:id="btnMenuAgregarPersona" mnemonicParsing="false" onAction="#onAgregarPersonaClick" prefHeight="64.0" prefWidth="339.0" styleClass="main_menu_button" text="Agregar Persona">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/add-user-3-256.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin></Button>
+            <Button fx:id="btnMenuModificarPersona" mnemonicParsing="false" onAction="#onModificarPersonaClick" prefHeight="64.0" prefWidth="339.0" styleClass="main_menu_button" text="Modificar Persona">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/edit-2-256.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnMenuEliminarPersona" mnemonicParsing="false" onAction="#onEliminarPersonaClick" prefHeight="64.0" prefWidth="339.0" styleClass="main_menu_button" text="Eliminar Persona">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/delete-256.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="64.0" prefWidth="339.0" styleClass="main_menu_button" text="Cerrar sesión">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../res/account-logout-256.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </VBox>
    </left>
@@ -42,7 +84,7 @@
                   <Insets left="30.0" top="20.0" />
                </VBox.margin>
             </Label>
-            <VBox prefHeight="97.0" prefWidth="660.0" styleClass="main_menu_button">
+            <VBox prefHeight="97.0" prefWidth="660.0" styleClass="widget-box">
                <VBox.margin>
                   <Insets bottom="15.0" left="30.0" right="30.0" top="10.0" />
                </VBox.margin>
@@ -52,7 +94,7 @@
                         <Font name="Noto Sans Khmer UI Regular" size="15.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="15.0" top="10.0" />
+                        <Insets left="15.0" top="15.0" />
                      </VBox.margin>
                   </Label>
                   <TextField fx:id="txtFiltrarNombre" onKeyReleased="#search" prefHeight="37.0" prefWidth="601.0" styleClass="text-field">
@@ -62,7 +104,7 @@
                   </TextField>
                </children>
             </VBox>
-            <VBox prefHeight="395.0" prefWidth="631.0" styleClass="main_menu_button">
+            <VBox prefHeight="516.0" prefWidth="780.0" styleClass="widget-box">
                <VBox.margin>
                   <Insets left="30.0" right="30.0" />
                </VBox.margin>
@@ -72,14 +114,14 @@
                         <Font name="Noto Sans Khmer UI Regular" size="15.0" />
                      </font>
                      <VBox.margin>
-                        <Insets left="15.0" top="10.0" />
+                        <Insets bottom="10.0" left="15.0" top="15.0" />
                      </VBox.margin>
                   </Label>
-                  <TableView fx:id="table" prefHeight="364.0" prefWidth="660.0">
+                  <TableView fx:id="table" prefHeight="487.0" prefWidth="780.0" styleClass="widget-box">
                     <columns>
-                      <TableColumn fx:id="colNombre" editable="false" prefWidth="280.0" text="Nombre" />
-                      <TableColumn fx:id="colApellidos" editable="false" minWidth="0.0" prefWidth="305.0" text="Apellidos" />
-                        <TableColumn fx:id="colEdad" editable="false" prefWidth="74.0" text="Edad" />
+                      <TableColumn fx:id="colNombre" editable="false" prefWidth="308.0" text="Nombre" />
+                      <TableColumn fx:id="colApellidos" editable="false" minWidth="0.0" prefWidth="374.0" text="Apellidos" />
+                        <TableColumn fx:id="colEdad" editable="false" minWidth="0.0" prefWidth="95.0" text="Edad" />
                     </columns>
                   </TableView>
                </children>

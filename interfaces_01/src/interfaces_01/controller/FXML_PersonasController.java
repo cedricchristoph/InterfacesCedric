@@ -60,6 +60,8 @@ public class FXML_PersonasController implements Initializable {
     private TableColumn<Persona, Integer> colEdad;
 
     private Persona selected;
+    @FXML
+    private Button btnLogout;
     
     /**
      * Initializes the controller class.
@@ -81,6 +83,7 @@ public class FXML_PersonasController implements Initializable {
             
         });
         
+        Personas.loadPersonasFromFile();
         reloadTable(Personas.getAllPersona());
         
     }    
@@ -128,10 +131,15 @@ public class FXML_PersonasController implements Initializable {
     @FXML
     private void onEliminarPersonaClick(ActionEvent event) {
         if (selected == null) return;
-        Personas.removePersona(selected);
-        selected = null;
-        reloadTable(Personas.getAllPersona());
-        new Alert(Alert.AlertType.CONFIRMATION, "Persona eliminada correctamente", ButtonType.OK).showAndWait();        
+        try {
+            Personas.removePersona(selected);
+            selected = null;
+            reloadTable(Personas.getAllPersona());
+            new Alert(Alert.AlertType.CONFIRMATION, "Persona eliminada correctamente", ButtonType.OK).showAndWait(); 
+        } catch (Exception ex) {
+            selected = null;
+            new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.OK).showAndWait();
+        }       
     }
 
     @FXML
@@ -140,8 +148,21 @@ public class FXML_PersonasController implements Initializable {
         reloadTable(Personas.find(txtFiltrarNombre.getText()));
         
     }
-    
-    
 
+    @FXML
+    private void onLogoutClick(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/interfaces_01/view/FXML_Login.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException ex) {
+        }
+        if (root == null) return;
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        ((Stage)btnLogout.getScene().getWindow()).close();
+    }
     
 }

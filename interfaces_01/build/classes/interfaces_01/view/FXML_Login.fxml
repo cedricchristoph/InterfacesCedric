@@ -4,21 +4,23 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="401.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces_01.controller.FXML_LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="401.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaces_01.controller.FXML_LoginController">
    <top>
       <HBox prefHeight="82.0" prefWidth="401.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Login">
                <font>
-                  <Font name="Noto Sans Khmer UI Bold" size="27.0" />
+                  <Font name="System Bold" size="27.0" />
                </font>
                <HBox.margin>
-                  <Insets left="34.0" top="30.0" />
+                  <Insets left="34.0" top="40.0" />
                </HBox.margin>
             </Label>
          </children>
@@ -43,12 +45,12 @@
                   </VBox>
                   <VBox prefHeight="78.0" prefWidth="331.0">
                      <children>
-                        <Label styleClass="label-blue" text="Usuario">
+                        <Label text="Usuario">
                            <VBox.margin>
                               <Insets left="1.0" right="1.0" top="1.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="txtUser" prefHeight="36.0" prefWidth="331.0" promptText="Nombre de usuario" styleClass="textfield-blue">
+                        <TextField fx:id="txtUser" prefHeight="36.0" prefWidth="331.0" promptText="Nombre de usuario" styleClass="text-field">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
@@ -63,12 +65,12 @@
                   </VBox>
                   <VBox prefHeight="87.0" prefWidth="331.0">
                      <children>
-                        <Label styleClass="label-blue" text="Contraseña">
+                        <Label text="Contraseña">
                            <VBox.margin>
                               <Insets left="1.0" right="1.0" top="1.0" />
                            </VBox.margin>
                         </Label>
-                        <TextField fx:id="txtPwd" prefHeight="36.0" prefWidth="331.0" promptText="Introducir contraseña" styleClass="textfield-blue">
+                        <TextField fx:id="txtPwd" prefHeight="36.0" prefWidth="331.0" promptText="Introducir contraseña" styleClass="text-field">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
@@ -99,16 +101,26 @@
                      </VBox.margin>
                   </VBox>
                </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </VBox>
             <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="159.0" prefWidth="401.0">
                <children>
-                  <Button fx:id="btnAcceder" mnemonicParsing="false" onAction="#acceder" prefHeight="37.0" prefWidth="112.0" styleClass="btn-blue" text="Acceder">
+                  <Button fx:id="btnAcceder" mnemonicParsing="false" onAction="#acceder" prefHeight="37.0" prefWidth="127.0" styleClass="btn" text="Acceder">
                      <font>
                         <Font size="15.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="35.0" top="10.0" />
                      </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../res/account-login-256.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
             </HBox>

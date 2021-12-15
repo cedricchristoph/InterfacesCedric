@@ -9,6 +9,8 @@ import interfaces_01.model.entity.Persona;
 import interfaces_01.model.utils.FileManager;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,22 +21,34 @@ public class PersonaDAO implements CRUD<Persona, Integer>{
     FileManager manager;
     
     public PersonaDAO() {
-        manager = new FileManager(FileManager.PERSONAS_FILE);
+        manager = new FileManager(FileManager.PERSONAS_FILE, FileManager.INDEX_FILE);
     }
     
     @Override
-    public void insert(Persona entity) {
-        manager.insert(entity.toString());
+    public void insert(Persona entity) throws Exception {
+        if (entity.getId() == null) {
+            Integer index = manager.getIndex();
+            if (index == null)
+                throw new Exception("Indexing Exception. The application could not retrieve the index value and therefore could not save the entity\nPlease repair the index file");
+            else {
+                entity.setId(index);
+                manager.insert(entity.toString());
+            }
+        }
     }
 
     @Override
-    public void delete(Persona entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Persona entity) throws Exception {
+        manager.delete(entity.getId());
     }
 
     @Override
-    public void update(Persona entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void update(Persona entity) throws Exception {
+        try {
+            manager.update(entity.toString(), entity.getId());
+        } catch (Exception ex) {
+            throw new Exception(ex.getMessage());
+        }
     }
 
     @Override
