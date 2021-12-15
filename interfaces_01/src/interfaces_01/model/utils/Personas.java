@@ -90,7 +90,7 @@ public class Personas {
     
     public ArrayList<Persona> findByName(String name) {
         List<Persona> personas = getAll().stream().filter(p -> p.getNombre().contains(name)).collect(Collectors.toList());
-        ArrayList<Persona> results = new ArrayList<>();
+        ArrayList<Persona> results = new ArrayList<Persona>();
         results.addAll(personas);
         return results;
     }

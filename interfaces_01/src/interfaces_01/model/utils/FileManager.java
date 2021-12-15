@@ -76,6 +76,7 @@ public class FileManager {
      */
     public void overwrite(List<String> lines) throws Exception {
         BufferedWriter writer = null;
+
         try {
             writer = Files.newBufferedWriter(file, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
             for (String line : lines)

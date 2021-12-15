@@ -6,7 +6,9 @@
 package interfaces_01.controller;
 
 import interfaces_01.model.entity.Persona;
+import interfaces_01.model.utils.Images;
 import interfaces_01.model.utils.Personas;
+import interfaces_01.model.utils.Strings;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -16,9 +18,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import javafx.animation.Animation;
+import javafx.animation.Transition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,13 +32,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 /**
  * FXML Controller class
@@ -63,6 +75,19 @@ public class FXML_PersonasController implements Initializable {
     @FXML
     private Button btnLogout;
     
+    private boolean collapsed = false;
+    @FXML
+    private VBox sidebar;
+    @FXML
+    private Label labelApplicationMenu;
+    @FXML
+    private Button btnShowMenu;
+    @FXML
+    private BorderPane root;
+    @FXML
+    private ImageView iconShowMenu;
+    @FXML
+    private HBox menuContainer;
     /**
      * Initializes the controller class.
      */
@@ -163,6 +188,51 @@ public class FXML_PersonasController implements Initializable {
         stage.setScene(scene);
         stage.show();
         ((Stage)btnLogout.getScene().getWindow()).close();
+    }
+
+    @FXML
+    private void onCollapseClick(ActionEvent event) {
+        double expandedWidth = 315;
+        Animation menuAnimation = null;
+        if (!collapsed) {
+            // create an animation to hide sidebar.
+            menuAnimation = new Transition() {
+                { setCycleDuration(Duration.millis(150)); }
+                @Override
+                protected void interpolate(double frac) {
+                  final double curWidth = expandedWidth * (1.0 - frac);
+                  sidebar.setPrefWidth(curWidth);
+                  sidebar.setTranslateX(-expandedWidth + curWidth);
+                }
+            };
+            
+            menuAnimation.onFinishedProperty().set((EventHandler<ActionEvent>) (ActionEvent actionEvent) -> {
+                collapsed = true;
+                menuContainer.setPrefWidth(50);
+                menuContainer.getChildren().remove(0);
+                iconShowMenu.setImage(new Image(Images.ARROW_RIGHT));
+            });
+            
+        } else {
+            menuContainer.setPrefWidth(360);  
+            menuContainer.getChildren().add(0, sidebar);
+            menuAnimation = new Transition() {
+            { setCycleDuration(Duration.millis(150)); }
+            @Override
+            protected void interpolate(double frac) {
+              final double curWidth = expandedWidth * frac;
+              sidebar.setPrefWidth(curWidth);
+              sidebar.setTranslateX(-expandedWidth + curWidth);
+            }
+          };
+          menuAnimation.onFinishedProperty().set((EventHandler<ActionEvent>) (ActionEvent actionEvent) -> {
+              collapsed = false;
+              iconShowMenu.setImage(new Image(Images.ARROW_LEFT));
+            });
+        }
+        
+        if (menuAnimation == null) return;
+        menuAnimation.play();
     }
     
 }
