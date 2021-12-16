@@ -1,0 +1,37 @@
+
+/* Colores principales 
+
+    - Overcast White:   #F1F1F2
+    - Warm Gray:        #BCBABE
+    - Ice:              #A1D6E2
+    - Glacier Blue:     #1995AD
+
+    - Grey: #848287
+
+*/
+
+.top-drag-bar {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #848287;
+}
+
+.top-header-background {
+    -fx-background-color: #F1F1F2;
+}
+
+
+/* BUTTONS */
+.window-control-button-white {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #848287;
+}
+
+.window-control-button-white:hover {
+    -fx-background-color: #A1D6E2;
+    -fx-text-fill: #848287;
+}
+
+.window-control-button-white:pressed {
+    -fx-background-color: #1995AD;
+    -fx-text-fill: #848287;
+}

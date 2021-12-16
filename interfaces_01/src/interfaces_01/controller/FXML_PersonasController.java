@@ -8,20 +8,13 @@ package interfaces_01.controller;
 import interfaces_01.model.entity.Persona;
 import interfaces_01.model.utils.Images;
 import interfaces_01.model.utils.Personas;
-import interfaces_01.model.utils.Strings;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javafx.animation.Animation;
 import javafx.animation.Transition;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -36,7 +29,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -113,10 +105,18 @@ public class FXML_PersonasController implements Initializable {
         
     }    
     
+    /**
+     * Metodo que recarga el contenido de la tabla
+     * @param data 
+     */
     public void reloadTable(ArrayList<Persona> data) {
         table.setItems(FXCollections.observableList(data));
     }
 
+    /**
+     * Metodo que abre la ventana de creacion de persona
+     * @param event 
+     */
     @FXML
     private void onAgregarPersonaClick(ActionEvent event) {
         
@@ -134,6 +134,10 @@ public class FXML_PersonasController implements Initializable {
         
     }
 
+    /**
+     * Metodo que inicia la modificacion de una persona seleccionada
+     * @param event 
+     */
     @FXML
     private void onModificarPersonaClick(ActionEvent event) {
         if (selected == null) return;
@@ -153,6 +157,10 @@ public class FXML_PersonasController implements Initializable {
         reloadTable(Personas.getAllPersona());
     }
 
+    /**
+     * Metodo que elimina una persona seleccionada
+     * @param event 
+     */
     @FXML
     private void onEliminarPersonaClick(ActionEvent event) {
         if (selected == null) return;
@@ -167,6 +175,10 @@ public class FXML_PersonasController implements Initializable {
         }       
     }
 
+    /**
+     * Metodo que reacciona a un cambio de busqueda y realiza la busqueda
+     * @param event 
+     */
     @FXML
     private void search(KeyEvent event) {
         
@@ -174,6 +186,10 @@ public class FXML_PersonasController implements Initializable {
         
     }
 
+    /**
+     * Metodo para cerrar sesion
+     * @param event 
+     */
     @FXML
     private void onLogoutClick(ActionEvent event) {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/interfaces_01/view/FXML_Login.fxml"));
@@ -190,6 +206,10 @@ public class FXML_PersonasController implements Initializable {
         ((Stage)btnLogout.getScene().getWindow()).close();
     }
 
+    /**
+     * Boton para abrir y cerrar el menu
+     * @param event 
+     */
     @FXML
     private void onCollapseClick(ActionEvent event) {
         double expandedWidth = 315;

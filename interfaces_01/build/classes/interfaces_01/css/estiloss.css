@@ -1,0 +1,120 @@
+
+
+.btn {
+    -fx-background-color: #402b64;
+    -fx-text-fill: #fef7ff;
+}
+
+.btn:hover {
+    -fx-background-color: #271b41;
+    -fx-text-fill: #fef7ff;
+}
+
+.btn-dark {
+    -fx-background-color: #271b41;
+    -fx-text-fill: #fef7ff;
+}
+
+.btn-dark:hover {
+    -fx-background-color: #1d1233;
+    -fx-text-fill: #fef7ff;
+}
+
+.btn-grey {
+    -fx-background-color: #b4b4b4;
+}
+
+.btn-grey:hover {
+    -fx-background-color: #909090;
+}
+
+.btn-blue {
+    -fx-background-color: #2c73f6;
+    -fx-text-fill: #dfdfdf;
+}
+
+.btn-blue:hover {
+    -fx-background-color: #2364db;
+    -fx-text-fill: #dfdfdf;
+}
+
+.btn-blue:active {
+    -fx-background-color: #1e5bcc;
+    -fx-text-fill: #dfdfdf;
+}
+
+.text-field {
+    -fx-border-color: #402b64;
+    -fx-focus-color: #271b41;
+    -fx-background-insets: 0;
+    -fx-padding: 5 10 5 10;
+}
+
+.textfield-blue {
+    -fx-border-color: #2c73f6;
+    -fx-border-radius: 10px;
+    -fx-focus-color: #1e5bcc;
+    -fx-background-insets: 0;
+    -fx-padding: 2 20 2 20;
+}
+
+.link-label {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2c73f6;
+}
+
+.link-label:hover {
+    -fx-text-fill: #1e5bcc;
+}
+
+.label-blue {
+    -fx-text-fill: #2c73f6;
+}
+
+.text-color-white {
+    -fx-text-fill: #ededed;
+}
+
+.menu-bar {
+    -fx-background-color: #dfdfdf;
+    -fx-text-fill: #2e2e2e
+}
+
+.header {
+    -fx-background-color: #dfdfdf;
+    -fx-text-fill: #2e2e2e;
+}
+
+.main_menu {
+    -fx-background-color: #402b64;
+}
+
+.main_menu_button {
+    -fx-background-color: #402b64;
+    -fx-text-fill: #fef7ff;
+    -fx-border-radius: 0px;
+}
+
+.main_menu_button:hover {
+    -fx-background-color: #271b41;
+}
+
+.main_menu_dark_button {
+    -fx-background-color: #271b41;
+    -fx-border-radius: 0px;
+    -fx-text-fill: #fef7ff;
+}
+
+.main_menu_dark_button:hover {
+    -fx-background-color: #1d1233;
+} 
+
+.widget-box {
+    -fx-background-color: #FFFFFF;
+}
+
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-focus-color: #402b64;
+    -fx-selection-bar: #402b64;
+}

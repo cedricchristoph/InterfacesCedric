@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -140,7 +141,6 @@ public class FileManager {
      * @return Integer index value
      */
     public Integer getIndex() {
-        BufferedWriter writer = null;
         BufferedReader reader = null;
         Integer index = null;
         Transaction transaction = new Transaction(indexFile);
@@ -151,24 +151,62 @@ public class FileManager {
                 index = Integer.parseInt(reader.readLine());
                 reader.close();
             } catch (Exception e) {}
-            writer = Files.newBufferedWriter(indexFile, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
             if (index == null) {
-                writer.write("1");
-                index = 0;
+                List<String> lineas = readAllLines();
+                if (lineas != null) {
+                    index = repairIndexFile(lineas);
+                } else {
+                    writeIndex(index);
+                }
             } else
-                writer.write(index + 1 + "");
-            writer.close();
+                writeIndex(index+1);
             transaction.commit();
         } catch (Exception e) {
             transaction.rollBack();
             index = null;
-            try {
-                writer.close();
-                reader.close();
-            } catch (Exception ex) {
-                
-            }
         }
         return index;
+    }
+    
+    /**
+     * Metodo que escribe un valor numerico en el fichero de indexado
+     * @param index Numero a escribir
+     * @throws Exception 
+     */
+    public void writeIndex(Integer index) throws Exception {
+        BufferedWriter writer = null;
+        try {
+            writer = Files.newBufferedWriter(indexFile, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+            writer.write(index + "");
+            writer.close();
+        } catch (Exception e) {
+            try {
+                writer.close();
+            } catch (Exception ex) {}
+            throw new Exception(e);
+        }
+    }
+    
+    /**
+     * Funcion que repara el fichero de indexado y devuelve el index a usar
+     * @param lines Lineas del fichero de datos
+     * @return
+     * @throws Exception 
+     */
+    public Integer repairIndexFile(List<String> lines) throws Exception {
+        try {
+            ArrayList<Integer> indexes = new ArrayList<Integer>();
+            lines.stream().forEach(l -> indexes.add(
+                    Integer.parseInt(
+                            l.split(";")[0])
+                    )
+            );
+            Integer max = Collections.max(indexes);
+            Integer newIndex = max + 1;
+            writeIndex(newIndex + 1);
+            return newIndex;
+        } catch (IOException ex) {
+            throw new Exception(ex);
+        }
     }
 }
