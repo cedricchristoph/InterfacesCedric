@@ -10,7 +10,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 
 /**
  *
@@ -19,17 +21,23 @@ import javafx.scene.control.Label;
 public class FXMLDashboardController implements Initializable {
     
     @FXML
-    private Label label;
-    
+    private Button btnDashboard;
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+    private Pane btnManageStudents;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void dashboardClicked(ActionEvent event) {
+    }
+
+    @FXML
+    private void manageStudentsClicked(MouseEvent event) {
+    }
+
     
 }

@@ -20,7 +20,7 @@ public class gestionestudiantes extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource(Views.DASHBOARD));
+        Parent root = FXMLLoader.load(getClass().getResource(Views.MAIN_WINDOW));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

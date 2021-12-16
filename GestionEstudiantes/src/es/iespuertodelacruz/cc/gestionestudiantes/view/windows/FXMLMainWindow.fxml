@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="667.0" prefWidth="1037.0" stylesheets="@../css/estilos.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLDashboardController">
+<AnchorPane id="AnchorPane" prefHeight="667.0" prefWidth="1037.0" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLMainWindowController">
    <children>
-      <BorderPane layoutX="82.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane fx:id="root" layoutX="82.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
             <AnchorPane prefHeight="122.0" prefWidth="1037.0" BorderPane.alignment="CENTER">
                <children>
                   <VBox layoutX="97.0" layoutY="10.0" prefHeight="123.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <HBox prefHeight="40.0" prefWidth="1037.0" styleClass="top-drag-bar">
+                        <HBox fx:id="windowControlPanel" prefHeight="40.0" prefWidth="1037.0" styleClass="top-drag-bar">
                            <children>
                               <AnchorPane prefHeight="40.0" prefWidth="880.0" HBox.hgrow="ALWAYS">
                                  <children>
-                                    <HBox layoutX="24.0" layoutY="25.0" prefHeight="37.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="25.0" prefHeight="37.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
+                                          <ImageView fitHeight="21.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../res/school.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </ImageView>
                                           <Label text="Gestion Estudiantes">
                                              <HBox.margin>
-                                                <Insets left="12.0" top="9.0" />
+                                                <Insets left="10.0" />
                                              </HBox.margin>
                                              <font>
                                                 <Font size="11.0" />
@@ -40,19 +49,31 @@
                                  <children>
                                     <HBox alignment="TOP_RIGHT" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="52.0" styleClass="window-control-button-white">
+                                          <Button fx:id="btnMinimize" mnemonicParsing="false" onAction="#minimizeClicked" prefHeight="32.0" prefWidth="52.0" styleClass="window-control-button-white">
                                              <graphic>
-                                                <FontAwesomeIconView />
+                                                <ImageView fitHeight="15.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../res/window-minimize.png" />
+                                                   </image>
+                                                </ImageView>
                                              </graphic>
                                           </Button>
-                                          <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="52.0" styleClass="window-control-button-white">
+                                          <Button fx:id="btnMaximize" mnemonicParsing="false" onAction="#maximizeClicked" prefHeight="32.0" prefWidth="52.0" styleClass="window-control-button-white">
                                              <graphic>
-                                                <FontAwesomeIconView />
+                                                <ImageView fitHeight="15.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../res/crop-square.png" />
+                                                   </image>
+                                                </ImageView>
                                              </graphic>
                                           </Button>
-                                          <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="52.0" styleClass="window-control-button-white">
+                                          <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" prefHeight="32.0" prefWidth="52.0" styleClass="window-control-button-white">
                                              <graphic>
-                                                <FontAwesomeIconView styleClass="window-control-button-white" />
+                                                <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../res/close.png" />
+                                                   </image>
+                                                </ImageView>
                                              </graphic>
                                           </Button>
                                        </children>
@@ -67,12 +88,15 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="16.0" prefHeight="60.0" prefWidth="849.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
                                        <children>
-                                          <FontAwesomeIconView size="25">
+                                          <ImageView fx:id="iconSection" fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
                                              <HBox.margin>
-                                                <Insets left="25.0" />
+                                                <Insets left="20.0" />
                                              </HBox.margin>
-                                          </FontAwesomeIconView>
-                                          <Label text="Dashboard" textFill="#1995ad">
+                                             <image>
+                                                <Image url="@../../res/grid-three-up-256.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="labelSection" text="Dashboard" textFill="#1995ad">
                                              <font>
                                                 <Font name="System Bold" size="23.0" />
                                              </font>
@@ -88,26 +112,26 @@
                                  <children>
                                     <HBox alignment="CENTER_RIGHT" layoutX="14.0" layoutY="20.0" prefHeight="51.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="38.0">
-                                             <HBox.margin>
-                                                <Insets />
-                                             </HBox.margin>
+                                          <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="38.0" styleClass="button-overcast">
                                              <graphic>
-                                                <FontAwesomeIconView />
+                                                <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../res/account.png" />
+                                                   </image>
+                                                </ImageView>
                                              </graphic>
                                           </Button>
-                                          <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="38.0">
-                                             <graphic>
-                                                <FontAwesomeIconView />
-                                             </graphic>
-                                          </Button>
-                                          <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="38.0">
-                                             <graphic>
-                                                <FontAwesomeIconView />
-                                             </graphic>
+                                          <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#settingsClicked" prefHeight="36.0" prefWidth="38.0" styleClass="button-overcast">
                                              <HBox.margin>
                                                 <Insets right="10.0" />
                                              </HBox.margin>
+                                             <graphic>
+                                                <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../../res/cog.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </graphic>
                                           </Button>
                                        </children>
                                     </HBox>
@@ -121,7 +145,7 @@
             </AnchorPane>
          </top>
          <center>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

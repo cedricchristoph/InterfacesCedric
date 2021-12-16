@@ -13,6 +13,9 @@ package es.iespuertodelacruz.cc.gestionestudiantes.constants;
 public class Views {
  
     private static final String DIR = "/es/iespuertodelacruz/cc/gestionestudiantes/view/";
-    public static final String DASHBOARD = DIR + "FXMLDashboard.fxml";
+    private static final String WINDOWS = "windows/";
+    private static final String PAGES = "pages/";
+    public static final String MAIN_WINDOW = DIR + WINDOWS + "FXMLMainWindow.fxml";
+    public static final String DASHBOARD = DIR + PAGES + "FXMLDashboard.fxml";
     
 }

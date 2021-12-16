@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/dama/GitHub/InterfacesCedric/interfaces_01/src/interfaces_01/model/utils/Transaction.java</file>
-            <file>file:/home/dama/GitHub/InterfacesCedric/interfaces_01/src/interfaces_01/model/utils/FileManager.java</file>
+            <file>file:/home/cedric/Escritorio/GitHub/InterfacesCedric/interfaces_01/src/interfaces_01/controller/FXML_PersonasController.java</file>
+            <file>file:/home/cedric/Escritorio/GitHub/InterfacesCedric/interfaces_01/src/interfaces_01/model/utils/FileManager.java</file>
+            <file>file:/home/cedric/Escritorio/GitHub/InterfacesCedric/interfaces_01/src/interfaces_01/model/utils/Personas.java</file>
+            <file>file:/home/cedric/Escritorio/GitHub/InterfacesCedric/interfaces_01/src/interfaces_01/controller/FXML_AgregarModificarPersona.java</file>
+            <file>file:/home/cedric/Escritorio/GitHub/InterfacesCedric/interfaces_01/src/interfaces_01/model/dao/PersonaDAO.java</file>
         </group>
     </open-files>
 </project-private>
