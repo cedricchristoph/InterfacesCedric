@@ -1,0 +1,103 @@
+
+/* Colores principales 
+
+    - Blue Black:       #2F2E33
+    - Cool Gray:        #D5D6D2
+    - Cobalt:           #3A5199
+    - Grey:             #848287
+
+*/
+
+#window {
+    -fx-background-color: #2F2E33;
+    -fx-border-color: #D5D6D2;
+    -fx-border-width: 1px;
+}
+
+.top-drag-bar {
+    -fx-background-color: #0a0a0a;
+    -fx-text-fill: #D5D6D2;
+}
+
+.top-header-background {
+    -fx-background-color: #2F2E33;
+}
+
+/* BOXES */
+.dashboard-element {
+    -fx-background-color: #3A5199;
+}
+
+.dashboard-element:hover {
+    -fx-background-color: #2d458f;
+}
+
+.dashboard-element:pressed {
+    -fx-background-color: #213980;
+}
+
+
+/* BUTTONS */
+.window-control-button-white {
+    -fx-background-color: #0a0a0a;
+    -fx-text-fill: #D5D6D2;
+}
+
+.window-control-button-white:hover {
+    -fx-background-color: #202020;
+}
+
+.window-control-button-white:pressed {
+    -fx-background-color: #313131;
+}
+
+.button-overcast {
+    -fx-background-color: #0a0a0a;
+    -fx-text-fill: #D5D6D2;
+}
+
+.button-overcast:hover {
+    -fx-background-color: #202020;
+}
+
+.button-overcast:pressed {
+    -fx-background-color: #313131;
+}
+
+.button-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2f4997;
+}
+
+.button-link:hover {
+    -fx-text-fill:#213980;
+}
+
+.button-link:pressed {
+    -fx-text-fill: #172f75;
+}
+
+.button-arctic {
+    -fx-background-color: #A1D6E2;
+    -fx-text-fill: #1995AD;
+}
+
+.button-arctic:hover {
+    -fx-background-color: #1995AD;
+    -fx-text-fill: #A1D6E2;
+}
+
+.button-arctic:pressed {
+    -fx-background-color: #0f8197;
+    -fx-text-fill: #A1D6E2;
+}
+
+/* FIELDS */
+.text-field-overcast {
+    -fx-background-color: #0a0a0a;
+    -fx-text-fill: #D5D6D2;
+    -fx-border-color: #3A5199;
+    -fx-focus-color: #213a85;
+    -fx-background-insets: 0;
+    -fx-padding: 5 10 5 10;
+}

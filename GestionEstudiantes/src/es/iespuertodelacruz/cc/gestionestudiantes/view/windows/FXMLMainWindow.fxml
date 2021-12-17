@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="window" prefHeight="667.0" prefWidth="1037.0" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLMainWindowController">
+<AnchorPane id="window" prefHeight="667.0" prefWidth="1037.0" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLMainWindowController">
    <children>
       <BorderPane fx:id="root" layoutX="82.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -25,7 +25,7 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="25.0" prefHeight="37.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                        <children>
-                                          <ImageView fitHeight="21.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fitHeight="21.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../res/school.png" />
                                              </image>
@@ -33,7 +33,7 @@
                                                 <Insets left="10.0" />
                                              </HBox.margin>
                                           </ImageView>
-                                          <Label text="Gestion Estudiantes">
+                                          <Label text="Gestion Escuela Cocina">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -84,19 +84,19 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" styleClass="top-header-background">
                            <children>
-                              <AnchorPane prefHeight="91.0" prefWidth="881.0" HBox.hgrow="ALWAYS">
+                              <AnchorPane prefHeight="91.0" prefWidth="620.0" HBox.hgrow="ALWAYS">
                                  <children>
                                     <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="16.0" prefHeight="60.0" prefWidth="849.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
                                        <children>
-                                          <ImageView fx:id="iconSection" fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                                             <HBox.margin>
-                                                <Insets left="20.0" />
-                                             </HBox.margin>
+                                          <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
-                                                <Image url="@../../res/grid-three-up-256.png" />
+                                                <Image url="@../../res/grid-three-up-512.png" />
                                              </image>
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
                                           </ImageView>
-                                          <Label fx:id="labelSection" text="Dashboard" textFill="#1995ad">
+                                          <Label fx:id="labelSection" text="Dashboard" textFill="#2c2c2c">
                                              <font>
                                                 <Font name="System Bold" size="23.0" />
                                              </font>

@@ -15,6 +15,9 @@
     -fx-border-width: 1px;
 }
 
+#menu {
+    -fx-background-color: #1995AD;
+}
 
 .top-drag-bar {
     -fx-background-color: #FFFFFF;
@@ -82,13 +85,12 @@
 }
 
 .button-arctic {
-    -fx-background-color: #A1D6E2;
-    -fx-text-fill: #1995AD;
+    -fx-background-color: #1995AD;
+    -fx-text-fill: #A1D6E2;
 }
 
 .button-arctic:hover {
-    -fx-background-color: #1995AD;
-    -fx-text-fill: #A1D6E2;
+    -fx-background-color: #1289a1;
 }
 
 .button-arctic:pressed {
