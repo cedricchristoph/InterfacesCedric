@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="667.0" prefWidth="1037.0" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLMainWindowController">
+<AnchorPane id="window" prefHeight="667.0" prefWidth="1037.0" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLMainWindowController">
    <children>
       <BorderPane fx:id="root" layoutX="82.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -112,7 +112,7 @@
                                  <children>
                                     <HBox alignment="CENTER_RIGHT" layoutX="14.0" layoutY="20.0" prefHeight="51.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="38.0" styleClass="button-overcast">
+                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="button-overcast">
                                              <graphic>
                                                 <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -121,7 +121,7 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#settingsClicked" prefHeight="36.0" prefWidth="38.0" styleClass="button-overcast">
+                                          <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#settingsClicked" prefHeight="50.0" prefWidth="50.0" styleClass="button-overcast">
                                              <HBox.margin>
                                                 <Insets right="10.0" />
                                              </HBox.margin>

@@ -5,21 +5,16 @@
  */
 package es.iespuertodelacruz.cc.gestionestudiantes.controller;
 
-import es.iespuertodelacruz.cc.gestionestudiantes.constants.Views;
-import java.io.IOException;
+import java.awt.event.WindowStateListener;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
 /**
@@ -27,10 +22,8 @@ import javafx.scene.layout.HBox;
  *
  * @author cedric
  */
-public class FXMLMainWindowController implements Initializable {
+public class FXMLLoginController implements Initializable {
 
-    @FXML
-    private BorderPane root;
     @FXML
     private HBox windowControlPanel;
     @FXML
@@ -40,19 +33,22 @@ public class FXMLMainWindowController implements Initializable {
     @FXML
     private Button btnExit;
     @FXML
+    private Button btnLogin;
+    @FXML
     private ImageView iconSection;
     @FXML
     private Label labelSection;
     @FXML
-    private Button btnSettings;
+    private TextField txtUser;
+    @FXML
+    private TextField txtPassword;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        changePage(Views.DASHBOARD);
+        // TODO
     }    
 
     @FXML
@@ -69,15 +65,7 @@ public class FXMLMainWindowController implements Initializable {
     }
 
     @FXML
-    private void settingsClicked(ActionEvent event) {
+    private void loginClicked(ActionEvent event) {
     }
     
-    private void changePage(String location) {
-        try {
-            Node node = (Node)FXMLLoader.load(getClass().getResource(location));
-            if (node == null) return;
-            root.setCenter(node);
-        } catch (IOException ex) {
-        }
-    }
 }
