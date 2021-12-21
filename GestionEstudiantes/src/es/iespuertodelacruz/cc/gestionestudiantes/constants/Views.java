@@ -15,7 +15,17 @@ public class Views {
     private static final String DIR = "/es/iespuertodelacruz/cc/gestionestudiantes/view/";
     private static final String WINDOWS = "windows/";
     private static final String PAGES = "pages/";
-    public static final String MAIN_WINDOW = DIR + WINDOWS + "FXMLMainWindow.fxml";
-    public static final String DASHBOARD = DIR + PAGES + "FXMLDashboard.fxml";
+    private static final String OTHER = "other/";
     
+    /*WINDOWS*/
+    public static final String MAIN_WINDOW = DIR + WINDOWS + "FXMLMainWindow.fxml";
+    
+    /*PAGES*/
+    public static final String DASHBOARD = DIR + PAGES + "FXMLDashboard.fxml";
+    public static final String BUSCADOR_RECETAS = DIR + PAGES + "FXMLBuscadorRecetas.fxml";
+    
+    /*OTHER*/
+    public static final String MENU_COLLAPSED = DIR + OTHER + "menu_collapsed.fxml";
+    public static final String MENU_FULL = DIR + OTHER + "menu_full.fxml";
+    public static final String RECETA_ADAPTER = DIR + OTHER + "FXMLRecetaAdapter.fxml";
 }

@@ -46,12 +46,22 @@ public class FXMLMainWindowController implements Initializable {
     @FXML
     private Button btnSettings;
 
+    private boolean menuCollapsed = true;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        try {
+            //changeMenuCollapse();
+            Menu_Controller controller = new Menu_Controller();
+            controller.setMainWindowController(this);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.MENU_FULL));
+            loader.setController(controller);
+            root.setLeft(loader.load());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
         changePage(Views.DASHBOARD);
     }    
 
@@ -72,12 +82,40 @@ public class FXMLMainWindowController implements Initializable {
     private void settingsClicked(ActionEvent event) {
     }
     
-    private void changePage(String location) {
+    public void changePage(String location) {
         try {
             Node node = (Node)FXMLLoader.load(getClass().getResource(location));
             if (node == null) return;
             root.setCenter(node);
         } catch (IOException ex) {
         }
+    }
+    
+    /**
+     * TODO
+     */
+    public void changeMenuCollapse() {
+        Node node = null;
+        Menu_Controller controller = new Menu_Controller();
+        controller.setMainWindowController(this);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setController(controller);
+        if (menuCollapsed) {
+            try {
+                loader.setLocation(getClass().getResource(Views.MENU_FULL));
+                node = (Node) loader.load();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            try {
+                loader.setLocation(getClass().getResource(Views.MENU_COLLAPSED));
+                node = (Node) loader.load();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        if (node == null) return;
+        root.setLeft(root);
     }
 }

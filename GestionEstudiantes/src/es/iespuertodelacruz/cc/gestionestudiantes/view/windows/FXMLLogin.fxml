@@ -12,8 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="473.0" prefWidth="419.0" styleClass="top-header-background" stylesheets="@../../css/estilos.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLLoginController">
+<AnchorPane id="AnchorPane" prefHeight="577.0" prefWidth="419.0" styleClass="top-header-background" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLLoginController">
    <children>
       <BorderPane layoutX="14.0" layoutY="24.0" prefHeight="563.0" prefWidth="419.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
@@ -84,29 +83,26 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="419.0" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="61.0" prefWidth="419.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="379.0">
                      <children>
-                        <ImageView fx:id="iconSection" fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../res/grid-three-up-256.png" />
-                           </image>
-                           <HBox.margin>
-                              <Insets left="20.0" />
-                           </HBox.margin>
-                        </ImageView>
                         <Label fx:id="labelSection" text="Login" textFill="#1995ad">
                            <font>
                               <Font name="System Bold" size="23.0" />
                            </font>
                            <HBox.margin>
-                              <Insets left="15.0" />
+                              <Insets left="20.0" />
                            </HBox.margin>
                         </Label>
                      </children>
                      <VBox.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
                      </VBox.margin>
                   </HBox>
+                  <Label prefHeight="32.0" prefWidth="352.0" text="Para poder acceder a la aplicación es necesario que acceda con su usuario y contraseña" textFill="#6b6b6b" wrapText="true">
+                     <VBox.margin>
+                        <Insets left="40.0" right="20.0" />
+                     </VBox.margin>
+                  </Label>
                   <VBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="339.0">
                      <children>
                         <Label text="Username" textFill="#bcbabe">
@@ -117,7 +113,7 @@
                         <TextField fx:id="txtUser" prefHeight="42.0" prefWidth="339.0" promptText="Introduce username" styleClass="text-field-overcast" />
                      </children>
                      <VBox.margin>
-                        <Insets left="40.0" right="40.0" />
+                        <Insets left="40.0" right="40.0" top="25.0" />
                      </VBox.margin>
                   </VBox>
                   <VBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="339.0">

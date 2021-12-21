@@ -6,6 +6,7 @@
 package es.iespuertodelacruz.cc.gestionestudiantes;
 
 import es.iespuertodelacruz.cc.gestionestudiantes.constants.Views;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.MyDatabase;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,6 +22,7 @@ public class gestionestudiantes extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        MyDatabase.cargarDriverMysql();
         Parent root = FXMLLoader.load(getClass().getResource(Views.MAIN_WINDOW));
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.TRANSPARENT);
