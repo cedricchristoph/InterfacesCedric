@@ -5,6 +5,8 @@
  */
 package es.iespuertodelacruz.cc.gestionestudiantes.constants;
 
+import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.Globals;
+
 /**
  * Clase Views.
  * Contiene los directorios a los que se puede acceder a las distintas vistas de la aplicacion
@@ -12,12 +14,13 @@ package es.iespuertodelacruz.cc.gestionestudiantes.constants;
  */
 public class Views {
  
-    private static final String DIR = "/es/iespuertodelacruz/cc/gestionestudiantes/view/";
-    private static final String WINDOWS = "windows/";
-    private static final String PAGES = "pages/";
-    private static final String OTHER = "other/";
+    private static final String DIR = Globals.VIEWS;
+    private static final String WINDOWS = "/windows/";
+    private static final String PAGES = "/pages/";
+    private static final String OTHER = "/other/";
     
     /*WINDOWS*/
+    public static final String LOGIN = DIR + WINDOWS + "FXMLLogin.fxml";
     public static final String MAIN_WINDOW = DIR + WINDOWS + "FXMLMainWindow.fxml";
     
     /*PAGES*/
@@ -28,4 +31,5 @@ public class Views {
     public static final String MENU_COLLAPSED = DIR + OTHER + "menu_collapsed.fxml";
     public static final String MENU_FULL = DIR + OTHER + "menu_full.fxml";
     public static final String RECETA_ADAPTER = DIR + OTHER + "FXMLRecetaAdapter.fxml";
+    public static final String CREAR_RECETA = DIR + OTHER + "FXMLCrearReceta.fxml";
 }

@@ -13,13 +13,15 @@ public class TipoReceta {
     
     private Integer id;
     private String tipo;
-
+    private String imageURL;
+    
     public TipoReceta() {
     }
 
-    public TipoReceta(Integer id, String tipo) {
+    public TipoReceta(Integer id, String tipo, String imageURL) {
         this.id = id;
         this.tipo = tipo;
+        this.imageURL = imageURL;
     }
 
     public Integer getId() {
@@ -37,7 +39,17 @@ public class TipoReceta {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
     
-    
+    public String toString() {
+        return getTipo();
+    }
     
 }

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="recetaAdapter" onMouseClicked="#clicked" prefHeight="544.0" prefWidth="1056.0" styleClass="overcast-background" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLCrearRecetaController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="438.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="125.0" prefWidth="667.0" spacing="5.0">
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <AnchorPane prefHeight="89.0" prefWidth="91.0">
+                     <children>
+                        <ImageView fx:id="img" fitHeight="88.0" fitWidth="88.0" layoutY="1.0" onMouseClicked="#selectImage" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="1.0">
+                           <image>
+                              <Image url="@../../res/no-image-icon-23485.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="89.0" prefWidth="262.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <VBox prefHeight="89.0" prefWidth="231.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets left="5.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <TextField fx:id="txtTitle" promptText="Titulo" styleClass="text-field-overcast">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Label fx:id="labelAutor" text="Autor">
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER" prefHeight="105.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="82.0" spacing="5.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../res/time-5-256.png" />
+                                             </image>
+                                          </ImageView>
+                                          <TextField fx:id="txtTiempo" prefHeight="28.0" prefWidth="129.0" promptText="Tiempo" styleClass="text-field-overcast" HBox.hgrow="NEVER" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="7.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="82.0" spacing="5.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../res/account.png" />
+                                             </image>
+                                          </ImageView>
+                                          <TextField fx:id="txtPersonas" prefHeight="28.0" prefWidth="129.0" promptText="Personas" styleClass="text-field-overcast" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="82.0" spacing="5.0">
+                                       <children>
+                                          <ImageView fitHeight="30.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../res/flammable-256.png" />
+                                             </image>
+                                          </ImageView>
+                                          <TextField fx:id="txtCalorias" prefHeight="28.0" prefWidth="129.0" promptText="Calorias" styleClass="text-field-overcast" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="3.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="105.0" prefWidth="213.0">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <children>
+                        <VBox alignment="CENTER" layoutX="-30.0" layoutY="7.0" prefHeight="89.0" prefWidth="111.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="labelTime" text="Tipo de plato">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </Label>
+                              <ComboBox fx:id="cbxTipo" prefHeight="38.0" prefWidth="194.0" styleClass="text-field-overcast" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox prefHeight="237.0" prefWidth="886.0" spacing="10.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <AnchorPane prefHeight="150.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox prefHeight="150.0" prefWidth="350.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="labelAutor1" text="Ingredientes" />
+                              <TextArea fx:id="txtIngredientes" prefHeight="200.0" prefWidth="200.0" styleClass="text-field-overcast" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+                  <VBox prefHeight="47.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="labelAutor11" text="Pasos" />
+                        <TextArea fx:id="txtPasos" prefHeight="200.0" prefWidth="200.0" styleClass="text-field-overcast" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="53.0" prefWidth="667.0" spacing="10.0">
+               <padding>
+                  <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+               </padding>
+               <children>
+                  <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="36.0" prefWidth="150.0" styleClass="button-overcast" text="Cancelar" />
+                  <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crear" prefHeight="33.0" prefWidth="150.0" styleClass="button-arctic" text="Crear" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

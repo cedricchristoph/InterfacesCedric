@@ -1,0 +1,87 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package es.iespuertodelacruz.cc.gestionestudiantes.controller;
+
+import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Receta;
+import java.util.ArrayList;
+import java.util.HashMap;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.Node;
+
+/**
+ *
+ * @author cedric
+ */
+public class SelectedRecetas {
+    
+    
+    /* STATIC */
+    
+    private static SelectedRecetas instance;
+    
+    private static void clear() {
+        instance = null;
+    }
+    
+    public static SelectedRecetas getInstance() {
+        if (instance == null) instance = new SelectedRecetas();
+        return instance;
+    }
+    
+    public static void selectReceta(Receta receta, FXMLRecetaAdapterController adapter) {
+        getInstance().select(receta, adapter);
+    }
+    
+    public static void unselectReceta(Receta receta) {
+        getInstance().unselect(receta);
+    }
+    
+    public static void unselectAllRecetas() {
+        getInstance().unselectAll();
+    }
+    
+    /* NON-STATIC */
+    
+    private HashMap<Receta, FXMLRecetaAdapterController> selected;
+    public SimpleIntegerProperty amount;
+    
+    public SelectedRecetas() {
+        selected = new HashMap<Receta, FXMLRecetaAdapterController>();
+        amount = new SimpleIntegerProperty(0);
+    }
+    
+    public void select(Receta receta, FXMLRecetaAdapterController adapter) {
+        if (selected.containsKey(receta)) return;
+        selected.put(receta, adapter);
+        refreshAmount();
+    }
+    
+    public void unselect(Receta receta) {
+        if (!selected.containsKey(receta)) return;
+        selected.remove(receta);
+        refreshAmount();
+    }
+    
+    // TODO
+    public void selectAll() {
+        
+    }
+    
+    public void unselectAll() {
+        selected.forEach((k,v) -> v.unselect());
+        refreshAmount();
+    }
+    
+    private void refreshAmount() {
+       amount.set(selected.size());
+    }
+    
+    public HashMap<Receta, FXMLRecetaAdapterController> getMap() {
+        return selected;
+    }
+}

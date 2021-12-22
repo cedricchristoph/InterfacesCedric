@@ -19,13 +19,17 @@
     -fx-background-color: #1995AD;
 }
 
+.overcast-background {
+    -fx-background-color: #F1F1F2;
+}
+
 .top-drag-bar {
     -fx-background-color: #FFFFFF;
     -fx-text-fill: #848287;
 }
 
 .top-header-background {
-    -fx-background-color: #F1F1F2;
+    -fx-background-color: #FFFFFF;
 }
 
 /* BOXES */
@@ -43,6 +47,8 @@
 
 .receta-adapter {
     -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
 }
 
 .receta-adapter:hover {
@@ -53,6 +59,27 @@
     -fx-background-color: #d6d6d6;
 }
 
+.receta-adapter-selected {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #1994ad81;
+    -fx-border-width: 2px;
+    -fx-border-insets: 0 0 0 0;
+    -fx-border-color: #1994ad81 #1994ad81 #1994ad81 #1994ad81 ; 
+    -fx-border-style: segments(15, 15, 15, 15)  line-cap round ;
+}
+
+.receta-adapter-selected:hover {
+    -fx-background-color: #e7e7e7;
+    -fx-border-color: #1994ad81;
+    -fx-border-width: 2px;
+}
+
+.scroll-bar {
+    -fx-focus-color: transparent;
+    -fx-border-width: 0px;
+    -fx-border-color: transparent;
+    -fx-background-insets: -1.4, 0, 1, 2;
+}
 
 /* BUTTONS */
 .window-control-button-white {

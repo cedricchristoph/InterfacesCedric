@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="menu" prefHeight="543.0" prefWidth="78.0" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.Menu_Controller">
+<AnchorPane id="menu" prefHeight="543.0" prefWidth="78.0" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="46.0" layoutY="36.0" prefHeight="478.0" prefWidth="292.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

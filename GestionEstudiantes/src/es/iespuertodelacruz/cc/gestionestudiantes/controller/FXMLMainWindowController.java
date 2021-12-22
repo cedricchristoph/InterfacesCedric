@@ -91,6 +91,22 @@ public class FXMLMainWindowController implements Initializable {
         }
     }
     
+    public void showBuscadorRecetas() {
+        labelSection.setText("Buscador de Recetas");
+        FXMLBuscadorRecetasController controller = new FXMLBuscadorRecetasController();
+        controller.setMainWindowController(this);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.BUSCADOR_RECETAS));
+        loader.setController(controller);
+        try {
+            root.setCenter(loader.load());
+        } catch (IOException ex) {
+        }
+    }
+    
+    public void showCrearReceta() {
+        labelSection.setText("Crear Receta");
+        changePage(Views.CREAR_RECETA);
+    }
     /**
      * TODO
      */
@@ -98,18 +114,18 @@ public class FXMLMainWindowController implements Initializable {
         Node node = null;
         Menu_Controller controller = new Menu_Controller();
         controller.setMainWindowController(this);
-        FXMLLoader loader = new FXMLLoader();
-        loader.setController(controller);
         if (menuCollapsed) {
             try {
-                loader.setLocation(getClass().getResource(Views.MENU_FULL));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.MENU_FULL));
+                loader.setController(controller);
                 node = (Node) loader.load();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         } else {
             try {
-                loader.setLocation(getClass().getResource(Views.MENU_COLLAPSED));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.MENU_COLLAPSED));
+                loader.setController(controller);
                 node = (Node) loader.load();
             } catch (IOException ex) {
                 ex.printStackTrace();

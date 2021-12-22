@@ -95,7 +95,7 @@ public class RecetaTipoDAOTest {
         System.out.println("selectById");
         Integer id = 1;
         RecetaTipoDAO instance = new RecetaTipoDAO();
-        TipoReceta expResult = new TipoReceta(id, "Entrante");
+        TipoReceta expResult = new TipoReceta(id, "Entrante", "");
         TipoReceta result = instance.selectById(id);
         assertEquals(expResult.getId(), result.getId());
     }

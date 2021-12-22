@@ -49,7 +49,7 @@ public class RecetaTipoDAO extends RecetaEntry.RecetaTipoEntry implements CRUD<T
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(SELECT_ALL);
             while (rs.next())
-                tipos.add(new TipoReceta(rs.getInt(ID), rs.getString(TIPO)));
+                tipos.add(new TipoReceta(rs.getInt(ID), rs.getString(TIPO), rs.getString(IMAGEN)));
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
@@ -63,7 +63,7 @@ public class RecetaTipoDAO extends RecetaEntry.RecetaTipoEntry implements CRUD<T
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM " + TABLE + " WHERE " + ID + " = " + id);
             while(rs.next())
-                return new TipoReceta(rs.getInt(ID), rs.getString(TIPO));
+                return new TipoReceta(rs.getInt(ID), rs.getString(TIPO), rs.getString(IMAGEN));
         } catch (SQLException e) {
             e.printStackTrace();
         }

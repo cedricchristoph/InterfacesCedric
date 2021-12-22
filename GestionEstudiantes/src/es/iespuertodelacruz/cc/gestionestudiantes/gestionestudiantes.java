@@ -23,7 +23,7 @@ public class gestionestudiantes extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         MyDatabase.cargarDriverMysql();
-        Parent root = FXMLLoader.load(getClass().getResource(Views.MAIN_WINDOW));
+        Parent root = FXMLLoader.load(getClass().getResource(Views.LOGIN));
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.TRANSPARENT);
         stage.setScene(scene);

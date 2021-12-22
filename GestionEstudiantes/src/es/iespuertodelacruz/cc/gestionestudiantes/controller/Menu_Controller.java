@@ -67,7 +67,7 @@ public class Menu_Controller implements Initializable {
 
     @FXML
     private void buscarRecetas(ActionEvent event) {
-        controller.changePage(Views.BUSCADOR_RECETAS);
+        controller.showBuscadorRecetas();
     }
 
     @FXML

@@ -15,7 +15,8 @@ CREATE TABLE users (
 
 CREATE TABLE receta_tipos (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    tipo VARCHAR(30) NOT NULL
+    tipo VARCHAR(30) NOT NULL,
+    imagen VARCHAR(150) DEFAULT NULL
 );
 
 CREATE TABLE recetas (
@@ -28,7 +29,7 @@ CREATE TABLE recetas (
     comensales INTEGER(3),
     tiempoPreparacion INTEGER(5),
     calorias FLOAT,
-    imagen VARCHAR(100),
+    imagen VARCHAR(200),
     FOREIGN KEY (autor) REFERENCES users(username),
     FOREIGN KEY (tipo) REFERENCES receta_tipos(id)
 );
@@ -36,10 +37,10 @@ CREATE TABLE recetas (
 INSERT INTO levels (id, levelName) VALUES (0, "Alumno");
 INSERT INTO levels (id, levelName) VALUES (1, "Profesor");
 
-INSERT INTO receta_tipos (id, tipo) VALUES (1, "Entrante");
-INSERT INTO receta_tipos (id, tipo) VALUES (2, "Primero");
-INSERT INTO receta_tipos (id, tipo) VALUES (3, "Segundo");
-INSERT INTO receta_tipos (id, tipo) VALUES (4, "Postre");
+INSERT INTO receta_tipos (id, tipo, imagen) VALUES (1, "Entrante", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/salat.png");
+INSERT INTO receta_tipos (id, tipo, imagen) VALUES (2, "Primero", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/soup.png");
+INSERT INTO receta_tipos (id, tipo, imagen) VALUES (3, "Segundo", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/steak.png");
+INSERT INTO receta_tipos (id, tipo, imagen) VALUES (4, "Postre", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/dessert.png");
 
 INSERT INTO users (username, pass, userLevel) VALUES ("profe", "profe", 1);
 INSERT INTO users (username, pass, userLevel) VALUES ("admin", "admin", 1);
@@ -48,13 +49,13 @@ INSERT INTO users (username, pass, userLevel) VALUES ("pepe", "p4", 1);
 INSERT INTO users (username, pass, userLevel) VALUES ("yaiza", "y5", 0);
 
 INSERT INTO recetas (titulo, autor, tipo, ingredientes, pasos, comensales, tiempoPreparacion, calorias, imagen)
-VALUES("Flan", "juan", 4, "-Huevos;-Leche", "-Batir;-Hornear", 4, 30, 140, "/home/cedric/Descargas/flan.jpg");
+VALUES("Flan", "juan", 4, "-Huevos;-Leche", "-Batir;-Hornear", 4, 30, 140, "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/flan.jpg");
 
 INSERT INTO recetas (titulo, autor, tipo, ingredientes, pasos, comensales, tiempoPreparacion, calorias, imagen)
-VALUES("Pollo", "juan", 3, "-Pollo;-Aceite", "-Poner en la plancha", 2, 15, 200, "/home/cedric/Descargas/pollo.jpg");
+VALUES("Pollo", "juan", 3, "-Pollo;-Aceite", "-Poner en la plancha", 2, 15, 200, "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/pollo.jpg");
 
 INSERT INTO recetas (titulo, autor, tipo, ingredientes, pasos, comensales, tiempoPreparacion, calorias, imagen)
-VALUES("Merluza", "admin", 3, "-Merluza de 500g; -Aceite; -Cebolla;- Tomate;- Agua;", "-Poner a rehogar la cebolla y el tomate con aceite 10 minutos;- Añadir el pescado y un vaso de agua", 2, 45, 300, "/home/cedric/Descargas/merluza.jpg");
+VALUES("Merluza", "admin", 3, "-Merluza de 500g; -Aceite; -Cebolla;- Tomate;- Agua;", "-Poner a rehogar la cebolla y el tomate con aceite 10 minutos;- Añadir el pescado y un vaso de agua", 2, 45, 300, "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/merluza.jpg");
 
 INSERT INTO recetas (titulo, autor, tipo, ingredientes, pasos, comensales, tiempoPreparacion, calorias, imagen)
 VALUES("Guacamole", "juan", 1, "- Aguacate;- Cebolla;- Limón;- Tomate", "- Pelar y cortar todos los ingredientes;- Machacar el aguacate con un tenedor;- Mezclar todo bien", 4, 20, 140, NULL);

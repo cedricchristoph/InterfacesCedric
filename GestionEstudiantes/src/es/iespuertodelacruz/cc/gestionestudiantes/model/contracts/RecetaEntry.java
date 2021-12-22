@@ -29,6 +29,7 @@ public class RecetaEntry {
         public static final String TABLE = "receta_tipos";
         public static final String ID = "id";
         public static final String TIPO = "tipo";
+        public static final String IMAGEN = "imagen";
         public static final String SELECT_ALL = "SELECT * FROM " + TABLE;
     }
     
