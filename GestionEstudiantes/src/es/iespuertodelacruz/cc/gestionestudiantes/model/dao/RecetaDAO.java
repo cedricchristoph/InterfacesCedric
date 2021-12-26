@@ -31,12 +31,36 @@ public class RecetaDAO extends RecetaEntry implements CRUD<Receta, Integer>{
     
     @Override
     public boolean insert(Receta entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection conn = db.getConnection()) {
+            Statement stmt = conn.createStatement();
+            String sql = "INSERT INTO " + TABLE + " (" + TITULO + ", " + AUTOR + ", " + TIPO + ", " +
+                    INGREDIENTES + ", " + PASOS + ", " + COMENSALES + ", " + CALORIAS + ", " + TIEMPO_PREPARACION + ", " +
+                    IMAGEN + ") VALUES ('" +
+                    entity.getTitulo() + "', '" + entity.getAutor().getUsername() + "', " + entity.getTipo().getId() + ", '" + entity.getIngredientes() + "', '" +
+                    entity.getPasos() + "', " + entity.getComensales() + ", " + entity.getCalorias() + ", " + entity.getTiempoPreparacion() + ", '" +
+                    entity.getImageURL() + "')";
+            System.out.println(sql);
+            Integer affected = stmt.executeUpdate(sql);
+            if (affected == null) return false;
+            return (affected > 0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean delete(Receta entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection conn = db.getConnection()) {
+            Statement stmt = conn.createStatement();
+            String sql = "DELETE FROM " + TABLE + " WHERE " + ID + " = " + entity.getId();
+            Integer affected = stmt.executeUpdate(sql);
+            if (affected == null) return false;
+            return (affected > 0);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

@@ -117,7 +117,9 @@ public class FXMLBuscadorRecetasController implements Initializable {
     }
     
     private void actualizarLista() {
-        //itemList.getChildren().remove(0, itemList.getChildren().size()-1);
+        
+        emptyList();
+        
         RecetaDAO dao = new RecetaDAO();
         List<Receta> recetas = dao.selectAll();
         
@@ -133,6 +135,11 @@ public class FXMLBuscadorRecetasController implements Initializable {
                 } catch (IOException ex) {
                 }
         }
+    }
+    
+    private void emptyList() {
+        while (itemList.getChildren().size() > 0)
+            itemList.getChildren().remove(0);
     }
 
     @FXML
@@ -162,6 +169,8 @@ public class FXMLBuscadorRecetasController implements Initializable {
 
     @FXML
     private void delete(ActionEvent event) {
+        SelectedRecetas.deleteAllSelected();
+        actualizarLista();
     }
 
     @FXML

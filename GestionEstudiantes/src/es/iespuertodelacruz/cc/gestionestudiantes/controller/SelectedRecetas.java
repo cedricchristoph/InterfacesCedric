@@ -5,6 +5,7 @@
  */
 package es.iespuertodelacruz.cc.gestionestudiantes.controller;
 
+import es.iespuertodelacruz.cc.gestionestudiantes.model.dao.RecetaDAO;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Receta;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,6 +46,10 @@ public class SelectedRecetas {
         getInstance().unselectAll();
     }
     
+    public static void deleteAllSelected() {
+        getInstance().delete();
+    }
+    
     /* NON-STATIC */
     
     private HashMap<Receta, FXMLRecetaAdapterController> selected;
@@ -83,5 +88,12 @@ public class SelectedRecetas {
     
     public HashMap<Receta, FXMLRecetaAdapterController> getMap() {
         return selected;
+    }
+    
+    public void delete() {
+        RecetaDAO dao = new RecetaDAO();
+        selected.forEach((k, v) -> dao.delete(k));
+        selected = new HashMap<Receta, FXMLRecetaAdapterController>();
+        refreshAmount();
     }
 }
