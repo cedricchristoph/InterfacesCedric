@@ -10,6 +10,8 @@ import es.iespuertodelacruz.cc.gestionestudiantes.model.dao.RecetaDAO;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.dao.RecetaTipoDAO;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Receta;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.TipoReceta;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.AuthorizedSection;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.Globals;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -163,12 +165,14 @@ public class FXMLBuscadorRecetasController implements Initializable {
 
     @FXML
     private void delete(ActionEvent event) {
+        if (!Globals.chkAccess(AuthorizedSection.MODIFICAR_RECETAS)) return;
         SelectedRecetas.deleteAllSelected();
         actualizarLista();
     }
 
     @FXML
     private void edit(ActionEvent event) {
+        if (!Globals.chkAccess(AuthorizedSection.MODIFICAR_RECETAS)) return;
     }
     
 }

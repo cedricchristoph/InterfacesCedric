@@ -27,6 +27,7 @@ public class Views {
     public static final String DASHBOARD = DIR + PAGES + "FXMLDashboard.fxml";
     public static final String BUSCADOR_RECETAS = DIR + PAGES + "FXMLBuscadorRecetas.fxml";
     public static final String ESTADISTICAS = DIR + PAGES + "FXMLEstadisticas.fxml";
+    public static final String GESTION_USUARIOS = DIR + PAGES + "FXMLGestionUsuarios.fxml";
     
     /*OTHER*/
     public static final String MENU_COLLAPSED = DIR + OTHER + "menu_collapsed.fxml";

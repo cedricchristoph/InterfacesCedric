@@ -10,14 +10,14 @@ CREATE TABLE users (
     username VARCHAR(30) PRIMARY KEY,
     pass VARCHAR(50) NOT NULL,
     userLevel INTEGER,
-    FOREIGN KEY (userLevel) REFERENCES levels(id)
+    FOREIGN KEY (userLevel) REFERENCES levels(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE authorization (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     levelid INTEGER NOT NULL,
     authorized INTEGER NOT NULL,
-    FOREIGN KEY (levelid) REFERENCES levels(id)
+    FOREIGN KEY (levelid) REFERENCES levels(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 
@@ -38,8 +38,8 @@ CREATE TABLE recetas (
     tiempoPreparacion INTEGER(5),
     calorias FLOAT,
     imagen VARCHAR(200),
-    FOREIGN KEY (autor) REFERENCES users(username),
-    FOREIGN KEY (tipo) REFERENCES receta_tipos(id)
+    FOREIGN KEY (autor) REFERENCES users(username) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (tipo) REFERENCES receta_tipos(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 INSERT INTO levels (id, levelName) VALUES (0, "Alumno");

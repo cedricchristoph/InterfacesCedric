@@ -6,8 +6,13 @@
 package es.iespuertodelacruz.cc.gestionestudiantes.controller;
 
 import es.iespuertodelacruz.cc.gestionestudiantes.constants.Views;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Authorization;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.User;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.AuthorizedSection;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.Globals;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,7 +21,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -92,6 +99,7 @@ public class FXMLMainWindowController implements Initializable {
     }
     
     public void showBuscadorRecetas() {
+        if (!Globals.chkAccess(AuthorizedSection.BUSCAR_RECETAS)) return;
         FXMLBuscadorRecetasController controller = new FXMLBuscadorRecetasController();
         controller.setMainWindowController(this);
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.BUSCADOR_RECETAS));
@@ -106,6 +114,7 @@ public class FXMLMainWindowController implements Initializable {
     }
     
     public void showCrearReceta() {
+        if (!Globals.chkAccess(AuthorizedSection.MODIFICAR_RECETAS)) return;
         FXMLCrearRecetaController controller = new FXMLCrearRecetaController();
         controller.setMainWindowController(this);
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.CREAR_RECETA));
@@ -120,11 +129,24 @@ public class FXMLMainWindowController implements Initializable {
     }
 
     public void showEstadisticas() {
+        if (!Globals.chkAccess(AuthorizedSection.ESTADISTICAS)) return;
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.ESTADISTICAS));
         Node before = root.getCenter();
         try {
             root.setCenter(loader.load());
             labelSection.setText("Estadisticas");
+        } catch (IOException ex) {
+            root.setCenter(before);
+        }
+    }
+    
+    public void showGestionUsuarios() {
+        if (!Globals.chkAccess(AuthorizedSection.GESTION_USUARIOS)) return;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.GESTION_USUARIOS));
+        Node before = root.getCenter();
+        try {
+            root.setCenter(loader.load());
+            labelSection.setText("Gestión de Usuarios");
         } catch (IOException ex) {
             root.setCenter(before);
         }

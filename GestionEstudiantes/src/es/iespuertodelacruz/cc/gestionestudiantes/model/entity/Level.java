@@ -5,6 +5,8 @@
  */
 package es.iespuertodelacruz.cc.gestionestudiantes.model.entity;
 
+import es.iespuertodelacruz.cc.gestionestudiantes.model.dao.AuthorizationsDAO;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.AuthorizedSection;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -28,6 +30,31 @@ public class Level {
         this.authorizations = authorizations;
     }
 
+    public void authorize(AuthorizedSection section) {
+        AuthorizationsDAO dao = new AuthorizationsDAO();
+        Authorization a = new Authorization();
+        a.setLevel(this);
+        a.setSection(section);
+        dao.insert(a);
+        reloadAuthorizations();
+    }
+    
+    public void forbid(AuthorizedSection section) {
+        AuthorizationsDAO dao = new AuthorizationsDAO();
+        Authorization a = null;
+        for (Authorization auth : authorizations) {
+            if (auth.getSection() == section)
+                a = auth;
+        }
+        if (a == null) return;
+        dao.delete(a);
+        reloadAuthorizations();
+    }
+    
+    private void reloadAuthorizations() {
+        AuthorizationsDAO dao = new AuthorizationsDAO();
+        authorizations = (ArrayList<Authorization>) dao.selectLevelAuthorizations(this);
+    }
     
     /* Getters and Setters */
     
@@ -82,6 +109,11 @@ public class Level {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
     
     

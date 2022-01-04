@@ -31,18 +31,27 @@ public class AuthorizationsDAO extends AuthorizationEntry implements CRUD<Author
     
     @Override
     public boolean insert(Authorization entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection conn = db.getConnection()) {
+            String sql = "INSERT INTO " +TABLE + " (" + LEVEL + ", " + AUTHORIZED + ") VALUES "
+                    + "(" + entity.getLevel().getId() + ", " + entity.getSection().getIdentifier() + ")";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            int affected = stmt.executeUpdate();
+            return affected > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean delete(Authorization entity) {
         try (Connection conn = db.getConnection()) {
-            String sql = "DELETE FROM " + TABLE + " WHERE " + ID + " = ?1";
+            String sql = "DELETE FROM " + TABLE + " WHERE " + ID + " = " + entity.getId();
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, entity.getId());
             int affected = stmt.executeUpdate();
             return affected > 0;
         } catch (SQLException ex) {
+            ex.printStackTrace();
             return false;
         }
     }

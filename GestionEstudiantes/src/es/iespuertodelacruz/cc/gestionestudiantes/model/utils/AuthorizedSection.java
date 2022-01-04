@@ -16,14 +16,15 @@ public enum AuthorizedSection {
     BUSCAR_RECETAS(2),
     ESTADISTICAS(3),
     GESTION_USUARIOS(4),
-    GESTION_NOTAS(5);
+    GESTION_NOTAS(5),
+    MODIFICAR_RECETAS(6);
     
     Integer identifier;
     AuthorizedSection(Integer identifier) {
         this.identifier = identifier;
     }
     
-    Integer getIdentifier() {
+    public Integer getIdentifier() {
         return identifier;
     }
     

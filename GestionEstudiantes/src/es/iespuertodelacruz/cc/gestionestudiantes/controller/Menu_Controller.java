@@ -116,6 +116,7 @@ public class Menu_Controller implements Initializable {
 
     @FXML
     private void usuarios(ActionEvent event) {
+        controller.showGestionUsuarios();
     }
 
     @FXML
