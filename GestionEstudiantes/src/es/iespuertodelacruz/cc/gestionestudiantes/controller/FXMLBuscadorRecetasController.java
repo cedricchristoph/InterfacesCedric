@@ -12,13 +12,8 @@ import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Receta;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.TipoReceta;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,7 +26,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -39,7 +33,7 @@ import javafx.scene.layout.VBox;
  * @author cedric
  */
 public class FXMLBuscadorRecetasController implements Initializable {
-
+    
     @FXML
     private Label labelSelected;
 

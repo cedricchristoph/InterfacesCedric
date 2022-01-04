@@ -5,6 +5,7 @@
  */
 package es.iespuertodelacruz.cc.gestionestudiantes.model.dao;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 /**
@@ -20,5 +21,8 @@ public interface CRUD<T, E> {
     boolean update(T entity);
     List<T> selectAll();
     T selectById(E id);
+    
+    T getSingleResult(ResultSet rs);
+    List<T> getResultList(ResultSet rs);
     
 }

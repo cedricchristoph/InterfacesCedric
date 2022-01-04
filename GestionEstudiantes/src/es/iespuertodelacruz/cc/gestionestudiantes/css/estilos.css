@@ -146,3 +146,8 @@
     -fx-background-insets: 0;
     -fx-padding: 5 10 5 10;
 }
+
+/* CHARTS */
+.chart-bar {
+    -fx-bar-fill: #1995AD; 
+}

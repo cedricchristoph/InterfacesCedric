@@ -5,6 +5,7 @@
  */
 package es.iespuertodelacruz.cc.gestionestudiantes.model.entity;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -15,14 +16,16 @@ public class Level {
     
     private Integer id;
     private String name;
-
+    private ArrayList<Authorization> authorizations;
+    
     public Level() {
     }
 
     
-    public Level(Integer id, String name) {
+    public Level(Integer id, String name, ArrayList<Authorization> authorizations) {
         this.id = id;
         this.name = name;
+        this.authorizations = authorizations;
     }
 
     
@@ -39,6 +42,14 @@ public class Level {
     public String getName() {
         return name;
     }
+
+    public ArrayList<Authorization> getAuthorizations() {
+        return authorizations;
+    }
+
+    public void setAuthorizations(ArrayList<Authorization> authorizations) {
+        this.authorizations = authorizations;
+    } 
 
     public void setName(String name) {
         this.name = name;

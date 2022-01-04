@@ -5,10 +5,7 @@
  */
 package es.iespuertodelacruz.cc.gestionestudiantes.model.dao;
 
-import static es.iespuertodelacruz.cc.gestionestudiantes.model.contracts.LevelEntry.ID;
-import static es.iespuertodelacruz.cc.gestionestudiantes.model.contracts.LevelEntry.NAME;
-import static es.iespuertodelacruz.cc.gestionestudiantes.model.contracts.LevelEntry.SELECT_ALL;
-import static es.iespuertodelacruz.cc.gestionestudiantes.model.contracts.LevelEntry.TABLE;
+
 import es.iespuertodelacruz.cc.gestionestudiantes.model.contracts.UserEntry;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Level;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.User;
@@ -110,6 +107,16 @@ public class UserDAO extends UserEntry implements CRUD<User, String> {
         } finally {
             return user;
         }
+    }
+
+    @Override
+    public User getSingleResult(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<User> getResultList(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

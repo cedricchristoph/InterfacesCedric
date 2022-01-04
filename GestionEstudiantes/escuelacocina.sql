@@ -13,6 +13,14 @@ CREATE TABLE users (
     FOREIGN KEY (userLevel) REFERENCES levels(id)
 );
 
+CREATE TABLE authorization (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    levelid INTEGER NOT NULL,
+    authorized INTEGER NOT NULL,
+    FOREIGN KEY (levelid) REFERENCES levels(id)
+);
+
+
 CREATE TABLE receta_tipos (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     tipo VARCHAR(30) NOT NULL,
@@ -36,6 +44,17 @@ CREATE TABLE recetas (
 
 INSERT INTO levels (id, levelName) VALUES (0, "Alumno");
 INSERT INTO levels (id, levelName) VALUES (1, "Profesor");
+
+INSERT INTO authorization (id, levelid, authorized) VALUES (1, 1, 0);
+INSERT INTO authorization (id, levelid, authorized) VALUES (2, 1, 1);
+INSERT INTO authorization (id, levelid, authorized) VALUES (3, 1, 2);
+INSERT INTO authorization (id, levelid, authorized) VALUES (4, 1, 3);
+INSERT INTO authorization (id, levelid, authorized) VALUES (5, 1, 4);
+INSERT INTO authorization (id, levelid, authorized) VALUES (6, 1, 5);
+INSERT INTO authorization (id, levelid, authorized) VALUES (7, 0, 0);
+INSERT INTO authorization (id, levelid, authorized) VALUES (8, 0, 1);
+INSERT INTO authorization (id, levelid, authorized) VALUES (9, 0, 2);
+INSERT INTO authorization (id, levelid, authorized) VALUES (10, 0, 3);
 
 INSERT INTO receta_tipos (id, tipo, imagen) VALUES (1, "Entrante", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/salat.png");
 INSERT INTO receta_tipos (id, tipo, imagen) VALUES (2, "Primero", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/soup.png");

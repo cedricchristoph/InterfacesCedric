@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1100.0" styleClass="overcast-background" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLEstadisticasController">
+    <stylesheets>
+        <URL value="@/es/iespuertodelacruz/cc/gestionestudiantes/css/estilos.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="93.0" layoutY="141.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <BorderPane fx:id="tipoRecetaContainer" prefHeight="364.0" prefWidth="1060.0" style="-fx-background-color: #FFFFFF;">
+               <top>
+                  <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="1060.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Diversidad de tipos de recetas">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </top>
+               <padding>
+                  <Insets left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </BorderPane>
+            <BorderPane fx:id="compararCaloriasContainer" prefHeight="393.0" prefWidth="1060.0" style="-fx-background-color: #FFFFFF;">
+               <top>
+                  <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="1060.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Comparación de calorias">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </top>
+               <padding>
+                  <Insets left="20.0" right="20.0" top="10.0" />
+               </padding>
+            </BorderPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

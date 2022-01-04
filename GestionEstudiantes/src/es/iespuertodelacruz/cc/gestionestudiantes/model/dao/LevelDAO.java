@@ -6,6 +6,7 @@
 package es.iespuertodelacruz.cc.gestionestudiantes.model.dao;
 
 import es.iespuertodelacruz.cc.gestionestudiantes.model.contracts.LevelEntry;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Authorization;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Level;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.MyDatabase;
 import java.sql.Connection;
@@ -44,17 +45,13 @@ public class LevelDAO extends LevelEntry implements CRUD<Level, Integer>{
 
     @Override
     public List<Level> selectAll() {
-        ArrayList<Level> levels = new ArrayList<Level>();
         try (Connection conn = db.getConnection()) {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(SELECT_ALL);
-            while (rs.next()) {
-                levels.add(new Level(rs.getInt(ID), rs.getString(NAME)));
-            }
+            return getResultList(rs);
         } catch (SQLException e1) {
             e1.printStackTrace();
-        } finally {
-            return levels;
+            return null;
         }
     }
 
@@ -64,12 +61,45 @@ public class LevelDAO extends LevelEntry implements CRUD<Level, Integer>{
         try (Connection conn = db.getConnection()) {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM " + TABLE + " WHERE id = " + id);
-            while(rs.next())
-                return new Level(rs.getInt(ID), rs.getString(NAME));
+            return getSingleResult(rs);
         } catch (SQLException e) {
             
         }
         return null;
+    }
+
+    @Override
+    public Level getSingleResult(ResultSet rs) {
+        try {
+            while (rs.next()) {
+                AuthorizationsDAO dao = new  AuthorizationsDAO();
+                Level level = new Level();
+                level.setId(rs.getInt(ID));
+                level.setName(rs.getString(NAME));
+                level.setAuthorizations((ArrayList<Authorization>) dao.selectLevelAuthorizations(level));
+                return level;
+            }
+        } catch (SQLException ex) {
+        }
+        return null;
+    }
+
+    @Override
+    public List<Level> getResultList(ResultSet rs) {
+        List<Level> levels = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                AuthorizationsDAO dao = new  AuthorizationsDAO();
+                Level level = new Level();
+                level.setId(rs.getInt(ID));
+                level.setName(rs.getString(NAME));
+                level.setAuthorizations((ArrayList<Authorization>) dao.selectLevelAuthorizations(level));
+                levels.add(level);
+            }
+            return levels;
+        } catch (SQLException ex) {
+            return null;
+        }
     }
     
     

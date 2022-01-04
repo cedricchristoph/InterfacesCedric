@@ -92,21 +92,44 @@ public class FXMLMainWindowController implements Initializable {
     }
     
     public void showBuscadorRecetas() {
-        labelSection.setText("Buscador de Recetas");
         FXMLBuscadorRecetasController controller = new FXMLBuscadorRecetasController();
         controller.setMainWindowController(this);
         FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.BUSCADOR_RECETAS));
         loader.setController(controller);
+        Node before = root.getCenter();
         try {
             root.setCenter(loader.load());
+            labelSection.setText("Buscador de Recetas");
         } catch (IOException ex) {
+            root.setCenter(before);
         }
     }
     
     public void showCrearReceta() {
-        labelSection.setText("Crear Receta");
-        changePage(Views.CREAR_RECETA);
+        FXMLCrearRecetaController controller = new FXMLCrearRecetaController();
+        controller.setMainWindowController(this);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.CREAR_RECETA));
+        loader.setController(controller);
+        Node before = root.getCenter();
+        try {
+            root.setCenter(loader.load());
+            labelSection.setText("Crear Receta");
+        } catch (IOException e) {
+            root.setCenter(before);
+        }
     }
+
+    public void showEstadisticas() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.ESTADISTICAS));
+        Node before = root.getCenter();
+        try {
+            root.setCenter(loader.load());
+            labelSection.setText("Estadisticas");
+        } catch (IOException ex) {
+            root.setCenter(before);
+        }
+    }
+    
     /**
      * TODO
      */

@@ -69,5 +69,15 @@ public class RecetaTipoDAO extends RecetaEntry.RecetaTipoEntry implements CRUD<T
         }
         return null;
     }
+
+    @Override
+    public TipoReceta getSingleResult(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<TipoReceta> getResultList(ResultSet rs) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

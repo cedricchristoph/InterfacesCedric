@@ -109,7 +109,7 @@ public class FXMLCrearRecetaController implements Initializable {
 
     @FXML
     private void cancelar(ActionEvent event) {
-        
+        volverAlBuscador();
     }
 
     @FXML
@@ -153,6 +153,6 @@ public class FXMLCrearRecetaController implements Initializable {
     }
     
     private void volverAlBuscador() {
-        
+        controller.showBuscadorRecetas();
     }
 }
