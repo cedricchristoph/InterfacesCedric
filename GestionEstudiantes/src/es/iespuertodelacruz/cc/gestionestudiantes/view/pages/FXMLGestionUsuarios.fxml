@@ -16,15 +16,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLGestionUsuariosController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1100.0" style="-fx-background-color: #F1F1F2;" stylesheets="@../../css/estilos.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.iespuertodelacruz.cc.gestionestudiantes.controller.FXMLGestionUsuariosController">
    <children>
-      <TabPane layoutX="120.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="edge-to-edge" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane layoutX="120.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" styleClass="edge-to-edge" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="10.0">
         <tabs>
           <Tab text="Gestion de usuarios">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <VBox layoutX="14.0" layoutY="23.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <VBox fx:id="sections" layoutX="14.0" layoutY="23.0" prefHeight="200.0" prefWidth="100.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="1051.0" spacing="15.0">
                                  <children>
@@ -48,6 +48,18 @@
                                           <ImageView fitHeight="21.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../res/edit-256.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="btnDeleteUser" disable="true" mnemonicParsing="false" onAction="#deleteUser" prefHeight="36.0" prefWidth="63.0" styleClass="button-overcast">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../res/trash-2-256.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>
@@ -106,6 +118,18 @@
                                           <ImageView fitHeight="21.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../../res/edit-256.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button fx:id="btnDeleteLevel" disable="true" mnemonicParsing="false" onAction="#deleteLevel" prefHeight="36.0" prefWidth="63.0" styleClass="button-overcast">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                       <graphic>
+                                          <ImageView fitHeight="21.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../../res/trash-2-256.png" />
                                              </image>
                                           </ImageView>
                                        </graphic>

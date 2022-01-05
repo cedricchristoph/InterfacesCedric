@@ -5,12 +5,15 @@
  */
 package es.iespuertodelacruz.cc.gestionestudiantes.controller;
 
+import es.iespuertodelacruz.cc.gestionestudiantes.constants.Views;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.dao.LevelDAO;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.dao.UserDAO;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Authorization;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Level;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.User;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.AuthorizedSection;
+import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.Globals;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +21,9 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -26,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -69,6 +75,12 @@ public class FXMLGestionUsuariosController implements Initializable {
     private TableColumn<User, String> levelColumn;
     private User selectedUser;
     private Level selectedLevel;
+    @FXML
+    private VBox sections;
+    @FXML
+    private Button btnDeleteUser;
+    @FXML
+    private Button btnDeleteLevel;
     
     /**
      * Initializes the controller class.
@@ -83,6 +95,8 @@ public class FXMLGestionUsuariosController implements Initializable {
         );
         usuarios.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             selectedUser = newSelection;
+            btnEditUsuario.setDisable(selectedUser == null);
+            btnDeleteUser.setDisable(selectedUser == null);
         });
     
         loadUserList();
@@ -100,6 +114,9 @@ public class FXMLGestionUsuariosController implements Initializable {
         
     }
     
+    /**
+     * Carga la lista de grupos de usuarios
+     */
     private void loadLevelList() {
         LevelDAO dao = new LevelDAO();
         levels = dao.selectAll();
@@ -107,6 +124,9 @@ public class FXMLGestionUsuariosController implements Initializable {
         listViewLevels.setItems(FXCollections.observableList(levels));
     }
     
+    /**
+     * Recarga el estado de los botones de permisos segun el grupo que se ha seleccionado
+     */
     private void reloadLevelPermissions() {
         btnAccessDashboard.setSelected(false);
         btnAccessNutricion.setSelected(false);
@@ -143,6 +163,10 @@ public class FXMLGestionUsuariosController implements Initializable {
         }
     }
 
+    /**
+     * Cambia el estado de los botones al indicado
+     * @param state Nuevo estado de los botones
+     */
     private void enableButtons(boolean state) {
         btnAccessDashboard.setDisable(!state);
         btnAccessNutricion.setDisable(!state);
@@ -156,10 +180,36 @@ public class FXMLGestionUsuariosController implements Initializable {
     
     @FXML
     private void addUser(ActionEvent event) {
+        if (!Globals.chkAccess(AuthorizedSection.GESTION_USUARIOS)) return;
+        FXMLAddUserController controller = new FXMLAddUserController();
+        controller.setParent(this);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.ADD_USER));
+        loader.setController(controller);
+        try {
+            sections.getChildren().add(1, loader.load());
+        } catch (IOException e) {
+            
+        }
+    }
+    
+    public void closeAddUserWindow() {
+        sections.getChildren().remove(1);
+        loadUserList();
     }
 
     @FXML
     private void editUser(ActionEvent event) {
+        if (!Globals.chkAccess(AuthorizedSection.GESTION_USUARIOS)) return;
+        FXMLAddUserController controller = new FXMLAddUserController();
+        controller.setParent(this);
+        controller.setUserToEdit(selectedUser);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.ADD_USER));
+        loader.setController(controller);
+        try {
+            sections.getChildren().add(1, loader.load());
+        } catch (IOException e) {
+            
+        }
     }
 
     @FXML
@@ -182,14 +232,26 @@ public class FXMLGestionUsuariosController implements Initializable {
 
     @FXML
     private void switchDashboard(ActionEvent event) {
+        if (btnAccessDashboard.isSelected())
+            selectedLevel.authorize(AuthorizedSection.DASHBOARD);
+        else
+            selectedLevel.forbid(AuthorizedSection.DASHBOARD);
     }
 
     @FXML
     private void switchNutricion(ActionEvent event) {
+        if (btnAccessNutricion.isSelected())
+            selectedLevel.authorize(AuthorizedSection.NUTRICION);
+        else
+            selectedLevel.forbid(AuthorizedSection.NUTRICION);
     }
 
     @FXML
     private void switchBuscador(ActionEvent event) {
+        if (btnAccessBuscar.isSelected())
+            selectedLevel.authorize(AuthorizedSection.BUSCAR_RECETAS);
+        else
+            selectedLevel.forbid(AuthorizedSection.BUSCAR_RECETAS);
     }
 
     @FXML
@@ -202,14 +264,40 @@ public class FXMLGestionUsuariosController implements Initializable {
 
     @FXML
     private void switchEstadisticas(ActionEvent event) {
+        if (btnAccessEstadisticas.isSelected())
+            selectedLevel.authorize(AuthorizedSection.ESTADISTICAS);
+        else
+            selectedLevel.forbid(AuthorizedSection.ESTADISTICAS);
     }
 
     @FXML
     private void switchGestionUsuarios(ActionEvent event) {
+        if (btnAccessUsuarios.isSelected())
+            selectedLevel.authorize(AuthorizedSection.GESTION_USUARIOS);
+        else
+            selectedLevel.forbid(AuthorizedSection.GESTION_USUARIOS);
     }
 
     @FXML
     private void switchNotas(ActionEvent event) {
+        if (btnAccessNotas.isSelected())
+            selectedLevel.authorize(AuthorizedSection.GESTION_NOTAS);
+        else
+            selectedLevel.forbid(AuthorizedSection.GESTION_NOTAS);
+    }
+
+    @FXML
+    private void deleteUser(ActionEvent event) {
+        if (!Globals.chkAccess(AuthorizedSection.GESTION_USUARIOS)) return;
+        UserDAO dao = new UserDAO();
+        dao.delete(selectedUser);
+        btnEditUsuario.setDisable(true);
+        btnDeleteUser.setDisable(true);
+        loadUserList();
+    }
+
+    @FXML
+    private void deleteLevel(ActionEvent event) {
     }
     
 }

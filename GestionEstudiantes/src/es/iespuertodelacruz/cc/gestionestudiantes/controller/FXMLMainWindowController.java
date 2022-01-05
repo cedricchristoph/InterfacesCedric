@@ -148,6 +148,7 @@ public class FXMLMainWindowController implements Initializable {
             root.setCenter(loader.load());
             labelSection.setText("Gestión de Usuarios");
         } catch (IOException ex) {
+            ex.printStackTrace();
             root.setCenter(before);
         }
     }

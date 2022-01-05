@@ -34,4 +34,5 @@ public class Views {
     public static final String MENU_FULL = DIR + OTHER + "menu_full.fxml";
     public static final String RECETA_ADAPTER = DIR + OTHER + "FXMLRecetaAdapter.fxml";
     public static final String CREAR_RECETA = DIR + OTHER + "FXMLCrearReceta.fxml";
+    public static final String ADD_USER = DIR + OTHER + "FXMLAddUser.fxml";
 }

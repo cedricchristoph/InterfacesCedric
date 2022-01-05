@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  *
@@ -69,11 +70,49 @@ public class UserDAO extends UserEntry implements CRUD<User, String> {
 
     @Override
     public List<User> selectAll() {
-        LevelDAO levelDao = new LevelDAO();
-        ArrayList<User> users = new ArrayList<User>();
         try (Connection conn = db.getConnection()) {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(SELECT_ALL);
+            return getResultList(rs);
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public User selectById(String id) {
+        try (Connection conn = db.getConnection()) {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM " + TABLE + " WHERE " + USERNAME + " = '" + id + "'");
+            return getSingleResult(rs);
+        } catch (SQLException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public User getSingleResult(ResultSet rs) {
+        LevelDAO levelDao = new LevelDAO();
+        try {
+            while(rs.next()) {
+                Integer levelId = rs.getInt(LEVEL);
+                if (levelId == null) continue;
+                Level level = levelDao.selectById(levelId);
+                if (level == null) continue;
+                return new User(rs.getString(USERNAME), rs.getString(PASSWORD), level);
+            }
+        } catch (SQLException ex) {
+  
+        }
+        return null;
+    }
+
+    @Override
+    public List<User> getResultList(ResultSet rs) {
+        LevelDAO levelDao = new LevelDAO();
+        ArrayList<User> users = new ArrayList<User>();
+        try {
             while (rs.next()) {
                 Integer levelId = rs.getInt(LEVEL);
                 if (levelId == null) continue;
@@ -81,42 +120,10 @@ public class UserDAO extends UserEntry implements CRUD<User, String> {
                 if (level == null) continue;
                 users.add(new User(rs.getString(USERNAME), rs.getString(PASSWORD), level));
             }
-        } catch (SQLException e1) {
-            e1.printStackTrace();
-        } finally {
             return users;
+        } catch (SQLException ex) {
+            return null;
         }
-    }
-
-    @Override
-    public User selectById(String id) {
-        LevelDAO levelDao = new LevelDAO();
-        User user = null;
-        try (Connection conn = db.getConnection()) {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM " + TABLE + " WHERE " + USERNAME + " = '" + id + "'");
-            while(rs.next()) {
-                Integer levelId = rs.getInt(LEVEL);
-                if (levelId == null) continue;
-                Level level = levelDao.selectById(levelId);
-                if (level == null) continue;
-                user = new User(rs.getString(USERNAME), rs.getString(PASSWORD), level);
-            }
-        } catch (SQLException e) {
-            
-        } finally {
-            return user;
-        }
-    }
-
-    @Override
-    public User getSingleResult(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<User> getResultList(ResultSet rs) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
