@@ -93,10 +93,11 @@ public class RecetaDAO extends RecetaEntry implements CRUD<Receta, Integer>{
     public List<Receta> selectByTitle(String title) {
         try (Connection conn = db.getConnection()) {
             Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM " + TABLE + " WHERE " + TITULO + " LIKE %" + title + "%";
+            String sql = "SELECT * FROM " + TABLE + " WHERE " + TITULO + " LIKE '%" + title + "%'";
             ResultSet rs = stmt.executeQuery(sql);
             return getResultList(rs);
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -108,6 +109,7 @@ public class RecetaDAO extends RecetaEntry implements CRUD<Receta, Integer>{
             ResultSet rs = stmt.executeQuery(sql);
             return getResultList(rs);
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -115,12 +117,24 @@ public class RecetaDAO extends RecetaEntry implements CRUD<Receta, Integer>{
     public List<Receta> selectByTituloYTipo(String titulo, TipoReceta tipoReceta) {
         try (Connection conn = db.getConnection()) {
             Statement stmt = conn.createStatement();
-            String sql = "SELECT * FROM " + TABLE + " WHERE " + TIPO + " = " + tipoReceta.getId() + " AND " + TITULO + " LIKE %" + titulo + "%";
+            String sql = "SELECT * FROM " + TABLE + " WHERE " + TIPO + " = " + tipoReceta.getId() + " AND " + TITULO + " LIKE '%" + titulo + "%'";
             ResultSet rs = stmt.executeQuery(sql);
             return getResultList(rs);
         } catch (SQLException e) {
+            e.printStackTrace();
             return null;
         }
+    }
+    
+    public List<Receta> filtrar(String titulo, TipoReceta tipoReceta) throws Exception {
+        if (titulo == null && tipoReceta == null)
+            throw new Exception("Los valores de búsqueda son nulos");
+        if (titulo != null && !titulo.isEmpty() && tipoReceta != null)
+            return selectByTituloYTipo(titulo, tipoReceta);
+        else if (titulo != null && !titulo.isEmpty() && tipoReceta == null) 
+            return selectByTitle(titulo);
+        else
+            return selectByTipo(tipoReceta);        
     }
     
     public Receta getSingleResult(ResultSet rs) {

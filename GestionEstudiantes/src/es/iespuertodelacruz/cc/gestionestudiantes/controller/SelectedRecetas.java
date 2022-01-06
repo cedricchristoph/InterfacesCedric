@@ -7,12 +7,8 @@ package es.iespuertodelacruz.cc.gestionestudiantes.controller;
 
 import es.iespuertodelacruz.cc.gestionestudiantes.model.dao.RecetaDAO;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Receta;
-import java.util.ArrayList;
 import java.util.HashMap;
-import javafx.beans.property.Property;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.value.ObservableValue;
-import javafx.scene.Node;
 
 /**
  *
@@ -25,7 +21,7 @@ public class SelectedRecetas {
     
     private static SelectedRecetas instance;
     
-    private static void clear() {
+    public static void clear() {
         instance = null;
     }
     

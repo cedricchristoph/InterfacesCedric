@@ -12,7 +12,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -43,6 +42,7 @@ public class FXMLRecetaAdapterController implements Initializable {
     private Label labelTipo;
     
     private Receta receta;
+    private boolean selected = false;
     
     public void setReceta(Receta receta) {
         this.receta = receta;
@@ -74,12 +74,16 @@ public class FXMLRecetaAdapterController implements Initializable {
     }
     
     public void select() {
+        if (selected) return;
+        selected = true;
         SelectedRecetas.selectReceta(receta, this);
         recetaAdapter.getStyleClass().remove(0);
         recetaAdapter.getStyleClass().add("receta-adapter-selected");
     }
     
     public void unselect() {
+        if (!selected) return;
+        selected = false;
         SelectedRecetas.unselectReceta(receta);
         recetaAdapter.getStyleClass().remove(0);
         recetaAdapter.getStyleClass().add("receta-adapter");

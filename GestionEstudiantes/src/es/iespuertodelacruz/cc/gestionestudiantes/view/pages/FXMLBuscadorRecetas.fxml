@@ -85,27 +85,26 @@
                   <Insets left="15.0" right="15.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="1031.0" spacing="8.0" VBox.vgrow="NEVER">
+            <HBox alignment="CENTER_LEFT" prefHeight="62.0" prefWidth="1011.0" spacing="8.0" VBox.vgrow="NEVER">
                <children>
-                  <VBox prefHeight="71.0" prefWidth="237.0" spacing="8.0">
+                  <VBox prefHeight="62.0" prefWidth="380.0" spacing="8.0">
                      <children>
                         <Label text="Filtrar por titulo" />
-                        <TextField fx:id="txtTitulo" prefHeight="37.0" prefWidth="342.0" promptText="Introduce un titulo a buscar" styleClass="text-field-overcast" />
+                        <TextField fx:id="txtTitulo" onKeyReleased="#filtrarTitulo" prefHeight="37.0" prefWidth="380.0" promptText="Introduce un titulo a buscar" styleClass="text-field-overcast" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="90.0" prefWidth="260.0" spacing="8.0">
+                  <VBox prefHeight="62.0" prefWidth="405.0" spacing="8.0">
                      <children>
                         <Label text="Filtrar por tipo" />
-                        <ComboBox fx:id="cbxTipos" prefHeight="35.0" prefWidth="261.0" promptText="Selecciona un tipo de receta" styleClass="text-field-overcast" />
+                        <ComboBox fx:id="cbxTipos" onAction="#filtrarTipo" prefHeight="38.0" prefWidth="380.0" promptText="Selecciona un tipo de receta" styleClass="text-field-overcast" />
                      </children>
                   </VBox>
-                  <VBox prefHeight="62.0" prefWidth="214.0" spacing="8.0">
-                     <children>
-                        <Label />
-                        <Button fx:id="btnFiltrar" mnemonicParsing="false" onAction="#filtrar" prefHeight="37.0" prefWidth="127.0" styleClass="button-arctic" text="Filtrar" />
-                     </children>
-                  </VBox>
-                  <HBox alignment="BOTTOM_RIGHT" prefHeight="72.0" prefWidth="233.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#reset" prefHeight="38.0" prefWidth="153.0" styleClass="button-overcast" text="Reset">
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <HBox alignment="BOTTOM_RIGHT" prefHeight="62.0" prefWidth="68.0" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -113,9 +112,9 @@
             </HBox>
             <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="627.0" prefWidth="1031.0" VBox.vgrow="ALWAYS">
                <content>
-                  <AnchorPane prefWidth="1262.0">
+                  <AnchorPane prefWidth="1262.0" styleClass="overcast-background">
                      <children>
-                        <FlowPane fx:id="itemList" hgap="10.0" layoutX="169.0" prefHeight="621.0" prefWidth="1262.0" vgap="10.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <FlowPane fx:id="itemList" hgap="10.0" layoutX="169.0" prefHeight="621.0" prefWidth="1262.0" style="-fx-border-width: 0px;" styleClass="overcast-background" vgap="10.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </content>

@@ -51,6 +51,7 @@ INSERT INTO authorization (id, levelid, authorized) VALUES (3, 1, 2);
 INSERT INTO authorization (id, levelid, authorized) VALUES (4, 1, 3);
 INSERT INTO authorization (id, levelid, authorized) VALUES (5, 1, 4);
 INSERT INTO authorization (id, levelid, authorized) VALUES (6, 1, 5);
+INSERT INTO authorization (id, levelid, authorized) VALUES (6, 1, 6);
 INSERT INTO authorization (id, levelid, authorized) VALUES (7, 0, 0);
 INSERT INTO authorization (id, levelid, authorized) VALUES (8, 0, 1);
 INSERT INTO authorization (id, levelid, authorized) VALUES (9, 0, 2);

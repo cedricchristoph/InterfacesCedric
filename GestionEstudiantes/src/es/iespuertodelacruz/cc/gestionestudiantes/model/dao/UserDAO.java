@@ -60,7 +60,7 @@ public class UserDAO extends UserEntry implements CRUD<User, String> {
     public boolean update(User entity) {
         try (Connection conn = db.getConnection()) {
             Statement stmt = conn.createStatement();
-            String sql = "UPDATE " + TABLE + " SET " + PASSWORD + " = '" + entity.getPassword() + "', " + LEVEL + " = " + entity.getLevel().getId();
+            String sql = "UPDATE " + TABLE + " SET " + PASSWORD + " = '" + entity.getPassword() + "', " + LEVEL + " = " + entity.getLevel().getId() + " WHERE " + USERNAME + " = '" + entity.getUsername() + "'";
             int affected = stmt.executeUpdate(sql);
             return affected > 0;
         } catch (SQLException e) {
