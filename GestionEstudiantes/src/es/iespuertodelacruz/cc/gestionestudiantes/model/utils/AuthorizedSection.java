@@ -7,6 +7,8 @@ package es.iespuertodelacruz.cc.gestionestudiantes.model.utils;
 
 /**
  * Authorization Section
+ * Esta clase se utiliza para determinar las distintas secciones a las que permitir o restringir el acceso
+ * mediante Authorizations
  * @author cedric
  */
 public enum AuthorizedSection {

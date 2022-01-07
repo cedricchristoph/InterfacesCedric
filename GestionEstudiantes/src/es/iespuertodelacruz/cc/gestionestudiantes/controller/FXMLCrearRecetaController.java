@@ -71,19 +71,46 @@ public class FXMLCrearRecetaController implements Initializable {
 
     private List<TipoReceta> tiposDeRecetas;
     private Receta receta;
+    private boolean editing = false;
     private FXMLMainWindowController controller;
+    
+    public void setReceta(Receta receta) {
+        this.receta = receta;
+    }
     
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        cargarTipoRecetas();
+        if (receta != null) {
+            editing = true;
+            cargarDatos();
+            return;
+        }
         receta = new Receta();
         receta.setAutor(User.logged);
         labelAutor.setText(receta.getAutor().getUsername());
-        cargarTipoRecetas();
     }    
 
+    public void cargarDatos() {
+        txtTitle.setText(receta.getTitulo());
+        txtTiempo.setText(receta.getTiempoPreparacion() + "");
+        txtPersonas.setText(receta.getComensales() + "");
+        txtCalorias.setText(receta.getCalorias() + "");
+        cbxTipo.getSelectionModel().select(receta.getTipo());
+        txtIngredientes.setText(receta.getIngredientes());
+        txtPasos.setText(receta.getPasos());
+        labelAutor.setText(receta.getAutor().getUsername());
+        try {
+            img.setImage(ImageLoader.load(receta.getImageURL()));
+        } catch (NullPointerException e) {
+            receta.setImageURL(null);
+            new Alert(Alert.AlertType.ERROR, "No se pudo abrir la imagen. Elige una nueva", ButtonType.OK).showAndWait();
+        }
+    }
+    
     public void setMainWindowController(FXMLMainWindowController controller) {
         this.controller = controller;
     }
@@ -103,7 +130,7 @@ public class FXMLCrearRecetaController implements Initializable {
             receta.setImageURL(file.getAbsolutePath());
         } catch (NullPointerException ex) {
             receta.setImageURL(null);
-            new Alert(Alert.AlertType.ERROR, "No se pudo abrir la imagen", ButtonType.OK).showAndWait();
+            new Alert(Alert.AlertType.ERROR, "No se pudo abrir la imagen", ButtonType.OK).show();
         }
     }
 
@@ -139,10 +166,18 @@ public class FXMLCrearRecetaController implements Initializable {
         // Guardar Receta
         try {
             RecetaDAO dao = new RecetaDAO();
-            if (!dao.insert(receta))
-                throw new Exception("No se pudo crear la receta");            
+            if (!editing) {
+                if (!dao.insert(receta)) {
+                    throw new Exception("No se pudo crear la receta");  
+                } else
+                     new Alert(Alert.AlertType.CONFIRMATION, "Receta creada correctamente", ButtonType.OK).show();
+            } else {
+                if (!dao.update(receta))
+                    throw new Exception("No se pudo actualizar la receta");
+                else
+                     new Alert(Alert.AlertType.CONFIRMATION, "Receta actualizada correctamente", ButtonType.OK).show();
+            }
             volverAlBuscador();
-            new Alert(Alert.AlertType.CONFIRMATION, "Receta creada correctamente", ButtonType.OK).show();
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK).show();
         }

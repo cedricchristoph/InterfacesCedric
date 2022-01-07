@@ -22,7 +22,8 @@ public class SelectedRecetas {
     private static SelectedRecetas instance;
     
     public static void clear() {
-        instance = null;
+        getInstance().selected = new HashMap<Receta, FXMLRecetaAdapterController>();
+        getInstance().refreshAmount();
     }
     
     public static SelectedRecetas getInstance() {
@@ -46,9 +47,13 @@ public class SelectedRecetas {
         getInstance().delete();
     }
     
+    public static Receta getFirst() {
+        return getInstance().getFirstSelected();
+    }
+    
     /* NON-STATIC */
     
-    private HashMap<Receta, FXMLRecetaAdapterController> selected;
+    public HashMap<Receta, FXMLRecetaAdapterController> selected;
     public SimpleIntegerProperty amount;
     
     public SelectedRecetas() {
@@ -66,6 +71,11 @@ public class SelectedRecetas {
         if (!selected.containsKey(receta)) return;
         selected.remove(receta);
         refreshAmount();
+    }
+    
+    public Receta getFirstSelected() {
+        if (selected.size() != 1) return null;
+        return selected.entrySet().stream().findFirst().get().getKey();
     }
     
     // TODO

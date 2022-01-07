@@ -144,7 +144,7 @@ public class FXMLBuscadorRecetasController implements Initializable {
     private void actualizarLista(boolean useFilter) {
         
         emptyList();
-        SelectedRecetas.unselectAllRecetas();
+        SelectedRecetas.clear();
         RecetaDAO dao = new RecetaDAO();
         
         // Comprobar si se debe usar filtro y si estos vienen rellenados
@@ -245,7 +245,9 @@ public class FXMLBuscadorRecetasController implements Initializable {
 
     @FXML
     private void edit(ActionEvent event) {
-        if (!Globals.chkAccess(AuthorizedSection.MODIFICAR_RECETAS)) return;
+        Receta receta = SelectedRecetas.getFirst();
+        if (receta == null) return;
+        controller.showActualizarReceta(receta);
     }
     
 }

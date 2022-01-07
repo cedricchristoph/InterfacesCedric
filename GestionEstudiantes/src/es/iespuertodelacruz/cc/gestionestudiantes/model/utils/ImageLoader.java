@@ -19,6 +19,12 @@ import javafx.scene.image.Image;
  */
 public class ImageLoader {
     
+    /**
+     * Carga una imagen dada la URL local
+     * @param url de la imagen
+     * @return Devuelve el Image cargado o NULL en caso de cualquier error que impida la carga de la imagen
+     * @throws NullPointerException 
+     */
     public static Image load(String url) throws NullPointerException {
         try (FileInputStream stream = new FileInputStream(url)) {
             return new Image(stream);

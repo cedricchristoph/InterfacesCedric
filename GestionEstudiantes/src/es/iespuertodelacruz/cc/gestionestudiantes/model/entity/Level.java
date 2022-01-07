@@ -20,16 +20,28 @@ public class Level {
     private String name;
     private ArrayList<Authorization> authorizations;
     
+    /**
+     * Constructor por defecto
+     */
     public Level() {
     }
 
-    
+    /**
+     * Constructor completo
+     * @param id
+     * @param name
+     * @param authorizations 
+     */
     public Level(Integer id, String name, ArrayList<Authorization> authorizations) {
         this.id = id;
         this.name = name;
         this.authorizations = authorizations;
     }
 
+    /**
+     * Metodo que crea una autorizacion para el level para poder acceder a cierta seccion indicada
+     * @param section Seccion a la que se le autoriza el level
+     */
     public void authorize(AuthorizedSection section) {
         AuthorizationsDAO dao = new AuthorizationsDAO();
         Authorization a = new Authorization();
@@ -39,6 +51,10 @@ public class Level {
         reloadAuthorizations();
     }
     
+    /**
+     * Metodo que elimina una autorizacion del level para prohibir el acceso a la seccion indicada
+     * @param section Seccion a la que se restringe el acceso para el level
+     */
     public void forbid(AuthorizedSection section) {
         AuthorizationsDAO dao = new AuthorizationsDAO();
         Authorization a = null;
@@ -51,6 +67,9 @@ public class Level {
         reloadAuthorizations();
     }
     
+    /**
+     * Recarga las autorizaciones
+     */
     private void reloadAuthorizations() {
         AuthorizationsDAO dao = new AuthorizationsDAO();
         authorizations = (ArrayList<Authorization>) dao.selectLevelAuthorizations(this);

@@ -5,17 +5,23 @@
  */
 package es.iespuertodelacruz.cc.gestionestudiantes.controller;
 
+import es.iespuertodelacruz.cc.gestionestudiantes.constants.Views;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.Receta;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.utils.ImageLoader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -66,11 +72,29 @@ public class FXMLRecetaAdapterController implements Initializable {
 
     @FXML
     private void clicked(MouseEvent event) {
-        if (event.getButton() == MouseButton.PRIMARY) {
+        if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 1) {
             select();
-        } else if (event.getButton() == MouseButton.SECONDARY) {
+        } else if (event.getButton() == MouseButton.SECONDARY  && event.getClickCount() == 1) {
             unselect();
+        } else if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+            openReceta();
         }
+    }
+    
+    private void openReceta() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.RECETA_FULL));
+        FXMLFullRecetaController controller = new FXMLFullRecetaController();
+        controller.setReceta(receta);
+        loader.setController(controller);
+        try {
+            Stage stage = new Stage(StageStyle.UNDECORATED);
+            Scene scene = new Scene(loader.load());
+            stage.setScene(scene);
+            stage.showAndWait();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
     }
     
     public void select() {

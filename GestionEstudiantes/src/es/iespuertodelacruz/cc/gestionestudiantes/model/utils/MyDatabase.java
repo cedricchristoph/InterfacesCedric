@@ -2,9 +2,7 @@ package es.iespuertodelacruz.cc.gestionestudiantes.model.utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class MyDatabase {
 
@@ -22,7 +20,7 @@ public class MyDatabase {
             dbLocation = Globals.CONST_APP_DBLOCATION;
             this.username = Globals.CONST_APP_USER;
             this.pwd = Globals.CONST_APP_PWD;
-            dbConnection = "jdbc:mysql://localhost:3307/" + dbLocation + "?serverTimezone=UTC";
+            dbConnection = Globals.CONST_APP_CONNECTOR + dbLocation + "?serverTimezone=UTC";
             System.out.println(dbConnection);
         }
         

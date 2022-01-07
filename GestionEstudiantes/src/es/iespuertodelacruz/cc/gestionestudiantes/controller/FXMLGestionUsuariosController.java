@@ -80,6 +80,8 @@ public class FXMLGestionUsuariosController implements Initializable {
     private Button btnDeleteUser;
     @FXML
     private Button btnDeleteLevel;
+    @FXML
+    private VBox permissionSections;
     
     /**
      * Initializes the controller class.
@@ -174,6 +176,8 @@ public class FXMLGestionUsuariosController implements Initializable {
         btnAccessEstadisticas.setDisable(!state);
         btnAccessNotas.setDisable(!state);
         btnAccessUsuarios.setDisable(!state);
+        btnEditLevel.setDisable(!state);
+        btnDeleteLevel.setDisable(!state);
     }
     
     
@@ -195,6 +199,11 @@ public class FXMLGestionUsuariosController implements Initializable {
         sections.getChildren().remove(1);
         loadUserList();
     }
+    
+    public void closeAddLevelWindow() {
+        permissionSections.getChildren().remove(1);
+        loadLevelList();
+    }
 
     @FXML
     private void editUser(ActionEvent event) {
@@ -213,10 +222,31 @@ public class FXMLGestionUsuariosController implements Initializable {
 
     @FXML
     private void addLevel(ActionEvent event) {
+        if (!Globals.chkAccess(AuthorizedSection.GESTION_USUARIOS)) return;
+        FXMLAddLevelController controller = new FXMLAddLevelController();
+        controller.setParent(this);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.ADD_LEVEL));
+        loader.setController(controller);
+        try {
+            permissionSections.getChildren().add(1, loader.load());
+        } catch (IOException e) {
+            
+        }
     }
 
     @FXML
     private void editLevel(ActionEvent event) {
+        if (!Globals.chkAccess(AuthorizedSection.GESTION_USUARIOS)) return;
+        FXMLAddLevelController controller = new FXMLAddLevelController();
+        controller.setParent(this);
+        controller.setLevel(selectedLevel);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(Views.ADD_LEVEL));
+        loader.setController(controller);
+        try {
+            permissionSections.getChildren().add(1, loader.load());
+        } catch (IOException e) {
+            
+        }
     }
 
     @FXML
@@ -297,6 +327,14 @@ public class FXMLGestionUsuariosController implements Initializable {
 
     @FXML
     private void deleteLevel(ActionEvent event) {
+        if (!Globals.chkAccess(AuthorizedSection.GESTION_USUARIOS)) return;
+        LevelDAO dao = new LevelDAO();
+        dao.delete(selectedLevel);
+        listViewLevels.getItems().remove(selectedLevel);
+        selectedLevel = null;
+        enableButtons(false);
+        loadLevelList();
+        loadUserList();
     }
     
 }

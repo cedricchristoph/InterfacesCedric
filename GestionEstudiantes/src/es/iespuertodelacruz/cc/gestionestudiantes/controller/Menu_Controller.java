@@ -54,34 +54,34 @@ public class Menu_Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        btnDashboard.setVisible(false);
-        btnNutricion.setVisible(false);
-        btnBuscar.setVisible(false);
-        btnEstadisticas.setVisible(false);
-        btnUsuarios.setVisible(false);
-        btnNotas.setVisible(false);
+        btnDashboard.setDisable(true);
+        btnNutricion.setDisable(true);
+        btnBuscar.setDisable(true);
+        btnEstadisticas.setDisable(true);
+        btnUsuarios.setDisable(true);
+        btnNotas.setDisable(true);
         // Check user authorization
         try {
             List<Authorization> authorizations = User.logged.getLevel().getAuthorizations();
             authorizations.forEach(a -> {
                 switch(a.getSection()) {
                     case DASHBOARD:
-                        btnDashboard.setVisible(true);
+                        btnDashboard.setDisable(false);
                         break;
                     case NUTRICION:
-                        btnNutricion.setVisible(true);
+                        btnNutricion.setDisable(false);
                         break;
                     case BUSCAR_RECETAS:
-                        btnBuscar.setVisible(true);
+                        btnBuscar.setDisable(false);
                         break;
                     case ESTADISTICAS:
-                        btnEstadisticas.setVisible(true);
+                        btnEstadisticas.setDisable(false);
                         break;
                     case GESTION_NOTAS:
-                        btnNotas.setVisible(true);
+                        btnNotas.setDisable(false);
                         break;
                     case GESTION_USUARIOS:
-                        btnUsuarios.setVisible(true);
+                        btnUsuarios.setDisable(false);
                         break;
                 }
             });
@@ -98,6 +98,7 @@ public class Menu_Controller implements Initializable {
 
     @FXML
     private void dashboard(ActionEvent event) {
+        controller.showBuscadorRecetas();
     }
 
     @FXML
@@ -125,6 +126,7 @@ public class Menu_Controller implements Initializable {
 
     @FXML
     private void logout(ActionEvent event) {
+        controller.logout();
     }
     
 }

@@ -88,7 +88,24 @@
 }
 
 /* BUTTONS */
+.window-control-button-red {
+    -fx-background-radius: 0;
+    -fx-background-color: #e24040;
+    -fx-text-fill: white;
+}
+
+.window-control-button-red:hover {
+    -fx-background-radius: 0;
+    -fx-background-color: #cc3333;
+}
+
+.window-control-button-red:pressed {
+    -fx-background-radius: 0;
+    -fx-background-color: #bd2727;
+}
+
 .window-control-button-white {
+    -fx-background-radius: 0;
     -fx-background-color: #FFFFFF;
     -fx-text-fill: #848287;
 }
@@ -203,7 +220,7 @@
 /* FIELDS */
 .text-field-overcast {
     -fx-background-color: #FFFFFF;
-    -fx-text-fill: #A1D6E2;
+    -fx-text-fill: #1995AD;
     -fx-border-color: #A1D6E2;
     -fx-focus-color: #1995AD;
     -fx-background-insets: 0;

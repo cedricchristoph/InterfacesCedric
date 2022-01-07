@@ -65,7 +65,18 @@ public class RecetaDAO extends RecetaEntry implements CRUD<Receta, Integer>{
 
     @Override
     public boolean update(Receta entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection conn = db.getConnection()) {
+            Statement stmt = conn.createStatement();
+            String sql = "UPDATE " + TABLE + " SET " + TITULO + " = '"+ entity.getTitulo() + "', " + TIPO + " = " + entity.getTipo().getId() +
+                    ", " + INGREDIENTES + " = '" + entity.getIngredientes() + "', " + PASOS + " = '" + entity.getPasos() + "', " + COMENSALES + 
+                    " = " + entity.getComensales() + ", " + CALORIAS + " = " + entity.getCalorias() + ", " + TIEMPO_PREPARACION + " = " + entity.getTiempoPreparacion() + ", " +
+                    IMAGEN + " = '" + entity.getImageURL() + "' WHERE " + ID + " = " + entity.getId();
+            Integer affected = stmt.executeUpdate(sql);
+            return affected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

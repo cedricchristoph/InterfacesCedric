@@ -27,6 +27,8 @@ public class Authorization {
         this.section = section;
     }
 
+    // Getters & Setters
+    
     public int getId() {
         return id;
     }

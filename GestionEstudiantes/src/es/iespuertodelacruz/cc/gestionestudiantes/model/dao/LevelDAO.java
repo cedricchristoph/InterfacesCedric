@@ -30,17 +30,42 @@ public class LevelDAO extends LevelEntry implements CRUD<Level, Integer>{
 
     @Override
     public boolean insert(Level entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection conn = db.getConnection()) {
+            Statement stmt = conn.createStatement();
+            String sql = "INSERT INTO " + TABLE + " (" + NAME + ") VALUES ('" + entity.getName() + "')";
+            System.out.println(sql);
+            int affected = stmt.executeUpdate(sql);
+            return affected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean delete(Level entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection conn = db.getConnection()) {
+            Statement stmt = conn.createStatement();
+            String sql = "DELETE FROM " + TABLE + " WHERE " + ID + " = " + entity.getId();
+            int affected = stmt.executeUpdate(sql);
+            return affected > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
     }
 
     @Override
     public boolean update(Level entity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try (Connection conn = db.getConnection()) {
+            Statement stmt = conn.createStatement();
+            String sql = "UPDATE " + TABLE + " SET " + NAME + " = '" + entity.getName() + "' WHERE " + ID + " = " + entity.getId();
+            int affected = stmt.executeUpdate(sql);
+            return affected > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override

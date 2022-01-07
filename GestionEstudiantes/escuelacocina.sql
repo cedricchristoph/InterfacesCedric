@@ -2,7 +2,7 @@ CREATE DATABASE escuelacocina;
 use escuelacocina;
 
 CREATE TABLE levels (
-    id INTEGER PRIMARY KEY,
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
     levelName VARCHAR(30) NOT NULL
 );
 
@@ -42,31 +42,31 @@ CREATE TABLE recetas (
     FOREIGN KEY (tipo) REFERENCES receta_tipos(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-INSERT INTO levels (id, levelName) VALUES (0, "Alumno");
-INSERT INTO levels (id, levelName) VALUES (1, "Profesor");
+INSERT INTO levels (id, levelName) VALUES (1, "Alumno");
+INSERT INTO levels (id, levelName) VALUES (2, "Profesor");
 
-INSERT INTO authorization (id, levelid, authorized) VALUES (1, 1, 0);
-INSERT INTO authorization (id, levelid, authorized) VALUES (2, 1, 1);
-INSERT INTO authorization (id, levelid, authorized) VALUES (3, 1, 2);
-INSERT INTO authorization (id, levelid, authorized) VALUES (4, 1, 3);
-INSERT INTO authorization (id, levelid, authorized) VALUES (5, 1, 4);
-INSERT INTO authorization (id, levelid, authorized) VALUES (6, 1, 5);
-INSERT INTO authorization (id, levelid, authorized) VALUES (6, 1, 6);
-INSERT INTO authorization (id, levelid, authorized) VALUES (7, 0, 0);
-INSERT INTO authorization (id, levelid, authorized) VALUES (8, 0, 1);
-INSERT INTO authorization (id, levelid, authorized) VALUES (9, 0, 2);
-INSERT INTO authorization (id, levelid, authorized) VALUES (10, 0, 3);
+INSERT INTO authorization (id, levelid, authorized) VALUES (1, 2, 0);
+INSERT INTO authorization (id, levelid, authorized) VALUES (2, 2, 1);
+INSERT INTO authorization (id, levelid, authorized) VALUES (3, 2, 2);
+INSERT INTO authorization (id, levelid, authorized) VALUES (4, 2, 3);
+INSERT INTO authorization (id, levelid, authorized) VALUES (5, 2, 4);
+INSERT INTO authorization (id, levelid, authorized) VALUES (6, 2, 5);
+INSERT INTO authorization (id, levelid, authorized) VALUES (6, 2, 6);
+INSERT INTO authorization (id, levelid, authorized) VALUES (7, 1, 0);
+INSERT INTO authorization (id, levelid, authorized) VALUES (8, 1, 1);
+INSERT INTO authorization (id, levelid, authorized) VALUES (9, 1, 2);
+INSERT INTO authorization (id, levelid, authorized) VALUES (10, 1, 3);
 
 INSERT INTO receta_tipos (id, tipo, imagen) VALUES (1, "Entrante", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/salat.png");
 INSERT INTO receta_tipos (id, tipo, imagen) VALUES (2, "Primero", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/soup.png");
 INSERT INTO receta_tipos (id, tipo, imagen) VALUES (3, "Segundo", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/steak.png");
 INSERT INTO receta_tipos (id, tipo, imagen) VALUES (4, "Postre", "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/dessert.png");
 
-INSERT INTO users (username, pass, userLevel) VALUES ("profe", "profe", 1);
-INSERT INTO users (username, pass, userLevel) VALUES ("admin", "admin", 1);
-INSERT INTO users (username, pass, userLevel) VALUES ("juan", "j4", 0);
-INSERT INTO users (username, pass, userLevel) VALUES ("pepe", "p4", 1);
-INSERT INTO users (username, pass, userLevel) VALUES ("yaiza", "y5", 0);
+INSERT INTO users (username, pass, userLevel) VALUES ("profe", "profe", 2);
+INSERT INTO users (username, pass, userLevel) VALUES ("admin", "admin", 2);
+INSERT INTO users (username, pass, userLevel) VALUES ("juan", "j4", 1);
+INSERT INTO users (username, pass, userLevel) VALUES ("pepe", "p4", 2);
+INSERT INTO users (username, pass, userLevel) VALUES ("yaiza", "y5", 1);
 
 INSERT INTO recetas (titulo, autor, tipo, ingredientes, pasos, comensales, tiempoPreparacion, calorias, imagen)
 VALUES("Flan", "juan", 4, "-Huevos;-Leche", "-Batir;-Hornear", 4, 30, 140, "/home/cedric/Escritorio/GitHub/InterfacesCedric/GestionEstudiantes/src/es/iespuertodelacruz/cc/gestionestudiantes/res/flan.jpg");

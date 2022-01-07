@@ -13,27 +13,43 @@ import java.util.Objects;
  */
 public class User {
     
+    /**
+     * Usuario logeado en la aplicacion
+     */
     public static User logged;
     
     private String username;
     private String password;
     private Level level;
 
+    /**
+     * Constructor por defecto
+     */
     public User() {
     }
     
-    /* Getters and Setters */
-    
+    /**
+     * Constructor completo
+     * @param username
+     * @param password
+     * @param level 
+     */
     public User(String username, String password, Level level) {
         this.username = username;
         this.password = password;
         this.level = level;
     }
 
+    /**
+     * Comprueba que la contraseña es correcta
+     * @param pwd Contraseña introducida
+     * @return True y solo true si las contraseñas coinciden
+     */
     public boolean checkPwd(String pwd) {
         return pwd.equals(password);
     }
     
+    /* Getters and Setters */
     
     public String getUsername() {
         return username;

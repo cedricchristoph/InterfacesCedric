@@ -8,7 +8,6 @@ package es.iespuertodelacruz.cc.gestionestudiantes.controller;
 import es.iespuertodelacruz.cc.gestionestudiantes.constants.Views;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.dao.UserDAO;
 import es.iespuertodelacruz.cc.gestionestudiantes.model.entity.User;
-import java.awt.event.WindowStateListener;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -22,7 +21,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -37,15 +35,9 @@ public class FXMLLoginController implements Initializable {
     @FXML
     private HBox windowControlPanel;
     @FXML
-    private Button btnMinimize;
-    @FXML
-    private Button btnMaximize;
-    @FXML
     private Button btnExit;
     @FXML
     private Button btnLogin;
-    @FXML
-    private ImageView iconSection;
     @FXML
     private Label labelSection;
     @FXML
@@ -61,13 +53,6 @@ public class FXMLLoginController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void minimizeClicked(ActionEvent event) {
-    }
-
-    @FXML
-    private void maximizeClicked(ActionEvent event) {
-    }
 
     @FXML
     private void exit(ActionEvent event) {

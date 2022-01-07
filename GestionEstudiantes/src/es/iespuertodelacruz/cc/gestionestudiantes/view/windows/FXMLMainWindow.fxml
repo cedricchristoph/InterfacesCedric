@@ -67,11 +67,11 @@
                                                 </ImageView>
                                              </graphic>
                                           </Button>
-                                          <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" prefHeight="32.0" prefWidth="52.0" styleClass="window-control-button-white">
+                                          <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exit" prefHeight="32.0" prefWidth="52.0" styleClass="window-control-button-red">
                                              <graphic>
                                                 <ImageView fitHeight="20.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../../res/close.png" />
+                                                      <Image url="@../../res/output-onlinepngtools.png" />
                                                    </image>
                                                 </ImageView>
                                              </graphic>
@@ -88,14 +88,6 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="16.0" prefHeight="60.0" prefWidth="849.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
                                        <children>
-                                          <ImageView fitHeight="32.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                                             <image>
-                                                <Image url="@../../res/grid-three-up-512.png" />
-                                             </image>
-                                             <HBox.margin>
-                                                <Insets left="10.0" />
-                                             </HBox.margin>
-                                          </ImageView>
                                           <Label fx:id="labelSection" text="Dashboard" textFill="#2c2c2c">
                                              <font>
                                                 <Font name="System Bold" size="23.0" />
@@ -112,7 +104,7 @@
                                  <children>
                                     <HBox alignment="CENTER_RIGHT" layoutX="14.0" layoutY="20.0" prefHeight="51.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="16.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" styleClass="button-overcast">
+                                          <Button fx:id="btnAccount" mnemonicParsing="false" onAction="#accountSettings" prefHeight="50.0" prefWidth="50.0" styleClass="button-overcast">
                                              <graphic>
                                                 <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -120,18 +112,9 @@
                                                    </image>
                                                 </ImageView>
                                              </graphic>
-                                          </Button>
-                                          <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#settingsClicked" prefHeight="50.0" prefWidth="50.0" styleClass="button-overcast">
                                              <HBox.margin>
                                                 <Insets right="10.0" />
                                              </HBox.margin>
-                                             <graphic>
-                                                <ImageView fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@../../res/cog.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </graphic>
                                           </Button>
                                        </children>
                                     </HBox>

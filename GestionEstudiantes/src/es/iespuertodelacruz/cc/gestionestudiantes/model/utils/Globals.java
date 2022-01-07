@@ -10,6 +10,7 @@ import javafx.scene.control.ButtonType;
 public class Globals {
 
     /* CREDENCIALES DE APLICACION PARA DDBB */
+    public static final String CONST_APP_CONNECTOR = "jdbc:mysql://localhost:3307/";
     public static final String CONST_APP_DBLOCATION = "escuelacocina";
     public static final String CONST_APP_USER = "root";
     public static final String CONST_APP_PWD = "";

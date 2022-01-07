@@ -150,7 +150,7 @@
                </padding>
                <children>
                   <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#cancelar" prefHeight="36.0" prefWidth="150.0" styleClass="button-overcast" text="Cancelar" />
-                  <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crear" prefHeight="33.0" prefWidth="150.0" styleClass="button-arctic" text="Crear" />
+                  <Button fx:id="btnCrear" mnemonicParsing="false" onAction="#crear" prefHeight="33.0" prefWidth="150.0" styleClass="button-arctic" text="Guardar" />
                </children>
                <VBox.margin>
                   <Insets bottom="20.0" />
