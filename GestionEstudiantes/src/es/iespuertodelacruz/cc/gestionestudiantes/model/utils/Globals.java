@@ -10,10 +10,10 @@ import javafx.scene.control.ButtonType;
 public class Globals {
 
     /* CREDENCIALES DE APLICACION PARA DDBB */
-    public static final String CONST_APP_CONNECTOR = "jdbc:mysql://localhost:3307/";
+    public static final String CONST_APP_CONNECTOR = "jdbc:mysql://127.0.0.1:3306/";
     public static final String CONST_APP_DBLOCATION = "escuelacocina";
     public static final String CONST_APP_USER = "root";
-    public static final String CONST_APP_PWD = "";
+    public static final String CONST_APP_PWD = "1q2w3e4r";
 
     /* RUTAS */
     public static final String VIEWS = "/es/iespuertodelacruz/cc/gestionestudiantes/view";

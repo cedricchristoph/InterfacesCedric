@@ -34,7 +34,7 @@ public class MyDatabase {
 	public Connection getConnection() {
 		if ((!(username == null) || !(username.isEmpty()) && (!(pwd == null)))) {
 			try {
-				return DriverManager.getConnection(dbConnection, username, "");
+				return DriverManager.getConnection(dbConnection, username, pwd);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
