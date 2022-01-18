@@ -1,0 +1,8 @@
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_05_TiendaCedric\AppTiendaCedric\VisualComponents\bin\Debug\VisualComponents.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_05_TiendaCedric\AppTiendaCedric\VisualComponents\bin\Debug\VisualComponents.pdb
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_05_TiendaCedric\AppTiendaCedric\VisualComponents\obj\Debug\VisualComponents.Properties.Resources.resources
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_05_TiendaCedric\AppTiendaCedric\VisualComponents\obj\Debug\VisualComponents.SelectedElement.resources
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_05_TiendaCedric\AppTiendaCedric\VisualComponents\obj\Debug\VisualComponents.csproj.GenerateResource.cache
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_05_TiendaCedric\AppTiendaCedric\VisualComponents\obj\Debug\VisualComponents.csproj.CoreCompileInputs.cache
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_05_TiendaCedric\AppTiendaCedric\VisualComponents\obj\Debug\VisualComponents.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\AEUT3_05_TiendaCedric\AppTiendaCedric\VisualComponents\obj\Debug\VisualComponents.pdb
