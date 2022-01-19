@@ -1,0 +1,6 @@
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\Model\bin\Debug\Model.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\Model\bin\Debug\Model.pdb
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\Model\obj\Debug\Model.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\Model\obj\Debug\Model.pdb
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\Model\obj\Debug\Model.csproj.AssemblyReference.cache

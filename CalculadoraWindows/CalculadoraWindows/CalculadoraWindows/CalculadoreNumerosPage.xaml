@@ -1,0 +1,406 @@
+﻿<Page x:Class="CalculadoraWindows.CalculadoreNumerosPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CalculadoraWindows"
+      mc:Ignorable="d" 
+      d:DesignHeight="648" d:DesignWidth="493"
+      Title="CalculadoreNumerosPage">
+    <Page.Resources>
+        <Style x:Key="TitleBarButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource WindowTextBrush}" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            x:Name="border"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                                x:Name="contentPresenter"
+                                Margin="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Focusable="False"
+                                RecognizesAccessKey="True" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="#404040" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource PressedOverlayBackgroundBrush}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="GreyButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="{DynamicResource WindowTextBrush}" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+					x:Name="border"
+					Background="#404040"
+					BorderThickness="0"
+					SnapsToDevicePixels="true">
+                            <ContentPresenter
+						x:Name="contentPresenter"
+						Margin="0"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Focusable="False"
+						RecognizesAccessKey="True" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="#595959" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="#545454" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DarkButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="{DynamicResource WindowTextBrush}" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+					x:Name="border"
+					Background="#FF1B1B1B"
+					BorderThickness="0"
+					SnapsToDevicePixels="true">
+                            <ContentPresenter
+						x:Name="contentPresenter"
+						Margin="0"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Focusable="False"
+						RecognizesAccessKey="True" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="#FF171717" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="BlueButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="{DynamicResource WindowTextBrush}" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+					x:Name="border"
+					Background="#FF3E7EA2"
+					BorderThickness="0"
+					SnapsToDevicePixels="true">
+                            <ContentPresenter
+						x:Name="contentPresenter"
+						Margin="0"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Focusable="False"
+						RecognizesAccessKey="True" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="#FF3A94C7" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="#FF2F82B2" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+
+    <Grid Margin="7,0,0,0">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="123px"/>
+            <ColumnDefinition Width="123px"/>
+            <ColumnDefinition Width="123px"/>
+            <ColumnDefinition Width="123px"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="210px"/>
+            <RowDefinition Height="74px"/>
+            <RowDefinition Height="74px"/>
+            <RowDefinition Height="74px"/>
+            <RowDefinition Height="74px"/>
+            <RowDefinition Height="74px"/>
+            <RowDefinition Height="74px"/>
+        </Grid.RowDefinitions>
+        <TextBlock 
+            x:Name="resultBlock" 
+            Grid.Column="0" 
+            Grid.ColumnSpan="4"
+            TextWrapping="Wrap" 
+            Text="0" 
+            VerticalAlignment="Top" 
+            Height="114" 
+            Width="479" 
+            FontSize="50" 
+            TextAlignment="Right" 
+            Foreground="White"
+            FontWeight="Bold" Margin="7,76,7,0"
+            />
+        <TextBlock 
+            x:Name="lastOperationBlock" 
+            Grid.Column="0" 
+            Grid.ColumnSpan="4"
+            TextWrapping="Wrap" 
+            Text="" 
+            VerticalAlignment="Top" 
+            Height="29" 
+            Width="479" 
+            FontSize="20" 
+            TextAlignment="Right" 
+            Foreground="#FF8D8D8D" Margin="7,47,7,0"
+            />
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,3,3" Content="%" 
+            Grid.Row="1" Grid.Column="0"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="CE" 
+            Grid.Row="1" Grid.ColumnSpan="1" 
+            HorizontalAlignment="Left" 
+            Width="117" Height="68px" 
+            FontSize="20" Grid.Column="1"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="C" 
+            Grid.Row="1" 
+            HorizontalAlignment="Left" 
+            Width="117" Height="68px" 
+            FontSize="20" Grid.Column="2"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="←" 
+            Grid.Row="1" 
+            HorizontalAlignment="Left" 
+            Width="117" Height="68px" 
+            FontSize="30" Grid.Column="3"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,4,0,3" Content="1/x" 
+            Grid.Row="2" Grid.Column="0"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontStyle="Italic"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="x^2" 
+            Grid.Row="2" Grid.ColumnSpan="1" 
+            HorizontalAlignment="Left" 
+            Width="117" Height="68px" 
+            FontSize="20" Grid.Column="1"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="√" 
+            Grid.Row="2" 
+            HorizontalAlignment="Left" 
+            Width="117" Height="68px" 
+            FontSize="20" Grid.Column="2"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="÷" 
+            Grid.Row="2" 
+            HorizontalAlignment="Left" 
+            Width="117" Height="68px" 
+            FontSize="30" Grid.Column="3" Click="setOperationButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="×" 
+            Grid.Row="3" 
+            HorizontalAlignment="Left" 
+            Width="117" Height="68px" 
+            FontSize="30" Grid.Column="3" Click="setOperationButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="−" 
+            Grid.Row="4" 
+            HorizontalAlignment="Left" 
+            Width="117" Height="68px" 
+            FontSize="30" Grid.Column="3" Click="setOperationButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource GreyButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="+" 
+            Grid.Row="5" 
+            HorizontalAlignment="Left" 
+            Width="117" Height="68px" 
+            FontSize="30" Grid.Column="3" Click="setOperationButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="7" 
+            Grid.Row="3" Grid.Column="0"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="8" 
+            Grid.Row="3" Grid.Column="1"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,4" Content="9" 
+            Grid.Row="3" Grid.Column="2"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="4" 
+            Grid.Row="4" Grid.Column="0"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="5" 
+            Grid.Row="4" Grid.Column="1"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="6" 
+            Grid.Row="4" Grid.Column="2"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="1" 
+            Grid.Row="5" Grid.Column="0"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="2" 
+            Grid.Row="5" Grid.Column="1"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="3" 
+            Grid.Row="5" Grid.Column="2"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="±" 
+            Grid.Row="6" Grid.Column="0"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="0" 
+            Grid.Row="6" Grid.Column="1"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" FontWeight="Bold" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource DarkButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="," 
+            Grid.Row="6" Grid.Column="2"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="20" Click="addCharacterButtonClick"/>
+        <Button
+            RenderOptions.EdgeMode="Aliased"
+            Style="{StaticResource BlueButtonStyle}" 
+            Foreground="White" 
+            RenderTransformOrigin="1.241,-0.319" 
+            Margin="3,3,0,3" Content="=" 
+            Grid.Row="6" Grid.Column="3"
+            HorizontalAlignment="Left" Width="117" Height="68px" FontSize="25" Click="equals"/>
+
+    </Grid>
+</Page>
