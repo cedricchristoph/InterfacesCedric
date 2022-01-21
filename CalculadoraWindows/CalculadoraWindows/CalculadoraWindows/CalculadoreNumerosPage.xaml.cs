@@ -80,7 +80,7 @@ namespace CalculadoraWindows
 
         public void runEquals()
         {
-            resultBlock.Text = calc.calculate() + "";
+            resultBlock.Text = calc.calculate();
             showLastOperationString();
         }
 
@@ -88,6 +88,65 @@ namespace CalculadoraWindows
         {
             calc.establishNumber(false);
             runEquals();
+        }
+
+        private void calculatePercent(object sender, RoutedEventArgs e)
+        {
+            calc.establishNumber(true);
+            calc.setOperation(Operation.DIVIDE);
+            calc.StringNumber("100");
+            calc.establishNumber(false);
+            runEquals();
+        }
+
+        private void oneDivideX(object sender, RoutedEventArgs e)
+        {
+            calc.establishNumber(false);
+            calc.setOperation(Operation.DIVIDE);
+            calc.StringNumber("1");
+            calc.establishNumber(true);
+            runEquals();
+        }
+
+        private void timesTwo(object sender, RoutedEventArgs e)
+        {
+            calc.establishNumber(true);
+            calc.StringNumber(calc.Actual.NumberA + "");
+            calc.establishNumber(false);
+            calc.setOperation(Operation.MULTIPLY);
+            runEquals();
+        }
+
+        private void squareRoot(object sender, RoutedEventArgs e)
+        {
+            calc.establishNumber(true);
+            calc.setOperation(Operation.SQUARE_ROOT);
+            runEquals();
+        }
+
+        private void clearStringNumber(object sender, RoutedEventArgs e)
+        {
+            calc.StringNumber("");
+            showStringNumber();
+        }
+
+        private void clearCalculation(object sender, RoutedEventArgs e)
+        {
+            calc.newCalculation();
+            showStringNumber();
+            lastOperationBlock.Text = "";
+        }
+
+        private void removeOneChar(object sender, RoutedEventArgs e)
+        {
+            calc.removeLastCharFromNumber();
+            showStringNumber();
+        }
+
+        private void changeMinusPlus(object sender, RoutedEventArgs e)
+        {
+            calc.switchSign();
+            showStringNumber();
         }
     }
 }

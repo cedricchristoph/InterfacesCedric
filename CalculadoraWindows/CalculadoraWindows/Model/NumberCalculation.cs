@@ -47,6 +47,9 @@ namespace Model
                 case Operation.DIVIDE:
                     result = A / B;
                     break;
+                case Operation.SQUARE_ROOT:
+                    result = Math.Sqrt(A);
+                    break;
             }
             return result;
         }
@@ -68,6 +71,8 @@ namespace Model
                     return A + " × " + end;
                 case Operation.DIVIDE:
                     return A + " ÷ " + end;
+                case Operation.SQUARE_ROOT:
+                    return "√ " + A + " =";
                 default:
                     return "";
             }

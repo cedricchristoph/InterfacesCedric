@@ -21,6 +21,11 @@ namespace Model
             return stringNumber;
         }
 
+        public void StringNumber(string value)
+        {
+            stringNumber = value;
+        }
+
         public NumberCalculator()
         {
             historial = new List<NumberCalculation>();
@@ -46,6 +51,30 @@ namespace Model
                 historial.Add(actual);
         }
 
+        public void removeLastCharFromNumber()
+        {
+            try
+            {
+                stringNumber = stringNumber.Remove(stringNumber.Length - 1);
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        public void switchSign()
+        {
+            if (stringNumber.StartsWith("-"))
+            {
+                stringNumber = stringNumber.Replace("-", "");
+            } else
+            {
+                string tmp = "-" + stringNumber;
+                stringNumber = tmp;
+            }
+        }
+
         public void establishNumber(Boolean first)
         {
             if (!historial.Contains(actual))
@@ -65,11 +94,13 @@ namespace Model
             actual.Operation = operation;
         }
 
-        public Double calculate()
+        public string calculate()
         {
+            if (actual.Operation == Operation.DIVIDE && actual.NumberB == 0)
+                return "No se puede dividir entre cero";
             Double result = actual.calculate();
             newCalculationWithLastResult();
-            return result;
+            return result + "";
         }
 
         public String getLastOperationString()

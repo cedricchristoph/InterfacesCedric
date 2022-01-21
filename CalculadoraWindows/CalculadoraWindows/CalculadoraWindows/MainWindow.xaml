@@ -179,6 +179,12 @@
                 FontSize="16" 
                 Margin="70,5,0,0" 
                 FontWeight="Bold"/>
+            <Button
+                Grid.Column="3"
+                Grid.Row="1"
+                Click="onMinimize"
+                RenderOptions.EdgeMode="Aliased"
+                Style="{StaticResource TitleBarButtonStyle}" Foreground="White" HorizontalAlignment="Left" Width="82" Height="28" VerticalAlignment="Top" RenderTransformOrigin="1.241,-0.319" Margin="0,2,0,0" Content="Historial" Grid.ColumnSpan="2"/>
 
         </Grid>
         <Frame x:Name="frame" Content="Frame" HorizontalAlignment="Left" Height="648" Margin="0,3,0,-646" Grid.Row="1" VerticalAlignment="Top" Width="493"/>

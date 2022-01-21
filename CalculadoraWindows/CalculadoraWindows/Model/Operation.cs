@@ -8,6 +8,6 @@ namespace Model
 {
     public enum Operation
     {
-        PLUS, MINUS, MULTIPLY, DIVIDE
+        PLUS, MINUS, MULTIPLY, DIVIDE, SQUARE_ROOT
     }
 }
