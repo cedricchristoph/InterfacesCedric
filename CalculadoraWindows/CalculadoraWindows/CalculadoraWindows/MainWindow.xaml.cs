@@ -20,10 +20,21 @@ namespace CalculadoraWindows
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+            showStandardCalc();
+        }
+
+        public void showStandardCalc()
+        {
             frame.Content = new CalculadoreNumerosPage();
+        }
+
+        public void showMoneyConverter()
+        {
+            frame.Content = new MoneyConverterPage();
         }
 
         private void onMinimize(object sender, RoutedEventArgs e)
@@ -44,6 +55,11 @@ namespace CalculadoraWindows
         private void onMaximizeRestore(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void switchMenuView(object sender, RoutedEventArgs e)
+        {
+            frame.Content = new MyMenu(this);
         }
     }
 }

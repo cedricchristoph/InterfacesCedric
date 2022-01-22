@@ -17,4 +17,11 @@ D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWind
 D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\obj\Debug\CalculadoreNumerosPage.baml
 D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\bin\Debug\Model.dll
 D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\bin\Debug\Model.pdb
-D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\obj\Debug\CalculadoraWindows.csproj.CopyComplete
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\obj\Debug\Historial.g.cs
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\obj\Debug\Historial.baml
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\obj\Debug\MyMenu.g.cs
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\obj\Debug\MyMenu.baml
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\obj\Debug\MoneyConverterPage.g.cs
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\obj\Debug\MoneyConverterPage.baml
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\bin\Debug\Newtonsoft.Json.dll
+D:\Programs\Git\Repositorios\InterfacesCedric\CalculadoraWindows\CalculadoraWindows\CalculadoraWindows\bin\Debug\Newtonsoft.Json.xml

@@ -24,9 +24,9 @@
             </Grid.ColumnDefinitions>
         </Grid>
 
-        <Grid Grid.Row="1" Width="Auto" Height="Auto">
-            
+        <Grid Grid.Row="1" Width="Auto" Height="615" Margin="0,0,-92,-612" VerticalAlignment="Top">
+
         </Grid>
-        
+
     </Grid>
 </Page>

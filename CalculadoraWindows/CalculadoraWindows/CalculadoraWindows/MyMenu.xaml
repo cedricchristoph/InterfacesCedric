@@ -1,0 +1,85 @@
+﻿<Page x:Class="CalculadoraWindows.MyMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CalculadoraWindows"
+      mc:Ignorable="d" 
+      d:DesignHeight="648" d:DesignWidth="493"
+      Title="Historial">
+    <Page.Resources>
+
+        <Style x:Key="DarkButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource WindowTextBrush}" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            x:Name="border"
+                            Background="#FF1B1B1B"
+                            BorderThickness="0"
+                            SnapsToDevicePixels="true">
+                            <ContentPresenter
+                                x:Name="contentPresenter"
+                                Margin="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Focusable="False"
+                                RecognizesAccessKey="True" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="Black" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="border" Property="Background" Value="#FF171717" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32px"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400px"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+
+        <Grid Grid.Row="1" Width="Auto" Height="615" Margin="0,0,-92,-612" VerticalAlignment="Top">
+            <Button
+                RenderOptions.EdgeMode="Aliased"
+                Style="{StaticResource DarkButtonStyle}" 
+                Foreground="White" 
+                RenderTransformOrigin="1.241,-0.319" 
+                Margin="10,10,0,537" Content="Calculadora Estándar" 
+                Grid.Column="0"
+                HorizontalAlignment="Left" Width="483" Height="68px" FontSize="20" FontWeight="Bold" Click="showStandard"/>
+            <Button
+                RenderOptions.EdgeMode="Aliased"
+                Style="{StaticResource DarkButtonStyle}" 
+                Foreground="White" 
+                RenderTransformOrigin="1.241,-0.319" 
+                Margin="10,83,0,464" Content="Conversor Monedas" 
+                Grid.Column="0"
+                HorizontalAlignment="Left" Width="483" Height="68px" FontSize="20" FontWeight="Bold" Click="showMonedas"/>
+
+        </Grid>
+
+    </Grid>
+</Page>
