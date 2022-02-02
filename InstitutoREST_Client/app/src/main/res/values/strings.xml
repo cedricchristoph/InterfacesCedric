@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">InstitutoREST</string>
+
+
+    <string name="alumnos_title">Alumnos</string>
+    <string name="dni">DNI</string>
+    <string name="nombre">nombre</string>
+    <string name="apellidos">apellidos</string>
+    <string name="fechaNacimiento">Fecha de Nacimiento</string>
+
+    <string name="buscarAlumno">Buscar alumno DNI</string>
+</resources>
