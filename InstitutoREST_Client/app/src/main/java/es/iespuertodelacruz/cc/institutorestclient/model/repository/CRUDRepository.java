@@ -6,6 +6,11 @@ import java.util.Optional;
 import es.iespuertodelacruz.cc.institutorestclient.model.exception.ApiSyncException;
 import es.iespuertodelacruz.cc.institutorestclient.model.exception.LocalException;
 
+/**
+ *
+ * @param <T> El objeto con el que se trabaja (Alumno, Persona, Asignatura)
+ * @param <E> El tipo de dato del identificador primario de T
+ */
 public interface CRUDRepository<T, E> {
 
     public Optional<List<T>> selectAll();

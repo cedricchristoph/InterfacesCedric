@@ -34,7 +34,7 @@ public class AlumnoMatriculaContract {
         public static final String DELETE = "DELETE FROM " + TABLE + " WHERE " + ID + " = ?";
         public static final String DELETE_BY_MATRICULA = "DELETE FROM " + TABLE + " WHERE " + MATRICULA + " = ?";
         public static final String DELETE_BY_ASIGNATURA = "DELETE FROM " + TABLE + " WHERE " + ALUMNO + " = ?";
-
+        public static final String ERASE = "DELETE FROM " + TABLE;
     }
 
 }

@@ -26,7 +26,7 @@ public class AsignaturaContract {
         public static final String UPDATE = "UPDATE " + TABLE + " SET " + NOMBRE + " = ?, " + CURSO + " = ?" +
                 " WHERE " + ID + " = ?";
         public static final String DELETE = "DELETE FROM " + TABLE + " WHERE " + ID + " = ?";
-
+        public static final String ERASE = "DELETE FROM " + TABLE;
     }
 
 }

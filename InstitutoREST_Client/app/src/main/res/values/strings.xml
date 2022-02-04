@@ -3,10 +3,17 @@
 
 
     <string name="alumnos_title">Alumnos</string>
+    <string name="matriculas_title">Matrículas</string>
     <string name="dni">DNI</string>
     <string name="nombre">nombre</string>
     <string name="apellidos">apellidos</string>
     <string name="fechaNacimiento">Fecha de Nacimiento</string>
 
     <string name="buscarAlumno">Buscar alumno DNI</string>
+    <string name="btn_search">Buscar</string>
+    <string name="no_results">No hubo resultados</string>
+    <string name="edit">Editar</string>
+
+    <string name="btnAddMatricula">+ Matrícula</string>
+    <string name="asignaturas">Asignaturas matriculadas</string>
 </resources>

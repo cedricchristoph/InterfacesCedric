@@ -4,6 +4,7 @@ import java.util.List;
 
 import es.iespuertodelacruz.cc.institutorestclient.model.entity.Alumno;
 import es.iespuertodelacruz.cc.institutorestclient.model.entity.Matricula;
+import es.iespuertodelacruz.cc.institutorestclient.model.entity.MatriculaDTO;
 import es.iespuertodelacruz.cc.institutorestclient.model.networking.util.APIUtils;
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -58,4 +59,7 @@ public interface AlumnoService {
     Call<Matricula> deleteMatricula(@Path("dni") String dni,
                                     @Path("id") int id);
 
+    // Objetos Asignatura de matricula
+    @GET(APIUtils.V2 + "alumnos/{dni}/matriculas/{id}")
+    Call<MatriculaDTO> selectAllAsignaturasFromMatricula(@Path("dni") String dni, @Path("id") Integer id);
 }

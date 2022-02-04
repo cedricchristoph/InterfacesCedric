@@ -11,4 +11,6 @@
     <color name="teal_200">#FFFFFFFF</color>
     <color name="grey">#9C9C9C</color>
     <color name="dark_grey">#404040</color>
+    <color name="delete">#D53636</color>
+    <color name="add">#48D84E</color>
 </resources>

@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.165625" />
         <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.29375" />
+        <entry key="app/src/main/res/drawable/tick.xml" value="0.38125" />
+        <entry key="app/src/main/res/layout/activity_add_edit_alumno.xml" value="0.22780797101449277" />
+        <entry key="app/src/main/res/layout/activity_alumno_details.xml" value="0.2838541666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_matricula_details.xml" value="0.2838541666666667" />
+        <entry key="app/src/main/res/layout/alumno_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/alumno_layout.xml" value="0.27760416666666665" />
+        <entry key="app/src/main/res/layout/matricula_layout.xml" value="0.2838541666666667" />
       </map>
     </option>
   </component>

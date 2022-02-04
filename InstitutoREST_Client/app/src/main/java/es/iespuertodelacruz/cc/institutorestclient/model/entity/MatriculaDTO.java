@@ -11,9 +11,9 @@ import java.util.Objects;
 
 import es.iespuertodelacruz.cc.institutorestclient.model.contracts.MatriculaContract;
 
-public class Matricula implements Serializable {
+public class MatriculaDTO implements Serializable {
 
-    @SerializedName("idmatricula")
+    @SerializedName("id")
     @Expose
     private int id;
     @SerializedName("year")
@@ -24,11 +24,11 @@ public class Matricula implements Serializable {
     private String alumnoDni;
     @SerializedName("asignaturas")
     @Expose
-    private Integer asignaturas;
+    private List<Asignatura> asignaturas;
 
-    public Matricula() {}
+    public MatriculaDTO() {}
 
-    public Matricula(int id, int year, String alumnoDni, Integer asignaturas) {
+    public MatriculaDTO(int id, int year, String alumnoDni, List<Asignatura> asignaturas) {
         this.id = id;
         this.year = year;
         this.alumnoDni = alumnoDni;
@@ -67,20 +67,12 @@ public class Matricula implements Serializable {
         this.alumnoDni = alumnoDni;
     }
 
-    public Integer getAsignaturas() {
+    public List<Asignatura> getAsignaturas() {
         return asignaturas;
     }
 
-    public void setAsignaturas(Integer asignaturas) {
+    public void setAsignaturas(List<Asignatura> asignaturas) {
         this.asignaturas = asignaturas;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Matricula matricula = (Matricula) o;
-        return id == matricula.id && year == matricula.year && alumnoDni.equals(matricula.alumnoDni) && Objects.equals(asignaturas, matricula.asignaturas);
     }
 
     @Override
@@ -98,4 +90,3 @@ public class Matricula implements Serializable {
                 '}';
     }
 }
-

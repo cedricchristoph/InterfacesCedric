@@ -80,10 +80,6 @@ public class Asignatura {
 
     @Override
     public String toString() {
-        return "Asignatura{" +
-                "id=" + id +
-                ", curso='" + curso + '\'' +
-                ", nombre='" + nombre + '\'' +
-                '}';
+        return nombre + "  " + curso;
     }
 }

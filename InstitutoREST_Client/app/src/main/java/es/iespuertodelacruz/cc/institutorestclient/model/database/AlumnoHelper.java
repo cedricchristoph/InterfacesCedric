@@ -85,10 +85,10 @@ public class AlumnoHelper extends DatabaseHelper implements CRUDHelper<Alumno, S
     public Alumno getSingleResult(Cursor cursor) {
         while (cursor.moveToNext()) {
             Alumno alumno = new Alumno();
-            alumno.setDni(cursor.getString(1));
-            alumno.setNombre(cursor.getString(2));
-            alumno.setApellidos(cursor.getString(3));
-            alumno.setFechanacimiento(cursor.getLong(4));
+            alumno.setDni(cursor.getString(0));
+            alumno.setNombre(cursor.getString(1));
+            alumno.setApellidos(cursor.getString(2));
+            alumno.setFechanacimiento(cursor.getLong(3));
             return alumno;
         }
         return null;

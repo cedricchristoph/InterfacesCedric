@@ -28,6 +28,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(AlumnoMatriculaContract.AlumnoMatriculaEntry.CREATE_TABLE);
     }
 
+    public void eraseTables() {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(AlumnoContract.AlumnoEntry.ERASE);
+        db.execSQL(AsignaturaContract.AsignaturaEntry.ERASE);
+        db.execSQL(MatriculaContract.MatriculaEntry.ERASE);
+        db.execSQL(AsignaturaMatriculaContract.AsignaturaMatriculaEntry.ERASE);
+        db.execSQL(AlumnoMatriculaContract.AlumnoMatriculaEntry.ERASE);
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
     }

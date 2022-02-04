@@ -13,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InstitutoREST_Client">
         <activity
+            android:name=".controller.AddEditAlumno"
+            android:exported="true" />
+        <activity
+            android:name=".controller.MatriculaDetails"
+            android:exported="false" />
+        <activity
+            android:name=".controller.AlumnoDetails"
+            android:exported="false" />
+        <activity
             android:name=".controller.MainActivity"
             android:exported="true">
             <intent-filter>

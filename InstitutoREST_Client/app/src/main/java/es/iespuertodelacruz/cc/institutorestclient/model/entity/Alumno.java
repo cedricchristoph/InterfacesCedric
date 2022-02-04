@@ -5,6 +5,7 @@ import android.content.ContentValues;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,7 +15,7 @@ import es.iespuertodelacruz.cc.institutorestclient.model.contracts.AlumnoContrac
  * Entity Class Alumno
  * @author cedric
  */
-public class Alumno {
+public class Alumno implements Serializable {
 
     @SerializedName("dni")
     @Expose

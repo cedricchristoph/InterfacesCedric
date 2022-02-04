@@ -13,8 +13,13 @@ import java.util.List;
 import java.util.Optional;
 
 import es.iespuertodelacruz.cc.institutorestclient.model.database.AlumnoHelper;
+import es.iespuertodelacruz.cc.institutorestclient.model.database.AsignaturaHelper;
 import es.iespuertodelacruz.cc.institutorestclient.model.database.CRUDHelper;
+import es.iespuertodelacruz.cc.institutorestclient.model.database.DatabaseHelper;
+import es.iespuertodelacruz.cc.institutorestclient.model.database.MatriculaHelper;
 import es.iespuertodelacruz.cc.institutorestclient.model.entity.Alumno;
+import es.iespuertodelacruz.cc.institutorestclient.model.entity.Matricula;
+import es.iespuertodelacruz.cc.institutorestclient.model.entity.MatriculaDTO;
 import es.iespuertodelacruz.cc.institutorestclient.model.exception.ApiSyncException;
 import es.iespuertodelacruz.cc.institutorestclient.model.exception.LocalException;
 import es.iespuertodelacruz.cc.institutorestclient.model.networking.rest.AlumnoREST;
@@ -26,11 +31,14 @@ import retrofit2.Response;
 
 public class AlumnoRepository implements CRUDRepository<Alumno, String> {
 
+    DatabaseHelper dbHelper;
     private AlumnoHelper helper;
+    private MatriculaHelper matriculaHelper;
     private AlumnoREST rest;
 
     public AlumnoRepository(@Nullable Context context) {
         helper = new AlumnoHelper(context);
+        matriculaHelper = new MatriculaHelper(context);
         rest = new AlumnoREST();
     }
 
@@ -39,7 +47,13 @@ public class AlumnoRepository implements CRUDRepository<Alumno, String> {
     public Optional<List<Alumno>> selectAll() {
         List<Alumno> results = helper.selectAll();
         if (!(results == null || results.size() == 0)) return Optional.of(results);
-        return rest.selectAll();
+        Optional<List<Alumno>> optional = rest.selectAll();
+        if (!optional.isPresent()) return Optional.empty();
+        results = optional.get();
+        try {
+            results.forEach(a -> helper.insert(a));
+        } catch (Exception e) {e.printStackTrace();}
+        return optional;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -55,6 +69,18 @@ public class AlumnoRepository implements CRUDRepository<Alumno, String> {
         List<Alumno> result = helper.selectByNombre(nombre);
         if (result != null) return Optional.of(result);
         return rest.selectByNombre(nombre);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public Optional<List<Matricula>> selectAllMatriculasFromAlumno(String dni) {
+        List<Matricula> matriculas = matriculaHelper.selectMatriculaByAlumno(dni);
+        if (!(matriculas == null || matriculas.isEmpty())) return Optional.of(matriculas);
+        return rest.selectAllMatriculasFromAlumno(dni);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    public Optional<MatriculaDTO> selectAllAsignaturasFromMatricula(String dni, Integer id) {
+        return rest.selectAllAsignaturasFromMatriculas(dni, id);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)

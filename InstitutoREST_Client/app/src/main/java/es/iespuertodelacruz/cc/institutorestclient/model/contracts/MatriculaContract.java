@@ -28,7 +28,7 @@ public class MatriculaContract {
         public static final String UPDATE = "UPDATE " + TABLE + " SET " + YEAR + " = ?, " + DNI_ALUMNO + " = ?" +
                 " WHERE " + ID + " = ?";
         public static final String DELETE = "DELETE FROM " + TABLE + " WHERE " + ID + " = ?";
-
+        public static final String ERASE = "DELETE FROM " + TABLE;
     }
 
 }
