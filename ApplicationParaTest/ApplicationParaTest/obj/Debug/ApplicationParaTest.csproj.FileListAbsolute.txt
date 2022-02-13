@@ -1,0 +1,14 @@
+E:\iespto\DAD\2122\UT5\PRUEBAS\ApplicationParaTest\ApplicationParaTest\bin\Debug\ApplicationParaTest.exe.config
+E:\iespto\DAD\2122\UT5\PRUEBAS\ApplicationParaTest\ApplicationParaTest\bin\Debug\ApplicationParaTest.exe
+E:\iespto\DAD\2122\UT5\PRUEBAS\ApplicationParaTest\ApplicationParaTest\bin\Debug\ApplicationParaTest.pdb
+E:\iespto\DAD\2122\UT5\PRUEBAS\ApplicationParaTest\ApplicationParaTest\obj\Debug\ApplicationParaTest.csproj.AssemblyReference.cache
+E:\iespto\DAD\2122\UT5\PRUEBAS\ApplicationParaTest\ApplicationParaTest\obj\Debug\ApplicationParaTest.csproj.CoreCompileInputs.cache
+E:\iespto\DAD\2122\UT5\PRUEBAS\ApplicationParaTest\ApplicationParaTest\obj\Debug\ApplicationParaTest.exe
+E:\iespto\DAD\2122\UT5\PRUEBAS\ApplicationParaTest\ApplicationParaTest\obj\Debug\ApplicationParaTest.pdb
+D:\cedri\Downloads\ApplicationParaTest\ApplicationParaTest\bin\Debug\ApplicationParaTest.exe.config
+D:\cedri\Downloads\ApplicationParaTest\ApplicationParaTest\bin\Debug\ApplicationParaTest.exe
+D:\cedri\Downloads\ApplicationParaTest\ApplicationParaTest\bin\Debug\ApplicationParaTest.pdb
+D:\cedri\Downloads\ApplicationParaTest\ApplicationParaTest\obj\Debug\ApplicationParaTest.csproj.AssemblyReference.cache
+D:\cedri\Downloads\ApplicationParaTest\ApplicationParaTest\obj\Debug\ApplicationParaTest.csproj.CoreCompileInputs.cache
+D:\cedri\Downloads\ApplicationParaTest\ApplicationParaTest\obj\Debug\ApplicationParaTest.exe
+D:\cedri\Downloads\ApplicationParaTest\ApplicationParaTest\obj\Debug\ApplicationParaTest.pdb

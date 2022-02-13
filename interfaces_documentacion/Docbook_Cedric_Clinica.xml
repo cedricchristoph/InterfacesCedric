@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<book>
+  <bookinfo>
+    <title>Manual de Usuario para Clínica</title>
+
+    <author>
+      <firstname>Cedric</firstname>
+
+      <surname>Christoph</surname>
+
+      <affiliation>
+        <orgname/>
+      </affiliation>
+    </author>
+
+    <pubdate>13/02/2022</pubdate>
+  </bookinfo>
+
+  <chapter>
+    <title>Introducción al programa</title>
+
+    <section>
+      <title>La Clínica</title>
+
+      <para>Este software llamado "Clínica" se ha desarrollado para solucionar
+      la gestión de clientes/pacientes, sus citas, etc. La aplicación se
+      divide en distintas secciones con funcionalidades distintas y
+      correspondientes a cada entidad.</para>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Introducción al documento</title>
+
+    <sect1>
+      <title>Introducción al Manual</title>
+
+      <para>Este documento representa un manual de usuario para el programa.
+      En este documento se explican las distintas secciones del software, sus
+      funcionalidades y el correcto uso de ellas.</para>
+    </sect1>
+  </chapter>
+
+  <chapter>
+    <title>Acceder al software</title>
+
+    <section>
+      <title>Acceso al programa. Login.</title>
+
+      <para>El login es una funcionalidad importante en este software. El
+      login controla el acceso al programa. Todos los usuario deben pasar por
+      el login para autenticarse y ser redirigidos a la sección
+      correspondiente a su nivel o tipo de usuario. Es decir, administradores
+      tienen funcionalidades específcas y distintas a los administrativos, el
+      personal sanitario, etc. Para usted poder acceder al programa debe usar
+      los credenciales proporcionados por el administrador del sistema.</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/login.png"/>
+        </imageobject>
+      </mediaobject>
+
+      <para>La imagen anterior representa la ventana de inicio de sesión del
+      programa. Debemos introducir los credenciales anteriormente mencionados
+      en los campos </para>
+
+      <para/>
+    </section>
+  </chapter>
+
+  <chapter>
+    <title>Roles y sus correspondientes funcionalidades</title>
+
+    <section>
+      <title>Rol Administrativo</title>
+
+      <para>Los usuarios con el rol de administrativo verán tras el correcto
+      login la siguiente ventana visual.</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/administrativo.png"/>
+        </imageobject>
+      </mediaobject>
+
+      <para>Esta ventana contiene un menú principal con todas las opciones que
+      se le permiten al administrativo. Si presionamos el botón "Pacientes"
+      aparecerá un menú adicional con las funciones de añadir, editar,
+      eliminar, ver y buscar pacientes.</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/menu.png"/>
+        </imageobject>
+      </mediaobject>
+
+      <para>Para añadir un nuevo cliente presionamos el botón con el icono "+"
+      verde. Veremos la siguiente pantalla</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/add.png"/>
+        </imageobject>
+      </mediaobject>
+
+      <para>Rellenamos los campos indicados y presionamos "Crear" para añadir
+      el paciente. Únicamente tras haber guardado el paciente una vez
+      tendremos acceso a las "Opciones avanzadas". El programa en el momento
+      de guardar nos pregunta si queremos introducir más información del
+      paciente en la sección de "Opciones avanzadas".</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/guardar.png"/>
+        </imageobject>
+      </mediaobject>
+
+      <para>Si presionamos "No" volveremos a la página principal del
+      administrativo y se guardará el paciente. Presionamos "Si" tendremos
+      acceso a la ventana en la que podremos introducir más información sobre
+      el paciente. Las opciones avanzadas se dividen en dos secciones. Los
+      datos personales y los datos médicos.</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/opciones_avanzadas_1.png"/>
+        </imageobject>
+      </mediaobject>
+
+      <para>La sección de datos personales incluye la fecha de nacimiento,
+      sexo, profeción, e-mail, teléfono principal y teléfonos
+      adicionales.</para>
+
+      <mediaobject>
+        <imageobject>
+          <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/opciones_avanzadas_2.png"/>
+        </imageobject>
+      </mediaobject>
+
+      <para>La sección de datos médicos incluye alergias, enfermedades, grupo
+      sanguíneo, entidad sanitaria y numero de asegurado.</para>
+
+      <para>Rellenamos todos los campos con la información que queramos y
+      presionamos "Guardar".</para>
+
+      <section>
+        <title>Eliminar</title>
+
+        <para>Para eliminar un paciente presionamos "Pacientes" para hacer
+        aparecer el menú de pacientes y clicamos en el icono con la "X" en
+        rojo.</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/asdasd.png"/>
+          </imageobject>
+        </mediaobject>
+
+        <para>A continuación veremos una ventana en la que introduciremos un
+        dni/nhc para buscar los pacientes y posteriormente eliminarlos.</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata contentwidth="471"
+                       fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/eliminar.png"/>
+          </imageobject>
+        </mediaobject>
+
+        <para>Seleccionamos DNI o NHC en el elemento controlador a la
+        izquierda del campo de texto. En el campo de texto introduciremos el
+        DNI o NHC del paciente que deseamos eliminar. Cuando aparezca el
+        paciente en la lista hacemos click derecho en el y confirmamos el
+        borrado.</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/eliminar_2.png"/>
+          </imageobject>
+        </mediaobject>
+
+        <para/>
+      </section>
+
+      <section>
+        <title>Buscar Paciente</title>
+
+        <para>Si queremos buscar un paciente presionamos "Paciente" en la
+        página principal del administrador para hacer aparecer el menú de
+        pacientes y presionamos el icono con lupa. Nos aparecerá una ventana
+        con dos campos de textos en los que introduciremos el dni/nhc del
+        paciente a buscar.</para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/buscar.png"/>
+          </imageobject>
+        </mediaobject>
+
+        <para/>
+      </section>
+    </section>
+
+    <section>
+      <title>Rol Personal Sanitario</title>
+
+      <para>El personal sanitario tiene una ventana especial dedicada a ellos.
+      Cuenta con un menú principal y una sección en la que se abrirán las
+      distintas ventanas que este usa.</para>
+
+      <para/>
+
+      <section>
+        <title>Buscar pacientes</title>
+
+        <para>Para buscar un paciente y ver su información presionamos en
+        "Pacientes" y "Buscar pacientes" o ALT+B. </para>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/buscar_2.png"/>
+          </imageobject>
+        </mediaobject>
+
+        <para>Nos aparecerá una ventana en la que podremos filtrar por dni o
+        nhc. Debajo saldrán los resultados en forma de árbol que podremos ir
+        desplegando hasta conseguir la información que buscamos.</para>
+
+        <para/>
+
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="file:/C:/Users/cedri/AppData/Local/Programs/XMLmind_XML_Editor/demo/dita/buscar_3.png"/>
+          </imageobject>
+        </mediaobject>
+
+        <para/>
+      </section>
+    </section>
+
+    <section>
+      <title>Otros roles</title>
+
+      <para>El programa está en face de construcción por lo que todas las
+      demás funciones y roles están en construcción y aún no son
+      accesibles.</para>
+    </section>
+  </chapter>
+</book>
