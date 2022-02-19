@@ -102,7 +102,8 @@ public class FXMLRecetaAdapterController implements Initializable {
         selected = true;
         SelectedRecetas.selectReceta(receta, this);
         recetaAdapter.getStyleClass().remove(0);
-        recetaAdapter.getStyleClass().add("receta-adapter-selected");
+        recetaAdapter.getStyleClass().add("receta-adapter-selected");      
+        
     }
     
     public void unselect() {
